@@ -18,7 +18,7 @@ class Player extends FlxSprite
 		super();
 		
 		this.makeGraphic(32, 32, 0xffaa1111);
-		maxVelocity.x = 160;
+		maxVelocity.x = 200;
 		maxVelocity.y = 400;
 		acceleration.y = 400;
 		drag.x = maxVelocity.x * 4;
