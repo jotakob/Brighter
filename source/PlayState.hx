@@ -35,6 +35,7 @@ class PlayState extends FlxState
 		player.x = currentLevel.getStartPoint()[0];
 		player.y = currentLevel.getStartPoint()[1];
 		add(player);
+		add(player.graphicComponent);
 	}
 	
 	/**
