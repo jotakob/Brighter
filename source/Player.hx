@@ -27,6 +27,11 @@ class Player extends FlxSprite
 	
 	public override function update()
 	{
+		if (this.isTouching(FlxObject.FLOOR))
+		{
+			hasDoubleJumped = false;
+		}
+		
 		acceleration.x = 0;
 		if (FlxG.keys.pressed.LEFT)
 		{
@@ -41,10 +46,13 @@ class Player extends FlxSprite
 			if (this.isTouching(FlxObject.FLOOR))
 			{
 				velocity.y = -250;
-				hasDoubleJumped = false;
 			}
 			else if (!hasDoubleJumped)
 			{
+				if ( (FlxG.keys.pressed.LEFT && velocity.x == Math.abs(velocity.x)) || (FlxG.keys.pressed.RIGHT && velocity.x == -Math.abs(velocity.x)) )
+				{
+					velocity.x = 0;
+				}
 				velocity.y = -250;
 				hasDoubleJumped = true;
 			}
