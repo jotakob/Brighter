@@ -46,7 +46,7 @@ class Player extends FlxObject
 	public function jump()
 	{
 		isJumping = true;
-		velocity.y = -250;
+		velocity.y = -188;
 	}
 	
 	public override function update()
