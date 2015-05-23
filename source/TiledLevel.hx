@@ -71,18 +71,23 @@ class TiledLevel extends TiledMap
 			tilemap.heightInTiles = height;
 			tilemap.loadMap(tileLayer.tileArray, processedPath, tileSet.tileWidth, tileSet.tileHeight, 0, 1, 1, 1);
 			
-			if (tileLayer.properties.contains("nocollide"))
-			{
-				backgroundTiles.add(tilemap);
-			}
-			else
+			if (tileLayer.properties.contains("collide"))
 			{
 				if (collidableTileLayers == null)
 					collidableTileLayers = new Array<FlxTilemap>();
 				
-				foregroundTiles.add(tilemap);
 				collidableTileLayers.push(tilemap);
 			}
+			
+			if (tileLayer.properties.get("z") == "front")
+			{
+				foregroundTiles.add(tilemap);
+			}
+			else
+			{
+				backgroundTiles.add(tilemap);
+			}
+			
 		}
 	}
 	
@@ -91,7 +96,7 @@ class TiledLevel extends TiledMap
 		parent = state;
 		
 		// Add tilemaps
-		allStuff.add(foregroundTiles);
+		allStuff.add(backgroundTiles);
 		
 		// Draw coins first
 		coins = new FlxGroup();
@@ -100,8 +105,8 @@ class TiledLevel extends TiledMap
 		// Load player objects
 		loadObjects();
 		
-		// Add background tiles after adding level objects, so these tiles render on top of player
-		allStuff.add(backgroundTiles);
+		// Add foreground tiles after adding level objects, so these tiles render on top of player
+		allStuff.add(foregroundTiles);
 	}
 	
 	private function loadObjects()

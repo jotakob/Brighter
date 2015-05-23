@@ -27,7 +27,7 @@ class PlayState extends FlxState
 		super.create();
 		Reg.currentState = this;
 		
-		currentLevel = new TiledLevel("assets/levels/level.tmx");
+		currentLevel = new TiledLevel("assets/levels/demo.tmx");
 		currentLevel.loadLevel(this);
 		add(currentLevel.allStuff);
 		
