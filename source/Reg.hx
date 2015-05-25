@@ -12,7 +12,7 @@ class Reg
 {
 	public static var currentState:PlayState;
 	
-	public static var gender:String = "female";
+	public static var gender:String = "male";
 	
 	public static var levels:Array<Dynamic> = [];
 	public static var level:Int = 0;

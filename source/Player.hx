@@ -14,6 +14,7 @@ class Player extends FlxObject
 {
 	private var hasDoubleJumped:Bool = false;
 	private var isJumping:Bool = false;
+	private var isMoving:Bool = false;
 	private var lastOrientation:String = "left";
 	private var orientation:String = "right";
 	public var graphicComponent:FlxSprite = new FlxSprite();
@@ -35,11 +36,11 @@ class Player extends FlxObject
 	
 	public function loadAnimations()
 	{
-		graphicComponent.loadGraphic("sprites/char-" + Reg.gender + ".png", true, 64, 64, true);
+		graphicComponent.loadGraphic("sprites/character-" + Reg.gender + ".png", true, 64, 64, true);
 		graphicComponent.animation.add("down", [0, 1, 2, 3], 6, true);
 		graphicComponent.animation.add("up", [8, 9, 10, 11], 6, true);
-		graphicComponent.animation.add("right", [16, 17, 18, 19, 20, 21, 22, 23], 6, true);
-		graphicComponent.animation.add("left", [24, 25, 26, 27, 28, 29, 30, 31], 6, true);
+		graphicComponent.animation.add("right", [16, 17, 18, 19, 20, 21, 22, 23], 12, true);
+		graphicComponent.animation.add("left", [24, 25, 26, 27, 28, 29, 30, 31], 12, true);
 		graphicComponent.drag.x = graphicComponent.drag.y = 1600;
 	}
 	
@@ -52,9 +53,11 @@ class Player extends FlxObject
 	public override function update()
 	{
 		lastOrientation = orientation;
+		isMoving = false;
 		
 		if (this.isTouching(FlxObject.FLOOR))
 		{
+			isJumping = false;
 			hasDoubleJumped = false;
 		}
 		
@@ -63,11 +66,13 @@ class Player extends FlxObject
 		{
 			acceleration.x = -maxVelocity.x * 4;
 			orientation = "left";
+			isMoving = true;
 		}
 		if (FlxG.keys.pressed.RIGHT)
 		{
 			acceleration.x = maxVelocity.x * 4;
 			orientation = "right";
+			isMoving = true;
 		}
 		if (FlxG.keys.anyJustPressed(["SPACE", "UP"]))
 		{
@@ -86,9 +91,13 @@ class Player extends FlxObject
 			}
 		}
 		
-		if (orientation != lastOrientation)
+		if (isJumping || isMoving)
 		{
-			graphicComponent.animation.play("down"/*orientation*/);
+			graphicComponent.animation.play(orientation);
+		}
+		else
+		{
+			graphicComponent.animation.pause();
 		}
 		
 		graphicComponent.x = this.x - 20;
