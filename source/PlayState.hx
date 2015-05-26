@@ -27,16 +27,28 @@ class PlayState extends FlxState
 		super.create();
 		Reg.currentState = this;
 		
-		currentLevel = new TiledLevel("assets/levels/demo.tmx");
-		currentLevel.loadLevel(this);
-		add(currentLevel.allStuff);
-		
 		player = new Player();
+		newLevel("level1");
+	}
+	
+	public function newLevel(levelName:String)
+	{
+		remove(player);
+		if (currentLevel != null)
+		{
+			remove(currentLevel.backgroundTiles);
+			remove(currentLevel.foregroundTiles);
+		}
+		currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
+		currentLevel.loadLevel(this);
 		player.x = currentLevel.getStartPoint()[0];
 		player.y = currentLevel.getStartPoint()[1];
+		add(currentLevel.backgroundTiles);
 		add(player);
+		add(currentLevel.foregroundTiles);
 		add(player.graphicComponent);
 	}
+	
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
@@ -59,7 +71,8 @@ class PlayState extends FlxState
 		
 		if (FlxG.overlap(player, floor))
 		{
-			FlxG.resetState();
+			player.x = currentLevel.getStartPoint()[0];
+			player.y = currentLevel.getStartPoint()[0];
 		}
 	}	
 }

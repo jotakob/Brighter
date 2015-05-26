@@ -74,6 +74,16 @@ class Player extends FlxObject
 			orientation = "right";
 			isMoving = true;
 		}
+		if (FlxG.keys.pressed.UP)
+		{
+			for (warp in Reg.currentState.currentLevel.warps)
+			{
+				if (FlxG.overlap(this, warp))
+				{
+					warp.activate();
+				}
+			}
+		}
 		if (FlxG.keys.anyJustPressed(["SPACE", "UP"]))
 		{
 			if (this.isTouching(FlxObject.FLOOR))
