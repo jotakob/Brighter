@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" nextobjectid="7">
+ <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16">
+  <image source="terrain.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="100" height="50">
+  <properties>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJAkEUBFFzNSJTMULx6kVWsGp7qQd1HvrP7ZYkSZIkSZIkSZL817O+RrK3LkSyty5EsrcuRLK3GrftP87Rr7tJ9o2Mvzi6nWTfaSGSvXUhkr11IZK9dSGSvXUhkr11IZK9dSGSvXUhkr11IZK9dSGSvXUhkr11IZK9dSGSvXUhkr11IdL7vftH9v6zdXWPAyVJkiRJcnUvGIqOaA==
+  </data>
+ </layer>
+ <layer name="middleground" width="100" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2MsNwjAQRVFL0ACtpDRKCCWkE0qiEjQ7AxN/Ins8DvdIbwURSS4REiEAAAAAAAAAAAAA/TxHn8AkrO4TPcrQwxd6+EKPftYDx9CjjzVaDXq0Jw2WcKwJPXyhhy/08IUevtCjvYeyUvRoT+7/Ej57bIXH0qM9evii9RAlTejR3t7vx9l7vDIbYU1M5JrM3uPIaz3Ro/61nnI9RKoJPerco2m0/xLpMfb5yPUQe0089bgqS+ndI/csaEp7iC38dvHSQ+79RVmqidfnI/f78S3uYtVD++7H01rETY6u5TlazULqfrPPWRh9jTPNwuhrnGkWWp3rLbPa9+8dU/v5Z+lRcr/+bRbi79Do6/U+C/Tw14PRY8ZZeAPnrIIn
+  </data>
+ </layer>
+ <layer name="foreground" width="100" height="50">
+  <properties>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1YsNgjAUBVBmcAQ7mTu4kXEBJ1SiRCAQQfrhc07y0kBIKe9CqSoAAAAAAABI6zSx/pkrpcdApZDjWfr3ipHJkhznqucdyiNFLvKYJlcetVx5NPfa4n7VSL1flZL7/Y5lr3nAFr/HvVr6r5rr8uP46OSxPjn3K3msizwAALpuM4uv+0gt0fT42huHzsmjSx7rkjuPsWt5k8e6pMwj9rVHIA8AACgrvOr8Kcbl6E+otpHHkvWFVpVYQ9PfGGvYkrF+hdZYoh+x3ochub6hJ+BmSyY=
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="-65.3182" y="642.273" width="1598.48" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="53" y="605" width="28" height="32"/>
+  <object id="5" name="level3" type="warp" x="1136" y="592" width="63.5" height="33"/>
+  <object id="6" name="demo" type="warp" x="976" y="320" width="14.5" height="15"/>
+ </objectgroup>
+</map>

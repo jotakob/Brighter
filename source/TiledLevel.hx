@@ -31,6 +31,7 @@ class TiledLevel extends TiledMap
 	public var coins:FlxGroup;
 	private var startPoint:FlxObject;
 	private var collidableTileLayers:Array<FlxTilemap>;
+	public var warps:Array<Warp> = new Array<Warp>();
 	private var parent:PlayState;
 	
 	public function new(tiledLevel:Dynamic)
@@ -143,6 +144,11 @@ class TiledLevel extends TiledMap
 				var coin = new FlxSprite(x, y, c_PATH_LEVEL_TILESHEETS + tileset.imageSource);
 				coins.add(coin);
 				
+			case "warp":
+				var warp = new Warp(x, y, o.width, o.height);
+				warp.target = o.name.toLowerCase();
+				warps.push(warp);
+				
 			case "exit":
 				// Create the level exit
 				var exit = new FlxSprite(x, y);
@@ -151,6 +157,10 @@ class TiledLevel extends TiledMap
 		}
 	}
 	
+	/**
+	 * Returns the x and y coordinates of the starting point in an array.
+	 * @return
+	 */
 	public function getStartPoint():Array<Float>
 	{
 		var ret = new Array<Float>();

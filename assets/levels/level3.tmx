@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" nextobjectid="7">
  <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16">
   <image source="terrain.png" width="256" height="256"/>
  </tileset>
@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1jEKwkAQQNEQa63S6gG0TO0hvIPn9UwqiITFgJp1Z2PegynSDXyGTdMA/2obvQBUwi3EuzfYRS8B8KU+egGe+kYPAAAAAIASTtELQCb72xyilwAAAKAKx+gFAJilTfK9DtliOdrHzMU5eoEfawezmjDk0WYYXfLJ0SPtkkrfHG/QuJw93Mp0v+zh3flc7h5T2qXSf+0lqKnHqy6XCqakyB7v9OkGo0cdbbqR0aOueynVpKQrwGliBQ==
+   eJzt0MEJw0AUxFDXlE7TWiryPac4YMkDeqDj8pk9jiRJkiRJkiRJkuRen/opir1zJYq9cyWKvXMlir1zJYq9cyWKvXMlir1zJYq9cyWKvXMlir1zJYq9cyWKvXMlir1zJYq9cyWKvfPfXvA9iv2vK1HsnStR7J0rUeydK1HsnStR7J0rPdH7Yt9vkiRJkiRJnu4E1YA/ow==
   </data>
  </layer>
  <layer name="middleground" width="100" height="50">
@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt21EKgzAQRdHB2oUI2YGLy/ZbQWk6JAhqzDPcA/PVH+k12Go0AwDUNiaDdrYGr2R69S6MglyH3nsoGd34BtN3hnVQV2kdLLN8/5P9euAe27nvW8zJZ/TIK113zl5/Bjez0UNB2oMWGvxaQVv0qC+0PgD8oYcWemihh45g9FARjB5K6KGFHte44p5UMHoooYcO34Ie99m7B6/0LBjYwzkLAKiF30ia6FAHe5G1sPdVCz205PbNcG+jHfYxaemlR1zn6XroEa2vHv69lyPTQszM06XvV5xRuwvPUo7h/6Ue3kHWpHrdQRltdNFFE2sGAPR9ALHVDDw=
+   eJzt0UEKwkAQRNFAjAfIMV16VE/k0kEmMa2p6Wr8DwpBxNj+aQIAAAAAAAAAAAB0Htk/oJAR/xU9jqOHF3p4oYcXenihhxd6eKGHF3p4oYcXenihhxd6eKHHtrXZKPTYtr69jkCPfffBz6PHPnpoLcHPf9Mj+owWPV5unffoobU0OyLSI/rdPf/Yo339JNoj8t09I/6rS3BR8w/Pu56w6H1n3x81s9DUsu+rNrXs+6pNLfu+alPLvq/a1LLvqza17PuqTS37vmpTy76v2tSy76s2tSdT4DHM
   </data>
  </layer>
  <layer name="foreground" width="100" height="50">
@@ -28,18 +28,14 @@
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzjEBgDAAA7BpxsIcYAUHSNgM7e7DW45EQcYAAAAAAAAAAAAAAADgz3Y7QHjaAcLVDhBmO0B42wHC3Q4QVjsAAAAAAB8OwLQEog==
+   eJzt0DEKADAIBEH/mD/6Thv7VGIgM7D9cREAAAAAAAAAAAAAAAAwI7cHAABcnO53fgAAAAB4RwGnBwHz
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
-  <object id="1" name="floor" type="floor" x="640" y="737" width="526.667" height="14"/>
+  <object id="1" name="floor" type="floor" x="-15.8182" y="627.273" width="1598.48" height="16"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="48" y="592" width="28" height="32"/>
-  <object id="5" name="level1" type="warp" x="800" y="560" width="32" height="32">
-   <properties>
-    <property name="target" value="level"/>
-   </properties>
-  </object>
+  <object id="5" name="level1" type="warp" x="1104" y="592" width="32" height="32"/>
  </objectgroup>
 </map>

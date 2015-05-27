@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1jEKwkAQQNEQa63S6gG0TO0hvIPn9UwqiITFgJp1Z2PegynSDXyGTdMA/2obvQBUwi3EuzfYRS8B8KU+egGe+kYPAAAAAIASTtELQCb72xyilwAAAKAKx+gFAJilTfK9DtliOdrHzMU5eoEfawezmjDk0WYYXfLJ0SPtkkrfHG/QuJw93Mp0v+zh3flc7h5T2qXSf+0lqKnHqy6XCqakyB7v9OkGo0cdbbqR0aOueynVpKQrwGliBQ==
+   eJzt0DEKAkEURMFNvKBH8AjePzBxw0UR6aahCl480/84AAAAAAAAAACAFTd9XcpTH0tqb10oqb11oaT21oWS2lsXSmpvXSipvXWhpPbWhZLaWxdKam9dKKm9daGk9taFktpbF0o637y/+/V/7Zv9o6sbJJ1vPt61b9Ls6gYAAAAAdLwApUXmKw==
   </data>
  </layer>
  <layer name="middleground" width="100" height="50">
@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt21EKgzAQRdHB2oUI2YGLy/ZbQWk6JAhqzDPcA/PVH+k12Go0AwDUNiaDdrYGr2R69S6MglyH3nsoGd34BtN3hnVQV2kdLLN8/5P9euAe27nvW8zJZ/TIK113zl5/Bjez0UNB2oMWGvxaQVv0qC+0PgD8oYcWemihh45g9FARjB5K6KGFHte44p5UMHoooYcO34Ie99m7B6/0LBjYwzkLAKiF30ia6FAHe5G1sPdVCz205PbNcG+jHfYxaemlR1zn6XroEa2vHv69lyPTQszM06XvV5xRuwvPUo7h/6Ue3kHWpHrdQRltdNFFE2sGAPR9ALHVDDw=
+   eJzt07sNg1AQBEASF+DQfbsCV+oGkMzPe3doRtqAAMG+hWUBAAAAAAAAAADgiEf1CwyROid7bGOPXuzRiz16sUcv9ujFHr3Yoxd79GKPXu62x2clyfvPutserx/X/77/rO577P1e187zveN5R/a48p/qvsfe86nY48p/KrmHbEvCUzYnobrjpCRUd5yUhOqOk5JQ3XFSEqo7TkpCdcdJSajuOCkJ1R0nJaG646QkfAEJqUM8
   </data>
  </layer>
  <layer name="foreground" width="100" height="50">
@@ -28,17 +28,17 @@
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzjEBgDAAA7BpxsIcYAUHSNgM7e7DW45EQcYAAAAAAAAAAAAAAADgz3Y7QHjaAcLVDhBmO0B42wHC3Q4QVjsAAAAAAB8OwLQEog==
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAeDBOIAAB
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
-  <object id="1" name="floor" type="floor" x="640" y="737" width="526.667" height="14"/>
+  <object id="1" name="floor" type="floor" x="-67.8182" y="645.273" width="1598.48" height="16"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
-  <object id="3" name="start" type="player_start" x="48" y="592" width="28" height="32"/>
-  <object id="5" name="level1" type="warp" x="800" y="560" width="32" height="32">
+  <object id="3" name="start" type="player_start" x="48" y="592" width="32" height="32"/>
+  <object id="5" name="level2" type="warp" x="1088" y="592" width="32" height="32">
    <properties>
-    <property name="target" value="level"/>
+    <property name="target" value="level2"/>
    </properties>
   </object>
  </objectgroup>
