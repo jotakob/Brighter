@@ -22,7 +22,7 @@ class PlayState extends FlxState
 	 */
 	override public function create():Void
 	{
-		//FlxG.mouse.visible = false;
+		FlxG.mouse.visible = false;
 		
 		super.create();
 		Reg.currentState = this;
@@ -72,7 +72,7 @@ class PlayState extends FlxState
 		if (FlxG.overlap(player, floor))
 		{
 			player.x = currentLevel.getStartPoint()[0];
-			player.y = currentLevel.getStartPoint()[0];
+			player.y = currentLevel.getStartPoint()[1];
 		}
 	}	
 }
