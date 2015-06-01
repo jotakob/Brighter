@@ -11,6 +11,7 @@ import flixel.util.FlxSave;
 class Reg
 {
 	public static var currentState:PlayState;
+	public static var player:Player;
 	
 	public static var gender:String = "male";
 	

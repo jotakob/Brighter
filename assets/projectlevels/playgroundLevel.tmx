@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
+  <image source="../../Documents/GitHub/Brighter/Art/tiles.png" width="709" height="709"/>
+ </tileset>
+ <layer name="background" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0jsKwlAQBdDEDVhoI/5wJdqIH9C9uBRrcT26Gz9o74AptPJJEI2cA5eEMIG5MFkGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADPNt9egL+0i+wTZ1v5Jzehyg6RY+QUORffLpFrwr9jd5WkUcuyZu313Dq/p16kytqxfyfSjfSKLv14DhJ6rSrevazUexnGzOiNu1r/wV1NYv9pZBaZP3RZxPvyRbdtxbuXlXovAADA77oBtPwQJw==
+  </data>
+ </layer>
+ <layer name="middleground" width="150" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt01lO21AYQOH4sQyBMq6EKVAKRV1HhZLwgArsBKq+FNruBCgztGyEeWwX0BPBg2U5CtiJYsL5pCPwxbm6Dr9zOUmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSJEmSVNFLfdRPA00+iyQ1wjbt0G6Tz6HWcklXdN3kc7RTB3VSnrqom95STxPP9ZKs0wZt0i/aqsOee7RPB3RYh/3CPge53AIt0lJQez2JERqlMSrQOE3QO5pMt3XmRN+hJO/Nx5jv+4RO6YzO6SLxCRvvG+dfpTX6Tj/oZ1B9PalWmatS8FA59DMq+qxPeb7oHMXNVS9rfdRPAzSY8l1vpD3Otk8HdEhH9Duovp5UK8xVZYa+RirHzFaRSpX7aY7mY/aqNUdxc/WetSmapg80k+G5uuFst3RH9/SX/gXV15/iU8xalueqHKRvloqPlSJ/66R86PrPMwrvH97jS8rz5hN85g21UTt1xFw/597o9WyKZymGfu+u8r9ZqcN3UqhxTyFyfWw1W6YRGqUhGo65Hs/AObOUJEmv2X9lc+x0
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzscNgDAABEFTGaEdwoNmCNVyRYAsmRlp/1sKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF/p05DGNNVdoSFzWtKatsovtONIZ7rSXfkFAOCP9q72AQAAwHseDPIFig==
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="2.18182" y="756.273" width="2500.48" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
+  <object id="5" x="2271" y="689" width="31" height="30"/>
+ </objectgroup>
+</map>

@@ -28,7 +28,8 @@ class PlayState extends FlxState
 		Reg.currentState = this;
 		
 		player = new Player();
-		newLevel("level1");
+		Reg.player = player;
+		newLevel("demo");
 	}
 	
 	public function newLevel(levelName:String)
@@ -45,8 +46,8 @@ class PlayState extends FlxState
 		player.y = currentLevel.getStartPoint()[1];
 		add(currentLevel.backgroundTiles);
 		add(player);
-		add(currentLevel.foregroundTiles);
 		add(player.graphicComponent);
+		add(currentLevel.foregroundTiles);
 	}
 	
 	

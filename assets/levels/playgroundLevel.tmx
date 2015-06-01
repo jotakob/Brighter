@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
+  <image source="../../Art/tiles.png" width="709" height="709"/>
+ </tileset>
+ <layer name="background" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0jEKwkAQBdCNF7DQRlDEk2gjaKF38SipxfPocRS0d0CLaJOVIJrwHnzYhVnYD5MSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC82v/6A3TSMXLKnB0V3/wJbXeOXCr3a+SW8W5pr7IMeikNe/VzZfFI/5m2G0eHSaXHNM6zjF67DnRvIndf5jGz+GCvyo7s1So6rN96bOK+rel26ED3JnL3BQAA+F93URgNeA==
+  </data>
+ </layer>
+ <layer name="middleground" width="150" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2ldOG1EYQGHPYyimm5WEYggpiHUgy3YeECQ7AYSQ0tgJJYXORtIgkMACclB4GI2uZRibzMQ5n3SE5zJc/WNfv1EoSJIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSWHrUdYTSJIkSZIkSdLfNUTDNEKljGeRpPvwgT7Sp4znUGc5pTP6kfEc3dRDvVSkPuqnARrMcK5/ySZt0Tbt0Ps27LlLe7RPB23YL24xKhSW6AW9jJqvpzFOEzRJZZqiaXpEM61tnTvJ71Ca781c4P3+TF/oK32j76knvH+vmP81vaG39I42osbraXXKuapFf6rHfiYln/U2z5c8R6FzNcTaMI1QiUZz/D8uu8y2R/t0QId0FDVeT6sTztX1GVpLVA+crSrVru+n57QQ2KvZOQqdq8esPaGn9Ixmc3yuzpntgn7SL7qkq6jx+m3MB9byfK7qUetVqHpTLfG7XirGro/vUHz/+B6rLc5bTPE3D6iLuqkncH2Xe5PXlRaepRp73d/gs1lpw3tSbnJPOXF9Yk1bpnGaoIc0FrieysGceUqSpP/Zb9dJ7Qk=
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0rsNg0AURFGow8UYux0+Ac3YpkwqYDJnIAK0YnWOdKUNNpjgNQ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAV3mmLr3Su+wUKtKnIY1pKryFenzSN/3SUngLwJ5H+3+v5WZQGXfFFc7e1dwe/wEAALiLDblvCLQ=
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="2.18182" y="756.273" width="2500.48" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
+  <object id="5" x="2271" y="689" width="31" height="30"/>
+ </objectgroup>
+</map>

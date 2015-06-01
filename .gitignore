@@ -8,3 +8,4 @@ export/
 .settings/
 *.wav
 *.asd
+*/Thumbs.db

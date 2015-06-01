@@ -1,5 +1,6 @@
 package;
 
+import flixel.group.FlxTypedGroup;
 import openfl.Assets;
 import haxe.io.Path;
 import haxe.xml.Parser;
@@ -32,6 +33,7 @@ class TiledLevel extends TiledMap
 	private var startPoint:FlxObject;
 	private var collidableTileLayers:Array<FlxTilemap>;
 	public var warps:Array<Warp> = new Array<Warp>();
+	private var collisionBoxes  = new FlxTypedGroup<CollisionBox>();
 	private var parent:PlayState;
 	
 	public function new(tiledLevel:Dynamic)
@@ -99,12 +101,10 @@ class TiledLevel extends TiledMap
 		// Add tilemaps
 		allStuff.add(backgroundTiles);
 		
-		// Draw coins first
-		coins = new FlxGroup();
-		allStuff.add(coins);
-		
 		// Load player objects
 		loadObjects();
+		
+		foregroundTiles.add(collisionBoxes);
 		
 		// Add foreground tiles after adding level objects, so these tiles render on top of player
 		allStuff.add(foregroundTiles);
@@ -139,21 +139,14 @@ class TiledLevel extends TiledMap
 				var floor = new FlxObject(x, y, o.width, o.height);
 				parent.floor = floor;
 				
-			case "coin":
-				var tileset = g.map.getGidOwner(o.gid);
-				var coin = new FlxSprite(x, y, c_PATH_LEVEL_TILESHEETS + tileset.imageSource);
-				coins.add(coin);
-				
 			case "warp":
 				var warp = new Warp(x, y, o.width, o.height);
 				warp.target = o.name.toLowerCase();
 				warps.push(warp);
 				
-			case "exit":
-				// Create the level exit
-				var exit = new FlxSprite(x, y);
-				exit.makeGraphic(32, 32, 0xff3f3f3f);
-				exit.exists = false;
+			case "collisionbox":
+				var box = new CollisionBox(x, y, o.width, o.height);
+				collisionBoxes.add(box);
 		}
 	}
 	
@@ -171,15 +164,20 @@ class TiledLevel extends TiledMap
 	
 	public function collideWithLevel(obj:FlxObject, ?notifyCallback:FlxObject->FlxObject->Void, ?processCallback:FlxObject->FlxObject->Bool):Bool
 	{
+		var ret:Bool = false;
+		
 		if (collidableTileLayers != null)
 		{
 			for (map in collidableTileLayers)
 			{
 				// IMPORTANT: Always collide the map with objects, not the other way around. 
 				//			  This prevents odd collision errors (collision separation code off by 1 px).
-				return FlxG.overlap(map, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate);
+				ret = (ret || FlxG.overlap(map, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
 			}
 		}
-		return false;
+		if (FlxG.collide(obj, collisionBoxes))
+			trace("collisionboxeD");
+		//ret = (ret || FlxG.overlap(collisionBoxes, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
+		return ret;
 	}
 }
