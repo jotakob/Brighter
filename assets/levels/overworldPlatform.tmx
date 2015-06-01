@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+ <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16">
+  <image source="terrain.png" width="256" height="256"/>
+ </tileset>
+ <layer name="background" width="150" height="50">
+  <properties>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0rEJAAAIBLF3/6WdwEawEBK4DS4BAAAAAAAAAAAAAAAAAAAAAC7UEGx5CgAAAAAAAAAAAACADxq2zgAN
+  </data>
+ </layer>
+ <layer name="middleground" width="150" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2jEKgDAUBUErj+P9j+cJohgXojADr0rziy2zbQAAAAAAAAAAAAAAAAAAAABc2c0mN7L6LvvvRu7e4SlNUdMUNU1R0xQ1TVHTFDVNUdMUNU1R0xQ1TVHTFDVNUXvb1Or/FvbtHZNbfbd9e7NdAQDQOgGVPxLR
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="50">
+  <properties>
+   <property name="tileset" value="terrain"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="-15.8182" y="740.273" width="2500" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="36" y="668" width="28" height="32"/>
+  <object id="5" x="2063" y="667" width="30" height="32"/>
+ </objectgroup>
+</map>
