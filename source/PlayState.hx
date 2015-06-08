@@ -15,7 +15,6 @@ class PlayState extends FlxState
 {
 	public var player:Player;
 	public var currentLevel:TiledLevel;
-	public var floor:FlxObject;
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -37,17 +36,17 @@ class PlayState extends FlxState
 		remove(player);
 		if (currentLevel != null)
 		{
-			remove(currentLevel.backgroundTiles);
-			remove(currentLevel.foregroundTiles);
+			remove(currentLevel.backgroundStuff);
+			remove(currentLevel.foregroundStuff);
 		}
 		currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
-		currentLevel.loadLevel(this);
-		player.x = currentLevel.getStartPoint()[0];
-		player.y = currentLevel.getStartPoint()[1];
-		add(currentLevel.backgroundTiles);
+		currentLevel.loadLevel();
+		player.x = currentLevel.startPoint.x;
+		player.y = currentLevel.startPoint.y;
+		add(currentLevel.backgroundStuff);
 		add(player);
 		add(player.graphicComponent);
-		add(currentLevel.foregroundTiles);
+		add(currentLevel.foregroundStuff);
 	}
 	
 	
@@ -70,10 +69,10 @@ class PlayState extends FlxState
 		// Collide with foreground tile layer
 		currentLevel.collideWithLevel(player);
 		
-		if (FlxG.overlap(player, floor))
+		if (FlxG.overlap(player, currentLevel.floor))
 		{
-			player.x = currentLevel.getStartPoint()[0];
-			player.y = currentLevel.getStartPoint()[1];
+			player.x = currentLevel.startPoint.x;
+			player.y = currentLevel.startPoint.y;
 		}
 	}	
 }
