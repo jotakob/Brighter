@@ -1,14 +1,15 @@
 package ;
 
 import flixel.FlxObject;
+import flixel.FlxSprite;
 
 /**
  * ...
- * @author ...
+ * @author JJM
  */
-class Warp extends GameObject
+class GameObject extends FlxObject
 {
-	public var target:String;
+	public var graphicComponent:FlxSprite;
 	
 	public function new(X:Float=0, Y:Float=0, Width:Float=0, Height:Float=0) 
 	{
@@ -16,8 +17,8 @@ class Warp extends GameObject
 		
 	}
 	
-	public override function activate()
+	public function activate()
 	{
-		Reg.currentState.newLevel(target);
+		
 	}
 }

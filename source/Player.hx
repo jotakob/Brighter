@@ -14,15 +14,13 @@ class Player extends FlxObject
 {
 	private var hasDoubleJumped:Bool = false;
 	private var isJumping:Bool = false;
-	private var isMoving:Bool = false;
-	private var lastOrientation:String = "left";
-	private var orientation:String = "right";
+	private var isWalking:Bool = false;
 	public var graphicComponent:FlxSprite = new FlxSprite();
 	
 	
 	public function new() 
 	{
-		super(0, 0, 24, 32);
+		super(0, 0, 20, 30);
 		
 		loadAnimations();
 		
@@ -36,55 +34,62 @@ class Player extends FlxObject
 	
 	public function loadAnimations()
 	{
-		graphicComponent.loadGraphic("sprites/character-" + Reg.gender + ".png", true, 64, 64, true);
+		graphicComponent.loadGraphic("sprites/character-" + Reg.settings.gender + ".png", true, 64, 64, true);
 		graphicComponent.animation.add("down", [0, 1, 2, 3], 6, true);
 		graphicComponent.animation.add("up", [8, 9, 10, 11], 6, true);
-		graphicComponent.animation.add("right", [16, 17, 18, 19, 20, 21, 22, 23], 12, true);
-		graphicComponent.animation.add("left", [24, 25, 26, 27, 28, 29, 30, 31], 12, true);
+		graphicComponent.animation.add("walk", [16, 17, 18, 19, 20, 21, 22, 23], 12, true);
+		graphicComponent.animation.add("jump", [4, 5, 6, 7], 6, false);
 		graphicComponent.drag.x = graphicComponent.drag.y = 1600;
+		graphicComponent.setFacingFlip(FlxObject.LEFT, true, false);
+		graphicComponent.setFacingFlip(FlxObject.RIGHT, false, false);
 	}
 	
 	public function jump()
 	{
 		isJumping = true;
 		velocity.y = -188;
+		graphicComponent.animation.getByName("walk").curFrame = 2;
+		graphicComponent.animation.play("jump", true);
 	}
 	
 	public override function update()
 	{
-		lastOrientation = orientation;
-		isMoving = false;
+		isWalking = this.isTouching(FlxObject.FLOOR);
 		
-		if (this.isTouching(FlxObject.FLOOR))
+		if (isWalking)
 		{
 			isJumping = false;
 			hasDoubleJumped = false;
 		}
 		
+		//Player movement
 		acceleration.x = 0;
-		if (FlxG.keys.pressed.LEFT)
-		{
-			acceleration.x = -maxVelocity.x * 4;
-			orientation = "left";
-			isMoving = true;
-		}
-		if (FlxG.keys.pressed.RIGHT)
+		if (FlxG.keys.anyPressed(Reg.settings.rightKeys))
 		{
 			acceleration.x = maxVelocity.x * 4;
-			orientation = "right";
-			isMoving = true;
+			graphicComponent.facing = FlxObject.RIGHT;
 		}
-		if (FlxG.keys.pressed.UP)
+		if (FlxG.keys.anyPressed(Reg.settings.leftKeys))
 		{
-			for (warp in Reg.currentState.currentLevel.warps)
-			{
-				if (FlxG.overlap(this, warp))
-				{
-					warp.activate();
-				}
-			}
+			acceleration.x = -maxVelocity.x * 4;
+			graphicComponent.facing = FlxObject.LEFT;
 		}
-		if (FlxG.keys.anyJustPressed(["SPACE", "UP"]))
+		if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
+		{
+			FlxG.overlap(this, Reg.currentState.currentLevel.activatableObjects, activateObject);
+		}
+		
+		//Animating the player
+		if (isWalking && (velocity.x != 0))
+		{
+			graphicComponent.animation.play("walk");
+		}
+		else if (!isJumping)
+		{
+			graphicComponent.animation.pause();
+		}
+		
+		if (FlxG.keys.anyJustPressed(Reg.settings.jumpKeys))
 		{
 			if (this.isTouching(FlxObject.FLOOR))
 			{
@@ -101,19 +106,17 @@ class Player extends FlxObject
 			}
 		}
 		
-		if (isJumping || isMoving)
-		{
-			graphicComponent.animation.play(orientation);
-		}
-		else
-		{
-			graphicComponent.animation.pause();
-		}
-		
-		graphicComponent.x = this.x - 20;
-		graphicComponent.y = this.y - 32;
+		graphicComponent.x = this.x - 22;
+		graphicComponent.y = this.y - 34;
 		
 		super.update();
+		
+		FlxG.collide(this, Reg.currentState.currentLevel.collisionBoxes);
 	}
 	
+	//Collide & Overlap functions
+	private function activateObject(player:Dynamic, object:Dynamic)
+	{
+		cast(object, GameObject).activate();
+	}
 }

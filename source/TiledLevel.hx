@@ -24,24 +24,23 @@ class TiledLevel extends TiledMap
 	// used to draw tiles in that layer (without file extension). The image file must be located in the directory specified bellow.
 	private inline static var c_PATH_LEVEL_TILESHEETS = "assets/levels/";
 	
-	// Array of tilemaps used for collision
-	public var allStuff:FlxGroup = new FlxGroup();
-	
-	public var foregroundTiles:FlxGroup;
-	public var backgroundTiles:FlxGroup;
+	public var foregroundStuff:FlxGroup;
+	public var backgroundStuff:FlxGroup;
 	public var coins:FlxGroup;
-	private var startPoint:FlxObject;
+	public var startPoint:FlxObject;
+	public var activatableObjects:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
+	
 	private var collidableTileLayers:Array<FlxTilemap>;
-	public var warps:Array<Warp> = new Array<Warp>();
-	private var collisionBoxes  = new FlxTypedGroup<CollisionBox>();
+	public var collisionBoxes  = new FlxTypedGroup<CollisionBox>();
 	private var parent:PlayState;
+	public var floor:FlxObject;
 	
 	public function new(tiledLevel:Dynamic)
 	{
 		super(tiledLevel);
 		
-		foregroundTiles = new FlxGroup();
-		backgroundTiles = new FlxGroup();
+		foregroundStuff = new FlxGroup();
+		backgroundStuff = new FlxGroup();
 		
 		FlxG.camera.setBounds(0, 0, fullWidth, fullHeight, true);
 		
@@ -84,30 +83,22 @@ class TiledLevel extends TiledMap
 			
 			if (tileLayer.properties.get("z") == "front")
 			{
-				foregroundTiles.add(tilemap);
+				foregroundStuff.add(tilemap);
 			}
 			else
 			{
-				backgroundTiles.add(tilemap);
+				backgroundStuff.add(tilemap);
 			}
 			
 		}
 	}
 	
-	public function loadLevel(state:PlayState)
+	public function loadLevel()
 	{
-		parent = state;
-		
-		// Add tilemaps
-		allStuff.add(backgroundTiles);
-		
-		// Load player objects
 		loadObjects();
 		
-		foregroundTiles.add(collisionBoxes);
-		
-		// Add foreground tiles after adding level objects, so these tiles render on top of player
-		allStuff.add(foregroundTiles);
+		//foregroundStuff.add(collisionBoxes);
+		//foregroundStuff.add(activatableObjects);
 	}
 	
 	private function loadObjects()
@@ -136,30 +127,22 @@ class TiledLevel extends TiledMap
 				startPoint = new FlxObject(x, y);
 				
 			case "floor":
-				var floor = new FlxObject(x, y, o.width, o.height);
-				parent.floor = floor;
+				floor = new FlxObject(x, y, o.width, o.height);
 				
 			case "warp":
 				var warp = new Warp(x, y, o.width, o.height);
 				warp.target = o.name.toLowerCase();
-				warps.push(warp);
+				activatableObjects.add(warp);
 				
 			case "collisionbox":
 				var box = new CollisionBox(x, y, o.width, o.height);
 				collisionBoxes.add(box);
+				
+			case "child":
+				var child = new Child(x, y, Std.parseInt(o.name));
+				backgroundStuff.add(child.graphicComponent);
+				activatableObjects.add(child);
 		}
-	}
-	
-	/**
-	 * Returns the x and y coordinates of the starting point in an array.
-	 * @return
-	 */
-	public function getStartPoint():Array<Float>
-	{
-		var ret = new Array<Float>();
-		ret.push(startPoint.x);
-		ret.push(startPoint.y);
-		return ret;
 	}
 	
 	public function collideWithLevel(obj:FlxObject, ?notifyCallback:FlxObject->FlxObject->Void, ?processCallback:FlxObject->FlxObject->Bool):Bool
@@ -175,8 +158,8 @@ class TiledLevel extends TiledMap
 				ret = (ret || FlxG.overlap(map, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
 			}
 		}
-		if (FlxG.collide(obj, collisionBoxes))
-			trace("collisionboxeD");
+		//if (FlxG.overlap(obj, collisionBoxes,processCallback != null ? processCallback : FlxObject.separate))
+		//	trace("collisionboxeD");
 		//ret = (ret || FlxG.overlap(collisionBoxes, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
 		return ret;
 	}
