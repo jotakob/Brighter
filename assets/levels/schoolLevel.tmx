@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="7">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="50" tilewidth="16" tileheight="16" nextobjectid="7">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
-  <image source="../../Documents/GitHub/Brighter/Art/tiles.png" width="709" height="709"/>
+  <image source="../../Art/tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="150" height="50">
+ <layer name="background" width="600" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+   eJztzrEJACAMAEEziOCQLi44gIWuIAG9a779UgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO7okX0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBvnM7UCwCAd9TYbZH7AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwH8W9tICmg==
   </data>
  </layer>
- <layer name="middleground" width="150" height="50">
+ <layer name="middleground" width="600" height="50">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1tdNA0EYhVFy6oUceiGHXsihF3LohRzq4K7ESshCyCxeDOIc6dP/4vGM5sHjjg4AAAAAAAAAAAAAAAAAAAAAAACAanbbfQDaZv+DDmrcrzN1pe7Uk3pTX4378bv1p4G3Bhtm2VAT3zOcRtJoGkvjaaKG81KvVv0WTaapt6YbZtlME98zm+bSfFpIi2mp4pn+ktWG1n5w7+KNKN6Gqu9Csb77G+t/wnraSJtpK22nnbae6HPn6SJdpqsaPl/Vyhf2Le68uOv391yub+a8H63/bQ7TUTpOJ+k0nbX1RJ97TE/pOb3U8Pmq9r6wb3HnxV2/v+e9JtaVyjemfFeWqx25VtfpJt2mu3SfHmres3x3TLOVs/xfaZqtnAAAAAAA/80r5APJVw==
+   eJzt3Qdy3DYUANBNr1dJd8pV0hXJV0l3pFwlPbFzuAAzxojhsBPgkov3Zv58WUvtEuR68QGQ0ukEAJfl+mkAAJCH+goAIK9a66vrU71tBwDKqrXGUF8BAKXUWmOorwCAUmqtMdRXAEAptdYY6isAoJRaawz1FQBQSq01hvoKACil1hpDfQUAlFJrjaG+AgBKqbXGUF8BAKXUWmOorwCAUmqtMdRXAEAptdYY6isAoJRaawz1FQBQSq01hvoKACil1hpDfQUAlKLGAADIS30FAJCX+goAIC/1FQBAXrXWV83r2x+f6jwGAEAZNdZXqZ6a2vZnQjwb4rkQz4d4IcSLIV4K8XKhfQQAjqvG+iqaU1+9EeLNEG+FeDvEOyHeDfFeiAeldnBnbkI8bOWbxr8BgHs11Fc/dXxvTn31cYhPQnwa4rMQn4f4IsSXIa7y7OLudB0zAGCakvXVlrXb3NeaU199HeKbEN+G+C7E9yF+CPFjiEfzdnN3zD8BsFddfXS6Zmfv1+nUMH/VxfogABxP6pNjX1xDP7zFfXg5a8Fa1wfNVwFcvniNx9HuzZrav6c+OfbFR+yHL10N64NqKSC3o/XZNbvUtZfUrtimo7elS6l1xa1+H9VR1we77uNrZoA55t7LsqfPQ/6v3aftee1lTQ2R2hXbtIe2tMV2PTnd98tTa5q1dU+qn55keK61+1Hj+iCwjfQ59+TcO7JA3xxVnJ+6xM/D1N6182+vhHg1xGshXl+7UxOM9WFL116mtCPXNkukdsU2nWsd6fo0Xkfchfh5wnNcmqOsD5qXAnJ5fLqv+4b0zVE9GHjsCPNXfTVvatPU/e/73X/vh/ggxIchPlq+m9mMnaubnp+b0o5c2yzRbNee33e19t9HXR+ES9b+/bXx6+YYuCtvMU8wZO4afXNuaK/XK/XNUV0NPLZ0/mromoetxHMSz8eUa8i23K+2ufMdY+dqbH5lr5rtmvO+u+75Otf2bUc9vmsdbX2w1joYmmPgrryHeYI54ngtjdO2GJ8t6Rf65uwfDTy2dD4/9UFdeY00V/V4wrapTfHz/WrFa05ZM9rS2Lk6Ry2bQ7Ndc953tx1fd52n69Y2Y9v30W+PO+r9g1y+NO6O18eUmgtp9lO5ryU6wv0Z6Rin65DWHuc4XkvjtKuVz9X0z+n+HP3b+P5t9+aDfgnxa4jfQvwe4o8Qf4b4e+Cxv54+Pnf/2n9rq5n7fmZMu81fjWyf2pTaOLS/Y6/bjKWWtrtt7Fy1a9qjaLZr7H3X1HVcu87T7czt+xztuJ7D0s+Tktb836Wcrcessa+O86pp7WaJkn+/YevXLCHONzXnrq9WPl8cr6VxWo7x2c0BYuieZ1mWZblMXirXGC/n8w6Ne0rsV6z9U82/dNzdrNVz7neuMeAWhtrdPMZr5zfaz7dkvqcpzsvcHSD61v9kWZblcvnc9Z18ufmu4/sPN3x9WZZlWT5XPnd9J8uyfJR8s5P9kGV5/xkAAAAAAAAAAAAAAAAAAAAAAAAAADiu/wC4Gfjb
   </data>
  </layer>
- <layer name="foreground" width="150" height="50">
+ <layer name="foreground" width="600" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+   eJzt3MEJwkAQhtFJI9pP7Fjv2k9swD0KziEMIwnJe7D3Pf0s5CMRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAp+c4r60vAQCwY4+vs8Yyzvt/1wEAOJ3LFHGdtr4FAMBxzONtdfO+AgBoo78CAOilvwIA6KW/AgDopb8CAOilvwLI2UegSn8FkNNPwK97rP/H5pnZD4CcfgKosh8AOd8HgSr7AZDTTwBV9gMgp58AquwHQE4/AVTZDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALp8AEa6G3I=
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
-  <object id="1" name="floor" type="floor" x="-69.8182" y="657.273" width="2500.48" height="16"/>
+  <object id="1" name="floor" type="floor" x="-69.8182" y="657.273" width="10000" height="16"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="49" y="589" width="28" height="32"/>
-  <object id="5" x="2272" y="589" width="30" height="32"/>
+  <object id="5" x="9513" y="557" width="30" height="32"/>
  </objectgroup>
 </map>

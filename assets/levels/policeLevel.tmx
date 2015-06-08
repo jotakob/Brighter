@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
+  <image source="../../Documents/GitHub/Brighter/Art/tiles.png" width="709" height="709"/>
+ </tileset>
+ <layer name="background" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0jEKwkAQBdCNF7DQRlDEk2gjaKF38SipxfPocRS0d0CLaJOVIJrwHnzYhVnYD5MSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC82v/6A3TSMXLKnB0V3/wJbXeOXCr3a+SW8W5pr7IMeikNe/VzZfFI/5m2G0eHSaXHNM6zjF67DnRvIndf5jGz+GCvyo7s1So6rN96bOK+rel26ED3JnL3BQAA+F93URgNeA==
+  </data>
+ </layer>
+ <layer name="middleground" width="150" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0lkug1EYx+GeS2oom0ENWxERd4aluJEYF2Mm1mJmAf7igsjXlBoqvudJfkn7nvbkXLyNBgAAAAAAAAAAAAAAAAAAAABU2yj9fgEAAAAAAADfaT8dpMM+v4P/5TJdpes+v6OZhtJwGkmjqZXG0ngf38XPWS6NxkpaTWul+7wXE2kyTaV2mk4zaTbNfe1q/qDN7MtW2k47aTftlc7zXtmrejnKrhynk3SaztJ56Tzvlb2ql5vsym26S/fpIT2WzvOPmK+Y2at6WCovDaTB1ExDFXvz/nyhvP73sy2++dyqOH++e/0D94x0OW93+U373Xd+z0WpTwBQZ08PPXD3
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0rsNg0AURFGow8UYux0+Ac3YpkwqYDJnIAK0YnWOdKUNNpjgNQ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAV3mmLr3Su+wUKtKnIY1pKryFenzSN/3SUngLwJ5H+3+v5WZQGXfFFc7e1dwe/wEAALiLDblvCLQ=
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="2.18182" y="756.273" width="2500.48" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
+  <object id="5" x="2271" y="689" width="31" height="30"/>
+ </objectgroup>
+</map>
