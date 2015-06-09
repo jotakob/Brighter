@@ -3,7 +3,6 @@ package ;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import openfl.Assets;
-import AssetPaths;
 import haxe.xml.Fast;
 
 /**
