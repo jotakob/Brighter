@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
@@ -15,7 +16,8 @@ class PlayState extends FlxState
 {
 	public var player:Player;
 	public var currentLevel:TiledLevel;
-	public var floor:FlxObject;
+	public var dialogue:DialogueBox;
+	public var ui:FlxGroup = new FlxGroup();
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -30,24 +32,28 @@ class PlayState extends FlxState
 		player = new Player();
 		Reg.player = player;
 		newLevel("demo");
+		dialogue = new DialogueBox();
+		ui.add(dialogue);
 	}
 	
 	public function newLevel(levelName:String)
 	{
 		remove(player);
+		remove(ui);
 		if (currentLevel != null)
 		{
-			remove(currentLevel.backgroundTiles);
-			remove(currentLevel.foregroundTiles);
+			remove(currentLevel.backgroundStuff);
+			remove(currentLevel.foregroundStuff);
 		}
 		currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
-		currentLevel.loadLevel(this);
-		player.x = currentLevel.getStartPoint()[0];
-		player.y = currentLevel.getStartPoint()[1];
-		add(currentLevel.backgroundTiles);
+		currentLevel.loadLevel();
+		player.x = currentLevel.startPoint.x;
+		player.y = currentLevel.startPoint.y;
+		add(currentLevel.backgroundStuff);
 		add(player);
 		add(player.graphicComponent);
-		add(currentLevel.foregroundTiles);
+		add(currentLevel.foregroundStuff);
+		add(ui);
 	}
 	
 	
@@ -70,10 +76,10 @@ class PlayState extends FlxState
 		// Collide with foreground tile layer
 		currentLevel.collideWithLevel(player);
 		
-		if (FlxG.overlap(player, floor))
+		if (FlxG.overlap(player, currentLevel.floor))
 		{
-			player.x = currentLevel.getStartPoint()[0];
-			player.y = currentLevel.getStartPoint()[1];
+			player.x = currentLevel.startPoint.x;
+			player.y = currentLevel.startPoint.y;
 		}
 	}	
 }
