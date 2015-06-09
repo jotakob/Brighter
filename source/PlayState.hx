@@ -33,7 +33,7 @@ class PlayState extends FlxState
 		Reg.player = player;
 		newLevel("demo");
 		dialogue = new DialogueBox();
-		ui.add(dialogue);
+		add(dialogue);
 	}
 	
 	public function newLevel(levelName:String)

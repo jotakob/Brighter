@@ -83,16 +83,6 @@ class Child extends GameObject
 	private function displayDialogue(conversation:Fast)
 	{
 		var speaker:String = conversation.node.item.att.speaker;
-		var speakerName:String;
-		switch speaker
-		{
-			case "player":
-				speakerName = Reg.settings.playerName;
-			case "bird":
-				speakerName = "KJRW Bird";
-			default:
-				speakerName = dialogue.att.name;
-		}
-		Reg.currentState.dialogue.setText(conversation.node.item.innerData, speaker, speakerName);
+		Reg.currentState.dialogue.setText(conversation.node.item.innerData, speaker);
 	}
 }
