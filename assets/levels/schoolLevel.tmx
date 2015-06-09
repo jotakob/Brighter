@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJACAMAEEziOCQLi44gIWuIAG9a779UgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO7okX0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBvnM7UCwCAd9TYbZH7AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwH8W9tICmg==
+   eJztzrEJgFAQREF/ARqZCpZiMxoZ2oh2KliAB9rC5xBn4LHpNg0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAdW8l+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8A1t1EV99hEAoIrz3Sv1xb/M0RJNyT8AgDqG8uxYcn/8yR4d0Zp9BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAINkN7YEFYw==
   </data>
  </layer>
  <layer name="middleground" width="600" height="50">
@@ -36,6 +36,6 @@
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="49" y="589" width="28" height="32"/>
-  <object id="5" x="9513" y="557" width="30" height="32"/>
+  <object id="5" x="9513" y="544" width="30" height="45"/>
  </objectgroup>
 </map>
