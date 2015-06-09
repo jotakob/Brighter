@@ -28,7 +28,7 @@ class PlayState extends FlxState
 		
 		player = new Player();
 		Reg.player = player;
-		newLevel("schoolLevel");
+		newLevel("playgroundLevel");
 	}
 	
 	public function newLevel(levelName:String)

@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="250" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="700" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
-  <image source="../../Documents/GitHub/Brighter/Art/tiles.png" width="709" height="709"/>
+  <image source="../../Art/tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="250" height="50">
+ <layer name="background" width="700" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt08kNwjAQBVA7LcCVpRO4sdMMlVABNbIUwEgcnYggFJCS96R/GMuHscdOCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgGFb53x00u0ZukXvkUVNTGlUpjav3+875FYbh1DDrtu+lS5PobRqZRea5rCktYmbLD/55X/76uuYch1g79uR837o03EPb99KlTfS2jewi+1zWAAAAAAC/9ATTyRFl
+   eJzt1rkNwkAQBdBdtwApRyeQcdMMlVABNXIUwEgklmwLI7CQ7PekH8xqg9kjmJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYklX+dwfNrpFb5B551NQAAGWjIqVx8X7fOb/CMJwa3rrtf+nSJHqbRmaRea7WAABli5hdlh/Mu32Zedc15zjE2rEn5/vWpeEe2v6XLm2it21kF9nnag0AAAAAAAAAAAAAAAAAAAC/8gQT9hFl
   </data>
  </layer>
- <layer name="middleground" width="250" height="50">
+ <layer name="middleground" width="700" height="50">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="foreground" width="250" height="50">
+ <layer name="foreground" width="700" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt08cNAjEURVFPIYRWCBtCKwyIbghNEgrgrWePbIZzpLv215NcCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMD/WaRlWqV15VtaMNzDPozBIfXpmE6Vb2nBcA/7MAaXdE23dK98SwuGe9gHgF/wSM/0Su/KtwDfMelKmaZZmne1r4FxOlf+W5u8v027tPfPAQAAAACa8gEaTBV0
+   eJzt2LcNAkEQhtGDIsgwrWASTCsY0Q2mSUwB/BIRFyPtsbwnffGOJhpt0wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAp2mapXlaFJ6lC9r7sB8AgN+2Tbu0T4fCs3RBex/2AwDw207pnC7pWniWLmjvw34AAAAAgK66pXt6pGfhWQAA4NuGvaYZpXGa9EpPAwBAbY6Fb8xl3l+lddq4dwEAgD8z6L8DAICauXsBAKidexcAgNr55wUAAACo2wvZzxYc
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
-  <object id="1" name="floor" type="floor" x="0.18182" y="776.273" width="4000.48" height="16"/>
+  <object id="1" name="floor" type="floor" x="0.18182" y="768" width="11608.8" height="37"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
-  <object id="5" x="3862" y="685" width="31" height="30"/>
+  <object id="5" x="11106" y="684" width="37" height="30"/>
  </objectgroup>
 </map>
