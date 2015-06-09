@@ -1,0 +1,22 @@
+<dialogue name="Henk">
+	<conversation id="notmet">
+		<item speaker="child1">Hey! I have a problem!</item>
+		<item speaker="player">I can help you!</item>
+		<item speaker="child1">Sweet!</item>
+	</conversation>
+	<conversation id="met">
+		<item speaker="child1">Hey, have you found help for me?</item>
+	</conversation>
+	<conversation id="nohelp">
+		<item speaker="player">Nope, sorry.</item>
+	</conversation>
+	<conversation id="yeshelp">
+		<item speaker="player">Yes, here it is!</item>
+	</conversation>
+	<conversation id="wronganswer">
+		<item speaker="child1">No, that doesn't help me.</item>
+	</conversation>
+	<conversation id="rightanswer">
+		<item speaker="child1">Yay, thanks!</item>
+	</conversation>
+</dialogue>

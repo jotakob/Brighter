@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxState;
 import flixel.util.FlxSave;
+import openfl.display.Stage;
 
 /**
  * Handy, pre-built Registry class that can be used to store 

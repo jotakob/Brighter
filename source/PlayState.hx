@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
@@ -15,6 +16,8 @@ class PlayState extends FlxState
 {
 	public var player:Player;
 	public var currentLevel:TiledLevel;
+	public var dialogue:DialogueBox;
+	public var ui:FlxGroup = new FlxGroup();
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -29,11 +32,14 @@ class PlayState extends FlxState
 		player = new Player();
 		Reg.player = player;
 		newLevel("demo");
+		dialogue = new DialogueBox();
+		ui.add(dialogue);
 	}
 	
 	public function newLevel(levelName:String)
 	{
 		remove(player);
+		remove(ui);
 		if (currentLevel != null)
 		{
 			remove(currentLevel.backgroundStuff);
@@ -47,6 +53,7 @@ class PlayState extends FlxState
 		add(player);
 		add(player.graphicComponent);
 		add(currentLevel.foregroundStuff);
+		add(ui);
 	}
 	
 	

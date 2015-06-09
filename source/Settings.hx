@@ -11,6 +11,7 @@ class Settings
 	public var rightKeys:Array<String> = ["D", "RIGHT"];
 	public var interactKeys:Array<String> = ["E", "ENTER"];
 	public var gender:String = "male";
+	public var playerName:String = "Max";
 	
 	public function new() 
 	{
