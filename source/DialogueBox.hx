@@ -26,7 +26,7 @@ class DialogueBox extends FlxGroup
 	public function new()
 	{
 		super();
-		FlxG.stage.addEventListener(Event.ADDED_TO_STAGE, test);
+		
 		y = FlxG.height - height;
 		width = FlxG.width;
 		background = new FlxSprite(0, y);
@@ -35,25 +35,15 @@ class DialogueBox extends FlxGroup
 		background.y = y;
 		background.height = 64;
 		background.width = width;
-		background.makeGraphic(width, height, 0x222288);
-		background.alpha = 0.5;
+		background.makeGraphic(width, height, 0x88222288);
 		add(background);
 		
-		speakerTextBox = new FlxText(0, 0, width - 20, "", 16);
-		speakerTextBox.scrollFactor.set();
-		speakerTextBox.x = 10;
-		speakerTextBox.y = y + 10;
-		textBox = new FlxText(10, y + 60, width - 20, "", 16);
+		textBox = new FlxText(0, 0, width - 20, "", 16);
 		textBox.scrollFactor.set();
 		textBox.x = 10;
-		textBox.y = y + 60;
+		textBox.y = y + 10;
 		add(speakerTextBox);
 		add(textBox);
-	}
-	
-	function test (e:Event)
-	{
-		trace("Hi!");
 	}
 	
 	public function setText(text:String, _speaker:String)
@@ -62,6 +52,7 @@ class DialogueBox extends FlxGroup
 		textBox.text = text;
 		trace(speaker + ": " + text);
 		Reg.currentState.ui.add(this);
+		trace(textBox.x + "," + textBox.y);
 	}
 	
 	public function hide()

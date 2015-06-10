@@ -8,6 +8,7 @@ import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import openfl.Assets;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -17,10 +18,11 @@ class PlayState extends FlxState
 	public var player:Player;
 	public var currentLevel:TiledLevel;
 	public var dialogue:DialogueBox;
-	public var ui:FlxGroup = new FlxGroup();
+	public var ui:UserInterface;
+	
 	
 	/**
-	 * Function that is called up when to state is created to set it up. 
+	 * Function that is called up when to state is created to set it up.
 	 */
 	override public function create():Void
 	{
@@ -29,11 +31,12 @@ class PlayState extends FlxState
 		super.create();
 		Reg.currentState = this;
 		
+		ui = new UserInterface();
+		Reg.ui = ui;
+		
 		player = new Player();
 		Reg.player = player;
 		newLevel("demo");
-		dialogue = new DialogueBox();
-		add(dialogue);
 	}
 	
 	public function newLevel(levelName:String)
