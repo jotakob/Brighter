@@ -17,6 +17,8 @@ class Player extends FlxObject
 	private var isWalking:Bool = false;
 	public var graphicComponent:FlxSprite = new FlxSprite();
 	
+	public var movable:Bool = true;
+	
 	
 	public function new() 
 	{
@@ -52,6 +54,11 @@ class Player extends FlxObject
 		graphicComponent.animation.play("jump", true);
 	}
 	
+	public function setMovable()
+	{
+		movable = true;
+	}
+	
 	public override function update()
 	{
 		isWalking = this.isTouching(FlxObject.FLOOR);
@@ -64,19 +71,22 @@ class Player extends FlxObject
 		
 		//Player movement
 		acceleration.x = 0;
-		if (FlxG.keys.anyPressed(Reg.settings.rightKeys))
+		if (movable)
 		{
-			acceleration.x = maxVelocity.x * 4;
-			graphicComponent.facing = FlxObject.RIGHT;
-		}
-		if (FlxG.keys.anyPressed(Reg.settings.leftKeys))
-		{
-			acceleration.x = -maxVelocity.x * 4;
-			graphicComponent.facing = FlxObject.LEFT;
-		}
-		if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
-		{
-			FlxG.overlap(this, Reg.currentState.currentLevel.activatableObjects, activateObject);
+			if (FlxG.keys.anyPressed(Reg.settings.rightKeys))
+			{
+				acceleration.x = maxVelocity.x * 4;
+				graphicComponent.facing = FlxObject.RIGHT;
+			}
+			if (FlxG.keys.anyPressed(Reg.settings.leftKeys))
+			{
+				acceleration.x = -maxVelocity.x * 4;
+				graphicComponent.facing = FlxObject.LEFT;
+			}
+			if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
+			{
+				FlxG.overlap(this, Reg.currentState.currentLevel.activatableObjects, activateObject);
+			}
 		}
 		
 		//Animating the player
@@ -89,20 +99,23 @@ class Player extends FlxObject
 			graphicComponent.animation.pause();
 		}
 		
-		if (FlxG.keys.anyJustPressed(Reg.settings.jumpKeys))
+		if (movable)
 		{
-			if (this.isTouching(FlxObject.FLOOR))
+			if (FlxG.keys.anyJustPressed(Reg.settings.jumpKeys))
 			{
-				jump();
-			}
-			else if (!hasDoubleJumped)
-			{
-				if ( (FlxG.keys.pressed.LEFT && velocity.x == Math.abs(velocity.x)) || (FlxG.keys.pressed.RIGHT && velocity.x == -Math.abs(velocity.x)) )
+				if (this.isTouching(FlxObject.FLOOR))
 				{
-					velocity.x = 0;
+					jump();
 				}
-				jump();
-				hasDoubleJumped = true;
+				else if (!hasDoubleJumped)
+				{
+					if ( (FlxG.keys.pressed.LEFT && velocity.x == Math.abs(velocity.x)) || (FlxG.keys.pressed.RIGHT && velocity.x == -Math.abs(velocity.x)) )
+					{
+						velocity.x = 0;
+					}
+					jump();
+					hasDoubleJumped = true;
+				}
 			}
 		}
 		
