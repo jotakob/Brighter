@@ -15,8 +15,9 @@ import flixel.addons.editors.tiled.TiledObjectGroup;
 import flixel.addons.editors.tiled.TiledTileSet;
 
 /**
- * ...
+ * A level in the game. Includes loading the level and displaying
  * @author Samuel Batista
+ * @author Jakob
  */
 class TiledLevel extends TiledMap
 {

@@ -5,14 +5,18 @@ import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import haxe.xml.Fast;
+import haxe.Timer;
 import openfl.events.Event;
+import openfl.events.KeyboardEvent;
+import openfl.ui.Keyboard;
 
 /**
- * ...
- * @author JJM
+ * This class manages the dialogue box at the bottom of the screen
+ * @author Jakob
  */
 class DialogueBox extends FlxGroup
 {
+	private var currentConversation:Dynamic;
 	private var speaker:String;
 	private var background:FlxSprite;
 	private var leftImage:FlxSprite;
@@ -58,5 +62,61 @@ class DialogueBox extends FlxGroup
 	public function hide()
 	{
 		Reg.currentState.ui.remove(this);
+	}
+	
+	/**
+	 * Continues the dialogue if the interact key (or enter) is pressed
+	 * @param	e
+	 */
+	public function onKeyDown(e:KeyboardEvent)
+	{
+		if (e.keyCode == Keyboard.ENTER || FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
+		{
+			if (currentConversation.hasNext())
+			{
+				var text:Fast = currentConversation.next();
+				Reg.ui.dialogue.setText(text.innerData, text.att.speaker);
+			}
+			else 
+			{
+				switch Reg.currentChild.status
+				{
+					case Child.NOT_MET, Child.WRONG_ANSWER, Child.NO_HELP:
+						Reg.currentChild.status = Child.MET;
+						continueGame();
+						
+					case Child.MET:
+						//TODO Choice box
+						continueGame();
+						
+					case Child.YES_HELP:
+						//TODO Knowledge choice
+						continueGame();
+						
+					case Child.SOLVED:
+						continueGame();
+				}
+			}
+		}
+	}
+	
+	private function continueGame()
+	{
+		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		hide();
+		Timer.delay(Reg.player.setMovable, 50);
+	}
+	
+	/**
+	 * Display a set of dialogue
+	 * @param	conversation a set of dialoge from an XML file
+	 */
+	public function displayDialogue(conversation:Fast)
+	{
+		currentConversation = conversation.elements;
+		var text:Fast = currentConversation.next();
+		setText(text.innerData, text.att.speaker);
+		Reg.player.movable = false;
+		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 	}
 }

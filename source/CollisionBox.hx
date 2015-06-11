@@ -3,7 +3,7 @@ package ;
 import flixel.FlxObject;
 
 /**
- * ...
+ * A mundane box usable for collision
  * @author JJM
  */
 class CollisionBox extends GameObject

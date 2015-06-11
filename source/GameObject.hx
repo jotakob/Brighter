@@ -4,7 +4,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 
 /**
- * ...
+ * A generic game object
  * @author JJM
  */
 class GameObject extends FlxObject
@@ -17,6 +17,10 @@ class GameObject extends FlxObject
 		
 	}
 	
+	/**
+	 * Gets called when the object is activated by the player.
+	 * To be overridden in child classes
+	 */
 	public function activate()
 	{
 		

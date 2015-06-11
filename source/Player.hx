@@ -12,11 +12,19 @@ import openfl.Assets;
  */
 class Player extends FlxObject
 {
+	//Variables to keep track of the state of the player
 	private var hasDoubleJumped:Bool = false;
 	private var isJumping:Bool = false;
 	private var isWalking:Bool = false;
+	
+	/**
+	 * The Graphic of the player, to seperate hitbox from visuals.
+	 */
 	public var graphicComponent:FlxSprite = new FlxSprite();
 	
+	/**
+	 * Whether the player is currently in control of the character.
+	 */
 	public var movable:Bool = true;
 	
 	
@@ -34,6 +42,10 @@ class Player extends FlxObject
 		FlxG.camera.follow(this);
 	}
 	
+	
+	/**
+	 * Loads the player spritesheet and the animations
+	 */
 	public function loadAnimations()
 	{
 		graphicComponent.loadGraphic("sprites/character-" + Reg.settings.gender + ".png", true, 64, 64, true);
@@ -59,6 +71,9 @@ class Player extends FlxObject
 		movable = true;
 	}
 	
+	/**
+	 * Deals mostly with player movement
+	 */
 	public override function update()
 	{
 		isWalking = this.isTouching(FlxObject.FLOOR);
@@ -90,9 +105,13 @@ class Player extends FlxObject
 		}
 		
 		//Animating the player
-		if (isWalking && (velocity.x != 0))
+		if (isWalking)
 		{
 			graphicComponent.animation.play("walk");
+			if (velocity.x == 0)
+			{
+				graphicComponent.animation.pause();
+			}
 		}
 		else if (!isJumping)
 		{
@@ -124,7 +143,7 @@ class Player extends FlxObject
 		
 		super.update();
 		
-		FlxG.collide(this, Reg.currentState.currentLevel.collisionBoxes);
+		//FlxG.collide(this, Reg.currentState.currentLevel.collisionBoxes);
 	}
 	
 	//Collide & Overlap functions

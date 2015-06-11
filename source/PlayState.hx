@@ -12,6 +12,7 @@ import openfl.Assets;
 
 /**
  * A FlxState which can be used for the actual gameplay.
+ * @author Jakob
  */
 class PlayState extends FlxState
 {
@@ -39,6 +40,10 @@ class PlayState extends FlxState
 		newLevel("demo");
 	}
 	
+	/**
+	 * Removes the current level and loads a new level
+	 * @param	levelName The name of the level to be loaded
+	 */
 	public function newLevel(levelName:String)
 	{
 		remove(player);
@@ -76,7 +81,7 @@ class PlayState extends FlxState
 	{
 		super.update();
 		
-		// Collide with foreground tile layer
+		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);
 		
 		if (FlxG.overlap(player, currentLevel.floor))

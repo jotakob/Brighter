@@ -3,21 +3,18 @@ package ;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import haxe.Timer;
 import openfl.Assets;
 import haxe.xml.Fast;
-import openfl.events.KeyboardEvent;
-import openfl.ui.Keyboard;
 
 /**
- * ...
+ * A child that the player can talk to
  * @author Jakob
  */
 class Child extends GameObject
 {
 	public var imagePath:String;
-	
 	public var dialogue:Fast;
+	public var status:String = NOT_MET;
 	
 	public static inline var NOT_MET:String = "notmet";
 	public static inline var MET:String = "met";
@@ -29,8 +26,6 @@ class Child extends GameObject
 	
 	private var name:String;
 	private var childID:Int;
-	private var status:String = NOT_MET;
-	private var currentConversation:Dynamic;
 	
 
 	public function new(X:Float=0, Y:Float=0, _ID:Int) 
@@ -51,6 +46,10 @@ class Child extends GameObject
 		dialogue = new Fast(xml.firstElement());
 	}
 	
+	/**
+	 * Updates the grpahics for different directions
+	 * @param	facing FlxObject direction the child is facing
+	 */
 	public function updateGraphics(facing:Int = null)
 	{
 		if (facing != null)
@@ -74,6 +73,9 @@ class Child extends GameObject
 		graphicComponent.y = this.y - 32;
 	}
 	
+	/**
+	 * Displays the appropriate dialogue
+	 */
 	public override function activate()
 	{
 		for (conv in dialogue.elements)
@@ -81,8 +83,8 @@ class Child extends GameObject
 			if (conv.att.id == status)
 			{
 				trace(conv.x);
-				displayDialogue(conv);
-				
+				Reg.currentChild = this;
+				Reg.ui.dialogue.displayDialogue(conv);
 				break;
 			}
 			else
@@ -90,53 +92,5 @@ class Child extends GameObject
 				trace("Error: Requested conversation not found");
 			}
 		}
-	}
-	
-	public function onKeyDown(e:KeyboardEvent)
-	{
-		if (e.keyCode == Keyboard.ENTER || FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
-		{
-			if (currentConversation.hasNext())
-			{
-				var text:Fast = currentConversation.next();
-				Reg.ui.dialogue.setText(text.innerData, text.att.speaker);
-			}
-			else 
-			{
-				switch status
-				{
-					case NOT_MET, WRONG_ANSWER, NO_HELP:
-						status = MET;
-						continueGame();
-						
-					case MET:
-						//TODO Choice box
-						continueGame();
-						
-					case YES_HELP:
-						//TODO Knowledge choice
-						continueGame();
-						
-					case SOLVED:
-						continueGame();
-				}
-			}
-		}
-	}
-	
-	private function continueGame()
-	{
-		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-		Reg.ui.dialogue.hide();
-		Timer.delay(Reg.player.setMovable, 50);
-	}
-	
-	private function displayDialogue(conversation:Fast)
-	{
-		currentConversation = conversation.elements;
-		var text:Fast = currentConversation.next();
-		Reg.ui.dialogue.setText(text.innerData, text.att.speaker);
-		Reg.player.movable = false;
-		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 	}
 }

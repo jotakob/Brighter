@@ -5,7 +5,7 @@
 		<item speaker="child1">Sweet!</item>
 	</conversation>
 	<conversation id="met">
-		<item speaker="child1">Hey, have you found help for me?</item>
+		<item speaker="child1">Hey, have you found help for me? I reeeaaally need it.</item>
 	</conversation>
 	<conversation id="nohelp">
 		<item speaker="player">Nope, sorry.</item>
