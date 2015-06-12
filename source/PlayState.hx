@@ -37,7 +37,7 @@ class PlayState extends FlxState
 		
 		player = new Player();
 		Reg.player = player;
-		newLevel("demo");
+		newLevel("policeLevel");
 	}
 	
 	/**

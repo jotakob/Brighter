@@ -1,22 +1,20 @@
-<dialogue name="Unknown">
+<dialogue name="Henk">
 	<conversation id="notmet">
-		<item speaker="child0">Problem!</item>
-		<item speaker="player">I can help you</item>
-		<item speaker="child0">cool</item>
+		<item speaker="child-1">Hey! I have a problem!</item>
+		<item speaker="player">I can help you!</item>
+		<item speaker="child-1">Sweet!</item>
 	</conversation>
 	<conversation id="met">
-		<item speaker="child0">Have you found help?</item>
+		<item speaker="child-1">Hey, have you found help for me? I reeeaaally need it.</item>
 	</conversation>
-	<conversation id="nohelp">
-		<item speaker="player">No.</item>
-	</conversation>
-	<conversation id="yeshelp">
-		<item speaker="player">Yes.</item>
-	</conversation>
+	<choice id="metchoice">
+		<item1>Yes, here is some help.</item1>
+		<item2>Nope, sorry.</item2>
+	</choice>
 	<conversation id="wronganswer">
-		<item speaker="child0">Wrong answer.</item>
+		<item speaker="child-1">No, that doesn't help me.</item>
 	</conversation>
 	<conversation id="rightanswer">
-		<item speaker="child0">Good answer.</item>
+		<item speaker="child-1">Yay, thanks!</item>
 	</conversation>
 </dialogue>

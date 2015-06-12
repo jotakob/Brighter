@@ -1,20 +1,27 @@
-<dialogue name="Henk">
+<dialogue name="Child1">
 	<conversation id="notmet">
-		<item speaker="child-1">Hey! I have a problem!</item>
-		<item speaker="player">I can help you!</item>
-		<item speaker="child-1">Sweet!</item>
+		<item speaker="child1">Hey, kan je mij helpen?</item>
+		<item speaker="player">Jawel. Wat is er loos?</item>
+		<item speaker="child1">Er is een jongen die mij al dagen lang aan het pesten is.</item>
+		<item speaker="child1">Maar sinds kort doet hij dat nu ook via het internet</item>
+		<item speaker="child1">en zegt hij allemaal gemene dingen over mij.</item>
+		<item speaker="player">Wat naar!</item>
+		<item speaker="child1">Inderdaad! Weet jij wat ik daar tegen kan doen?</item>
+		<item speaker="player">Ik zal kijken of ik een oplossing voor je kan vinden.</item>
+		<item speaker="child1">Dankjewel!</item>"
 	</conversation>
 	<conversation id="met">
-		<item speaker="child-1">Hey, have you found help for me? I reeeaaally need it.</item>
+		<item speaker="child1">En, weet je wat ik kan doen?</item>
 	</conversation>
 	<choice id="metchoice">
-		<item1>Yes, here is some help.</item1>
-		<item2>Nope, sorry.</item2>
+		<item1>Ja, ik heb het gevonden.</item1>
+		<item2>Nee, ik ben nog op zoek.</item2>
 	</choice>
 	<conversation id="wronganswer">
-		<item speaker="child-1">No, that doesn't help me.</item>
+		<item speaker="child1">Daar kan ik niets mee.</item>
 	</conversation>
 	<conversation id="rightanswer">
-		<item speaker="child-1">Yay, thanks!</item>
+		<item speaker="child1">Echt? Super bedankt! </item>
+		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
 	</conversation>
 </dialogue>
