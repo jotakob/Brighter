@@ -59,7 +59,7 @@ class DialogueBox extends FlxGroup
 	{
 		currentChoice = -1;
 		speaker = _speaker;
-		textBox.addFormat(textBoxFormat, 0, textBox.text.length);
+		textBox.removeFormat(highlighted);
 		textBox.text = text;
 		Reg.currentState.ui.add(this);
 	}

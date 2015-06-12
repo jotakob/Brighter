@@ -76,6 +76,14 @@ class Player extends FlxObject
 	 */
 	public override function update()
 	{
+		#if debug
+		//CHEATS
+		if (FlxG.keys.justPressed.BACKSPACE)
+		{
+			FlxG.resetState();
+		}
+		#end
+		
 		isWalking = this.isTouching(FlxObject.FLOOR);
 		
 		if (isWalking)
