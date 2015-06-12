@@ -1,0 +1,22 @@
+<dialogue name="Unknown">
+	<conversation id="notmet">
+		<item speaker="child0">Problem!</item>
+		<item speaker="player">I can help you</item>
+		<item speaker="child0">cool</item>
+	</conversation>
+	<conversation id="met">
+		<item speaker="child0">Have you found help?</item>
+	</conversation>
+	<conversation id="nohelp">
+		<item speaker="player">No.</item>
+	</conversation>
+	<conversation id="yeshelp">
+		<item speaker="player">Yes.</item>
+	</conversation>
+	<conversation id="wronganswer">
+		<item speaker="child0">Wrong answer.</item>
+	</conversation>
+	<conversation id="rightanswer">
+		<item speaker="child0">Good answer.</item>
+	</conversation>
+</dialogue>

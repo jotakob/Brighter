@@ -1,0 +1,31 @@
+<dialogue name="Unknown">
+	<conversation id="notmet">
+		<item speaker="child0">Hey, kan je mij helpen?</item>
+		<item speaker="player">Jawel. Wat is er loos?</item>
+		<item speaker="child0">Er is een jongen die mij al dagen lang aan het pesten is.</item>
+		<item speaker="child0">Maar sinds kort doet hij dat nu ook via het internet</item>
+		<item speaker="child0">en zegt hij allemaal gemene dingen over mij.</item>
+		<item speaker="player">Wat naar!</item>
+		<item speaker="child0">Inderdaad! Weet jij wat ik daar tegen kan doen?</item>
+		<item speaker="player">Ik zal kijken of ik een oplossing voor je kan vinden.</item>
+		<item speaker="child0">Dankjewel!</item>"
+		
+		
+	</conversation>
+	<conversation id="met">
+		<item speaker="child0">En, weet je wat ik kan doen?</item>
+	</conversation>
+	<conversation id="nohelp">
+		<item speaker="player">Nee, ik ben nog op zoek.</item>
+	</conversation>
+	<conversation id="yeshelp">
+		<item speaker="player">Ja, ik heb het gevonden.</item>
+	</conversation>
+	<conversation id="wronganswer">
+		<item speaker="child0">Wrong answer.</item>
+	</conversation>
+	<conversation id="rightanswer">
+		<item speaker="child0">Echt? Super bedankt! </item>
+		<item speaker="child0">Ik voel me nu al een stuk beter..</item>
+	</conversation>
+</dialogue>
