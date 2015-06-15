@@ -143,6 +143,11 @@ class TiledLevel extends TiledMap
 				var child = new Child(x, y, Std.parseInt(o.name));
 				backgroundStuff.add(child.graphicComponent);
 				activatableObjects.add(child);
+				
+			case "knowledge":
+				var kPiece = new KnowledgePickup(x, y);
+				foregroundStuff.add(kPiece);
+				activatableObjects.add(kPiece);
 		}
 	}
 	

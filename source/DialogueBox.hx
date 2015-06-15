@@ -60,8 +60,11 @@ class DialogueBox extends FlxGroup
 		currentChoice = -1;
 		speaker = _speaker;
 		textBox.removeFormat(highlighted);
+		textBox.removeFormat(textBoxFormat);
 		textBox.text = text;
+		textBox.addFormat(textBoxFormat);
 		Reg.currentState.ui.add(this);
+		trace("setting textx.");
 	}
 	
 	public function choiceBox(choice1:String, choice2:String)
@@ -124,10 +127,6 @@ class DialogueBox extends FlxGroup
 					{
 						choiceBox(conv.node.item1.innerData, conv.node.item2.innerData);
 						break;
-					}
-					else
-					{
-						trace("Error: Requested conversation not found");
 					}
 				}
 				//continueGame();
