@@ -53,7 +53,7 @@ class Player extends FlxObject
 		graphicComponent.animation.add("up", [8, 9, 10, 11], 6, true);
 		graphicComponent.animation.add("walk", [16, 17, 18, 19, 20, 21, 22, 23], 12, true);
 		graphicComponent.animation.add("jump", [4, 5, 6, 7], 6, false);
-		graphicComponent.drag.x = graphicComponent.drag.y = 1600;
+		//graphicComponent.drag.x = graphicComponent.drag.y = 1600;
 		graphicComponent.setFacingFlip(FlxObject.LEFT, true, false);
 		graphicComponent.setFacingFlip(FlxObject.RIGHT, false, false);
 	}
@@ -62,7 +62,7 @@ class Player extends FlxObject
 	{
 		isJumping = true;
 		velocity.y = -188;
-		graphicComponent.animation.getByName("walk").curFrame = 2;
+		graphicComponent.animation.getByName("walk").curFrame = 1;
 		graphicComponent.animation.play("jump", true);
 	}
 	

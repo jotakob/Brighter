@@ -149,6 +149,10 @@ class TiledLevel extends TiledMap
 				var kPiece = new KnowledgePickup(x, y, o.width, o.height);
 				foregroundStuff.add(kPiece.graphicComponent);
 				triggers.add(kPiece);
+				
+			case "background":
+				var bg = new FlxSprite(x, y, "assets/levels/" + o.name.toLowerCase() + ".png");
+				backgroundStuff.add(bg);
 		}
 	}
 	

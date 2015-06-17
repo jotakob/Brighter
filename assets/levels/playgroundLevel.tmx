@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="700" height="50" tilewidth="16" tileheight="16" nextobjectid="6">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="700" height="50" tilewidth="16" tileheight="16" nextobjectid="9">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="../../Art/tiles.png" width="709" height="709"/>
  </tileset>
@@ -28,7 +28,7 @@
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt3EtKw1AUBuC2e1AQn1tp1YGPXTj2gah7sTqw3Z0D8bkAj0gnIY2D0NzrzffBDwkZ5OcOcg8JZDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD67HWYugEAAKzO5ih1AwAAAMjbm29FAAAUbMu3IgAAAAAAAAAAAIDWxpFJZD9ykLhLjqwPUKpJ6gIAHTmPXEQuI1eJu+Soz+vz3HDtpbMWAADt3EemkYfIY+IuOerz+qw1/H9sw7/JAAD458YNM+2heZcO3Q6X565yDABV75GPyGfkK3EXgDo/c+ysJos5d3E+N+8CUGM79oedyG5kz17xpxtrtFJnqQuQpfmSeXdWmXXNuwB5uk78fD6K+x9HTiKn9gqA1p48SwEAAADIzProNwAAUCrzLgAApfOeFwAAAKBs3wPZKaQ=
+   eJzt2D1OAlEUgFFwD5hYKG4F1AJkF9aKMehe/CmE3VlYAC7AawwFk5mxIMx7DuckXwJ5BTevmLmh0wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAbYNoGF1El4lnyZH7AdpqmHoAgIbcRnfRNLpPPEuODvl+PmrOPhubAgBgN8/RS/QavSWeJUeHfD+9bvXZSc0ZAAD8B4OanfbKvkuDHrvVPRU+A0DRMlpF6+gr8SwAZX722HlJmz13831h3wWgxGm8H86ifnTuXfGnmTvaq5vUA5ClRcW+Oy/suvZdgDw9JH4+j+L3x9F1NPGuANjZu2cpAAAAAJk5PvoNAADayr4LAEDb+Z8XAAAAoN2+AdZNJ4g=
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
@@ -36,5 +36,10 @@
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
+  <object id="6" name="overworld" type="warp" x="11088" y="672" width="32" height="48"/>
+ </objectgroup>
+ <objectgroup color="#aaffff" name="children">
+  <object id="7" name="1" type="knowledge" x="3920" y="528" width="32" height="32"/>
+  <object id="8" name="2" type="knowledge" x="10720" y="480" width="32" height="32"/>
  </objectgroup>
 </map>

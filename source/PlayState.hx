@@ -9,6 +9,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
 import openfl.Assets;
+import openfl.Lib;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -20,6 +21,9 @@ class PlayState extends FlxState
 	public var currentLevel:TiledLevel;
 	public var dialogue:DialogueBox;
 	public var ui:UserInterface;
+	public var levelName:String;
+	
+	private var lastTime:Int = 0;
 	
 	
 	/**
@@ -37,15 +41,16 @@ class PlayState extends FlxState
 		
 		player = new Player();
 		Reg.player = player;
-		newLevel("demo");
+		newLevel("overworld");
 	}
 	
 	/**
 	 * Removes the current level and loads a new level
 	 * @param	levelName The name of the level to be loaded
 	 */
-	public function newLevel(levelName:String)
+	public function newLevel(_levelName:String)
 	{
+		levelName = _levelName;
 		remove(player);
 		remove(ui);
 		if (currentLevel != null)
@@ -54,6 +59,8 @@ class PlayState extends FlxState
 			remove(currentLevel.foregroundStuff);
 		}
 		currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
+		trace("loading level " + levelName + ", time spent in last level: " + Math.floor((Lib.getTimer() - lastTime)/1000) + "s");
+		lastTime = Lib.getTimer();
 		currentLevel.loadLevel();
 		player.x = currentLevel.startPoint.x;
 		player.y = currentLevel.startPoint.y;
