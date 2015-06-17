@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt08ENgDAMA8DAzszSdREPBoBPnfZOyt+SnSoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoY5yzE7CbZ3NJu3vzJGXim679JeX2B2vo2mHS/pKywC6u49/BavwCAABA1Q0Vchl2
+   eJzt07ENgEAMBEFDQsX0QUa7iIACIPl7MyM5X8l2FQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzjXEcX8Df3zSXd3dOT1MQ7s+4vqdsf9DDrDpPuL6mli2MbXUC6ffk20I1fAAAAqLoA4NUaDQ==
   </data>
  </layer>
  <layer name="middleground" width="195" height="50">
@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0zEKwkAQQNFNlTPpKb1g1KO48NOmMqCB92AYplm2+WMAAAAAAAAAAAAAZ3qsv/4B/ActQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA2eY857zmvN3u/f7mnavObRnjvtj2ufuKAwAAcOQDZtrofw==
+   eJzt0zEKwkAQQNFN5Zn0lF5Q41Hc8LFMZUAD78EwTLNs88cA7pdf/wD+gxYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAbK1oAfQAnxoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAbJ18Jj7OWed8xpud/c375x1rssYt8W2j91nHAAAgD1v428Cgg==
   </data>
  </layer>
  <layer name="foreground" width="195" height="50">
