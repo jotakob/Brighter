@@ -150,8 +150,6 @@ class Player extends FlxObject
 		graphicComponent.y = this.y - 34;
 		
 		super.update();
-		
-		//FlxG.collide(this, Reg.currentState.currentLevel.collisionBoxes);
 	}
 	
 	//Collide & Overlap functions

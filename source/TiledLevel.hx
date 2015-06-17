@@ -30,6 +30,7 @@ class TiledLevel extends TiledMap
 	public var coins:FlxGroup;
 	public var startPoint:FlxObject;
 	public var activatableObjects:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
+	public var triggers:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
 	
 	private var collidableTileLayers:Array<FlxTilemap>;
 	public var collisionBoxes  = new FlxTypedGroup<CollisionBox>();
@@ -145,9 +146,9 @@ class TiledLevel extends TiledMap
 				activatableObjects.add(child);
 				
 			case "knowledge":
-				var kPiece = new KnowledgePickup(x, y);
-				foregroundStuff.add(kPiece);
-				activatableObjects.add(kPiece);
+				var kPiece = new KnowledgePickup(x, y, o.width, o.height);
+				foregroundStuff.add(kPiece.graphicComponent);
+				triggers.add(kPiece);
 		}
 	}
 	

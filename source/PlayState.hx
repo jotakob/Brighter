@@ -37,7 +37,7 @@ class PlayState extends FlxState
 		
 		player = new Player();
 		Reg.player = player;
-		newLevel("policeLevel");
+		newLevel("demo");
 	}
 	
 	/**
@@ -83,11 +83,17 @@ class PlayState extends FlxState
 		
 		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);
+		FlxG.overlap(player, currentLevel.triggers, triggerObject);
 		
 		if (FlxG.overlap(player, currentLevel.floor))
 		{
 			player.x = currentLevel.startPoint.x;
 			player.y = currentLevel.startPoint.y;
 		}
-	}	
+	}
+	
+	function triggerObject(obj1:Dynamic, obj2:Dynamic)
+	{
+		cast(obj2, GameObject).activate();
+	}
 }

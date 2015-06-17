@@ -9,7 +9,7 @@ import flixel.FlxSprite;
  * @author Marijn Metzlar
  */
 
-class MovingObject extends GameObject
+class MovingObject extends CollisionBox
 {
 
 	public function new(X:Float=0, Y:Float=0) 
