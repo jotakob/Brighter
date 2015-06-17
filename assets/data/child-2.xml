@@ -1,31 +1,25 @@
-<dialogue name="Unknown">
+<dialogue name="Frits">
 	<conversation id="notmet">
-		<item speaker="child0">Hey, kan je mij helpen?</item>
-		<item speaker="player">Jawel. Wat is er loos?</item>
-		<item speaker="child0">Er is een jongen die mij al dagen lang aan het pesten is.</item>
-		<item speaker="child0">Maar sinds kort doet hij dat nu ook via het internet</item>
-		<item speaker="child0">en zegt hij allemaal gemene dingen over mij.</item>
-		<item speaker="player">Wat naar!</item>
-		<item speaker="child0">Inderdaad! Weet jij wat ik daar tegen kan doen?</item>
-		<item speaker="player">Ik zal kijken of ik een oplossing voor je kan vinden.</item>
-		<item speaker="child0">Dankjewel!</item>"
-		
-		
+		<item speaker="child2">Hallo, mijn naam is Frits. Ik heb écht je hulp nodig</item>
+		<item speaker="player">Oh, wat is er dan?</item>
+		<item speaker="child2">Zostraks had Bob mij een game verkocht die vet goedkoop was.</item>
+		<item speaker="child2">Maar nu blijkt dat hij die game gestolen heeft uit een winkel!</item>
+		<item speaker="player">Dat klinkt allemaal niet zo goed.</item>
+		<item speaker="child2">Nee, en nu heb ík de politie op m’n dak. Weet jij wat ik kan doen?</item>
+		<item speaker="player">Ik ga kijken of ik wat kan vinden waarmee ik je kan helpen!</item>
+		<item speaker="child2">Bedankt man!</item>
 	</conversation>
 	<conversation id="met">
-		<item speaker="child0">En, weet je wat ik kan doen?</item>
+		<item speaker="child2">En, weet je wat ik kan doen?</item>
 	</conversation>
-	<conversation id="nohelp">
-		<item speaker="player">Nee, ik ben nog op zoek.</item>
-	</conversation>
-	<conversation id="yeshelp">
-		<item speaker="player">Ja, ik heb het gevonden.</item>
-	</conversation>
+	<choice id="metchoice">
+		<item1>Ja, ik heb het gevonden.</item1>
+		<item2>Nee, ik ben er nog niet achter.</item2>
+	</choice>
 	<conversation id="wronganswer">
-		<item speaker="child0">Wrong answer.</item>
+		<item speaker="child2">Daar heb ik niets aan.</item>
 	</conversation>
 	<conversation id="rightanswer">
-		<item speaker="child0">Echt? Super bedankt! </item>
-		<item speaker="child0">Ik voel me nu al een stuk beter..</item>
+		<item speaker="child2">Ik ben blij dat ik er iets tegen kan doen. Dankjewel!</item>
 	</conversation>
 </dialogue>
