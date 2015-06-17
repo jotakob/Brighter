@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="50" tilewidth="16" tileheight="16" nextobjectid="8">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
+  <image source="tiles.png" width="709" height="709"/>
+ </tileset>
+ <layer name="background" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0MEJgEAQBME9wzABzUfzj0XFAMTXzUIVzL+ZKgAAAAAAAAAAAAAAAAAAAAAAAAAAAADgy7q866ZrNwBZtlG1j9kV/6V1p/XMdtxfnA3/SOtO6wEAAIDHBW4SA18=
+  </data>
+ </layer>
+ <layer name="middleground" width="150" height="50">
+  <properties>
+   <property name="collide" value="true"/>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="back"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt0ssNwjAQQEHnRE2kShrkU0ocUQJ+AqEZabXai+XDGwMAAAAAftPt8u0f8I90RUFXFHRFQVcUzq60xWq6oqArCrqioCsKuqKgKwq6oqArCrqioCsKuqKgKwq6oqArCrqioCsKuqKgKwq6oqArCrqioCsKuqKgKwq6oqArCrqioCsKuqKgKwpnU/e5H3Oec17D7X7fn75z3cbYN9teuwEAWOsAdRfMwQ==
+  </data>
+ </layer>
+ <layer name="foreground" width="150" height="50">
+  <properties>
+   <property name="tileset" value="tiles"/>
+   <property name="z" value="front"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+  </data>
+ </layer>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="-15.8182" y="740.273" width="2500" height="16"/>
+ </objectgroup>
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="450" y="671" width="28" height="32"/>
+  <object id="6" x="1185" y="669" width="28" height="32"/>
+  <object id="7" x="1763" y="671" width="25" height="31"/>
+ </objectgroup>
+</map>

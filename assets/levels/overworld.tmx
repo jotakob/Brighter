@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0zFqw0AARFG5ypmcU+aCiXOUCJQ2lQOeD+/BIrYRv5g9DgAAAAAA4FU+3l5dABu8Bbh4C3DxFuDiLcCl+haq3eyqbqraza7qpqrd7KpuqtrNruqmqt3sqm6q2s2u6qaq3eyqbqraza7qpqrd7KpuqtrNruqmqt3sqm6q2s2u6qaq3eyqbqraza7qpqrd7KpuqtrNruqmqt3sqm6q2s2u6qaq3eyqbqraza7qpqrd7KpuqtrNruqmqt3sqm6q2s2u6qaq3eyqbqraza7qpqrd7KpuqtrNruqmqt3sqm6q2s2u6qaq3eyqburzPF/neZzn29399/7Mf6rnfjuO95uv7/9+iwcAAOAvP1lT/lI=
+   eJzt0zEKwkAQQNFNlTPpKb1g1KO48NOmMqCB92AYplm2+WMAAAAAAAAAAAAAZ3qsv/4B/ActQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA0QJECxAtQLQA2eY857zmvN3u/f7mnavObRnjvtj2ufuKAwAAcOQDZtrofw==
   </data>
  </layer>
  <layer name="foreground" width="195" height="50">
@@ -37,7 +37,7 @@
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="1168" y="672" width="28" height="32"/>
-  <object id="6" name="schoollevel" type="warp" x="392" y="630" width="87" height="85"/>
-  <object id="7" name="playgroundlevel" type="warp" x="2812" y="671" width="68" height="31"/>
+  <object id="6" name="school" type="warp" x="392" y="630" width="87" height="85"/>
+  <object id="7" name="playground" type="warp" x="2812" y="671" width="68" height="31"/>
  </objectgroup>
 </map>

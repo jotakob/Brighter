@@ -18,6 +18,7 @@ class KnowledgePickup extends GameObject
 	{
 		trace("stuff");
 		this.graphicComponent.kill();
+		this.kill();
 	}
 	
 }

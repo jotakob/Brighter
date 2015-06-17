@@ -50,7 +50,6 @@ class PlayState extends FlxState
 	 */
 	public function newLevel(_levelName:String)
 	{
-		levelName = _levelName;
 		remove(player);
 		remove(ui);
 		if (currentLevel != null)
@@ -58,8 +57,9 @@ class PlayState extends FlxState
 			remove(currentLevel.backgroundStuff);
 			remove(currentLevel.foregroundStuff);
 		}
-		currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
-		trace("loading level " + levelName + ", time spent in last level: " + Math.floor((Lib.getTimer() - lastTime)/1000) + "s");
+		currentLevel = new TiledLevel("assets/levels/" + _levelName + ".tmx");
+		trace("leaving level " + levelName + ", time spent: " + Math.floor((Lib.getTimer() - lastTime)/1000) + "s");
+		levelName = _levelName;
 		lastTime = Lib.getTimer();
 		currentLevel.loadLevel();
 		player.x = currentLevel.startPoint.x;
