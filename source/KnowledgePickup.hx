@@ -16,7 +16,6 @@ class KnowledgePickup extends GameObject
 	
 	public override function activate()
 	{
-		trace("stuff");
 		this.graphicComponent.kill();
 		this.kill();
 	}
