@@ -58,14 +58,22 @@ class PlayState extends FlxState
 			remove(currentLevel.backgroundStuff);
 			remove(currentLevel.foregroundStuff);
 		}
-		currentLevel = new TiledLevel("assets/levels/" + _levelName + ".tmx");
-		trace("Time spent in " + levelName + ": " + Math.floor((Lib.getTimer() - lastTime)/1000) + "s");
+		trace("Time spent in " + levelName + ": " + Math.floor((Lib.getTimer() - lastTime) / 1000) + "s");
+		
 		levelName = _levelName;
+		if (Reg.levels.exists(levelName))
+		{
+			currentLevel = Reg.levels.get(levelName);
+		}
+		else
+		{
+			currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
+			currentLevel.loadLevel();
+			Reg.levels.set(levelName, currentLevel);
+		}
+		
 		lastTime = Lib.getTimer();
-		currentLevel.loadLevel();
 		player.reset(currentLevel.startPoint.x, currentLevel.startPoint.y);
-		//player.x = currentLevel.startPoint.x;
-		//player.y = currentLevel.startPoint.y;
 		add(currentLevel.backgroundStuff);
 		add(player);
 		add(player.graphicComponent);

@@ -35,10 +35,10 @@ class Player extends FlxObject
 		loadAnimations();
 		
 		maxVelocity.x = 200;
-		maxVelocity.y = 400;
+		maxVelocity.y = 600;
 		acceleration.y = 400;
 		drag.y = -200;
-		drag.x = maxVelocity.x * 4;
+		drag.x = maxVelocity.x * 6;
 		FlxG.camera.follow(this);
 	}
 	

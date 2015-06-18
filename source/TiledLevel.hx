@@ -146,7 +146,7 @@ class TiledLevel extends TiledMap
 				activatableObjects.add(child);
 				
 			case "knowledge":
-				var kPiece = new KnowledgePickup(x, y, o.width, o.height);
+				var kPiece = new KnowledgePickup(x, y, Std.parseInt(o.name));
 				foregroundStuff.add(kPiece.graphicComponent);
 				triggers.add(kPiece);
 				
