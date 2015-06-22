@@ -54,6 +54,6 @@
   <object id="11" name="1" type="knowledge" x="208" y="304" width="20" height="32"/>
  </objectgroup>
  <objectgroup color="#d4ce13" name="dialogue">
-  <object id="12" name="test" type="dialogue" x="48" y="384" width="32" height="32"/>
+  <object id="12" name="introduction" type="dialogue" x="48" y="384" width="32" height="32"/>
  </objectgroup>
 </map>
