@@ -25,6 +25,10 @@ class Dialogue extends GameObject
 				break;
 			}
 		}
+		if (conversation == null)
+		{
+			trace("Error: conversation not found");
+		}
 	}
 	
 	public override function activate()

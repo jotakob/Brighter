@@ -74,7 +74,7 @@ class DialogueBox extends FlxGroup
 			if (speaker == "player")
 			{
 				leftSpeaker == speaker;
-				leftImage = new FlxSprite(0, 0, "sprites/character-" + Reg.settings.gender + "-face.png");
+				leftImage = new FlxSprite(4, 0, "sprites/character-" + Reg.settings.gender + "-face.png");
 				leftImage.scrollFactor.set();
 				leftImage.y = this.y - leftImage.height;
 				add(leftImage);
@@ -86,7 +86,7 @@ class DialogueBox extends FlxGroup
 				rightImage.setFacingFlip(FlxObject.RIGHT, true, false);
 				rightImage.facing = FlxObject.RIGHT;
 				rightImage.scrollFactor.set();
-				rightImage.x = this.width - rightImage.width;
+				rightImage.x = this.width - rightImage.width - 4;
 				rightImage.y = this.y - this.height;
 				add(rightImage);
 			}
@@ -132,7 +132,6 @@ class DialogueBox extends FlxGroup
 			}
 			else if (currentConversation.hasNext())
 			{
-				trace("keypress");
 				var text:Fast = currentConversation.next();
 				setText(text.innerData, text.att.speaker);
 			}
