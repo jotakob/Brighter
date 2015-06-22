@@ -3,7 +3,7 @@
 		<item speaker="bird">Hallo! Ik ben van de KJRW. De KJRW is een organisatie die </item>
 		<item speaker="bird">kinderen zoals jij helpt met advies geven over problemen die </item>
 		<item speaker="bird">opgelost kunnen worden door het rechtssysteem.</item>
-		<item speaker="bird">Hier in <naam stad> hebben de kinderen onze hulp nodig, </item>
+		<item speaker="bird">Hier hebben de kinderen onze hulp nodig, </item>
 		<item speaker="bird">maar ik kan dit niet alleen. Kan jij me helpen?</item>
 		<item speaker="player">Ja, is goed.</item>
 		<item speaker="bird">Tof! De kinderen hebben advies nodig met hun problemen, </item>
@@ -11,8 +11,10 @@
 		<item speaker="bird">kan alleen gevonden worden in bepaalde gebouwen.</item>
 		<item speaker="bird">Ik kan je naar de gebouwen leiden,</item>
 		<item speaker="bird">maar de kennis moet jij verzamelen. </item>
-	
-	
+		<item speaker="player">Het kan echter aardig pittig zijn om die te verzamelen,</item>
+		<item speaker="player">maar de eerste stukken kennis zullen wel niet al te moeilijk zijn.”</item>
+		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
+		<item speaker="player">Inderdaad. Volgens mij zie ik verderop al iemand staan die onze hulp nodig heeft!</item>
 	
 	</conversation>
 	<conversation id="met">
