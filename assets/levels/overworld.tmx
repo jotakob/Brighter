@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="50" tilewidth="16" tileheight="16" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="10">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="195" height="50">
+ <layer name="background" width="195" height="46">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt07ENgEAMBEFDQsX0QUa7iIACIPl7MyM5X8l2FQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMzjXEcX8Df3zSXd3dOT1MQ7s+4vqdsf9DDrDpPuL6mli2MbXUC6ffk20I1fAAAAqLoA4NUaDQ==
+   eJzt07ENgDAMRcFAw8TsQce6EQUDQJPv5E5y/yTbrQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAd9z66gNU8N5d0d29PUhPfVN1fUrc/mEPVHSbdX1LLLK5jdAHpzu3fwGxW+oUOT9IaDQ==
   </data>
  </layer>
- <layer name="middleground" width="195" height="50">
+ <layer name="middleground" width="195" height="46">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0zEKwkAQQNFN5Zn0lF5Q41Hc8LFMZUAD78EwTLNs88cA7pdf/wD+gxYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAbK1oAfQAnxoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAaIFiBYgWoBoAbJ18Jj7OWed8xpud/c375x1rssYt8W2j91nHAAAgD1v428Cgg==
+   eJzt08sJAkEQQMHekzFplCboJxRneRiBgi5UQdP0ZZjLmwGup1//AP6DFiBagGgBogWIFiBagGgBogWIFiBagGgBsregB9ACvGkBogWIFiBagGgBogWIFiBagGgBogWIFiBagGgBogWIFiBagGgBogWIFiBagGgBogWIFiBagGgBogWIFiBagGgBsndwW/u+5rHmOW539yfvHHXO28xls+3v7iPOC1FNAoI=
   </data>
  </layer>
- <layer name="foreground" width="195" height="50">
+ <layer name="foreground" width="195" height="46">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztwYEAAAAAw6D5U1/hAFUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK8BmFgAAQ==
+   eJztwTEBAAAAwqD1T+1vBqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgDeMKAAB
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
-  <object id="1" name="floor" type="floor" x="-15.8182" y="740.273" width="3540.82" height="16"/>
   <object id="8" name="overworld" type="background" x="0" y="224" width="32" height="499"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
