@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="50" tilewidth="16" tileheight="16" nextobjectid="8">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="575" height="50" tilewidth="16" tileheight="16" nextobjectid="8">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="../../Art/tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="600" height="50">
+ <layer name="background" width="575" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1bENgCAABMBnEBM73Ef338HEAbBgBaDgrvn2880nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM8vb8lrbYSy3JVVa3AABGOfrPn/5+mvvf+rE3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAGut1Ax8=
+   eJzt1lERABAURcH70tCH/llIwQy7Cc7nSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3tYq6XW7AgDgjLG/Z3ofAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPjOAry6APs=
   </data>
  </layer>
- <layer name="middleground" width="600" height="50">
+ <layer name="middleground" width="575" height="50">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="foreground" width="600" height="50">
+ <layer name="foreground" width="575" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzkEJACAUBcFn/0ZaSFvowQxfhBnY+yYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHVmS9YNAAAAAAAAAAAAAAAAAAAAAAAAAAB+1U/j9QQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAClNuV1BDM=
+   eJztzjENACAMAMFWCAn+3ZEggAEsQAfull8/AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4aZzO0gsAgDda7vas/QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+M0CM2oCJQ==
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
@@ -36,9 +36,9 @@
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="49" y="589" width="28" height="32"/>
-  <object id="5" name="overworld" type="warp" x="9504" y="560" width="30" height="32"/>
+  <object id="5" name="overworld" type="warp" x="9137" y="561" width="30" height="32"/>
  </objectgroup>
  <objectgroup color="#aaffff" name="children">
-  <object id="7" name="1" type="knowledge" x="9280" y="336" width="32" height="32"/>
+  <object id="7" name="1" type="knowledge" x="8882" y="348" width="32" height="32"/>
  </objectgroup>
 </map>
