@@ -16,7 +16,7 @@
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
 		<item speaker="bird">Inderdaad. Volgens mij zie ik verderop al iemand staan die onze hulp nodig heeft!</item>
 	</conversation>
-	<conversation id="met">
+	<!--<conversation id="met">
 		<item speaker="bird">Hey, have you found help for me? I reeeaaally need it.</item>
 	</conversation>
 	<choice id="metchoice">
@@ -28,5 +28,5 @@
 	</conversation>
 	<conversation id="rightanswer">
 		<item speaker="bird">Yay, thanks!</item>
-	</conversation>
+	</conversation> -->
 </dialogue>
