@@ -39,7 +39,7 @@
   <object id="6" name="overworld" type="warp" x="10000" y="672" width="32" height="48"/>
  </objectgroup>
  <objectgroup color="#aaffff" name="children">
-  <object id="7" name="1" type="knowledge" x="3026" y="535" width="32" height="32"/>
-  <object id="8" name="2" type="knowledge" x="9679" y="485" width="32" height="32"/>
+  <object id="7" name="1" type="knowledge" x="3026" y="530" width="32" height="32"/>
+  <object id="8" name="2" type="knowledge" x="9687" y="485" width="32" height="32"/>
  </objectgroup>
 </map>
