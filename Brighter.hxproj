@@ -20,6 +20,7 @@
     <class path="C:\HaxeToolkit\haxe\lib\flixel\3,3,8" />
     <class path="C:\HaxeToolkit\haxe\lib\lime\2,4,0" />
     <class path="source" />
+    <class path="source\gameobjects" />
     <class path="export\windows\neko\haxe" />
   </classpaths>
   <!-- Build options -->

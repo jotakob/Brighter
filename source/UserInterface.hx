@@ -16,6 +16,7 @@ class UserInterface extends FlxGroup
 	{
 		super();
 		dialogue = new DialogueBox();
+		knowledgeBox = new KnowledgeBox();
 	}
 	
 	public function showKnowledge(_status:Int)

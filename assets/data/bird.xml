@@ -1,0 +1,7 @@
+<dialogue>
+	<conversation id="test">
+		<item speaker="bird">Hi. This is a chest!</item>
+		<item speaker="bird">Don't you think this is a great chest?</item>
+		<item speaker="player">Indeed. It is very nice.</item>
+	</conversation>
+</dialogue>

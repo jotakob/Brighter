@@ -2,6 +2,7 @@ package ;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxObject;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import haxe.xml.Fast;
@@ -17,19 +18,20 @@ import openfl.ui.Keyboard;
 class DialogueBox extends FlxGroup
 {
 	private var currentConversation:Dynamic;
-	private var speaker:String;
-	private var background:FlxSprite;
+	private var leftSpeaker:String = "";
+	private var rightSpeaker:String = "";
 	private var leftImage:FlxSprite;
 	private var rightImage:FlxSprite;
+	private var background:FlxSprite;
 	private var textBox:FlxText;
 	private var highlighted = new FlxTextFormat(0xFFFF00, true);
 	private var textBoxFormat = new FlxTextFormat(0xFFFFFF, false);
-	private var speakerTextBox:FlxText;
 	private var width:Int;
 	private var height:Int = 64;
 	private var y:Int;
 	private var currentChoice:Int = -1;
 	private var choiceLength:Int;
+	private var talkingToChild:Bool;
 
 	public function new()
 	{
@@ -51,26 +53,65 @@ class DialogueBox extends FlxGroup
 		textBox.x = 10;
 		textBox.y = y + 10;
 		textBox.addFormat(textBoxFormat);
-		add(speakerTextBox);
 		add(textBox);
 	}
 	
-	public function setText(text:String, _speaker:String)
+	private function setSpeaker(speaker:String)
+	{
+		remove(leftImage);
+		remove(rightImage);
+		
+		if (leftSpeaker == speaker)
+		{
+			add(leftImage);
+		}
+		else if (rightSpeaker == speaker)
+		{
+			add (rightImage);
+		}
+		else
+		{
+			if (speaker == "player")
+			{
+				leftSpeaker == speaker;
+				leftImage = new FlxSprite(0, 0, "sprites/character-" + Reg.settings.gender + "-face.png");
+				leftImage.scrollFactor.set();
+				leftImage.y = this.y - leftImage.height;
+				add(leftImage);
+			}
+			else if ((speaker == "bird") || (speaker.substr(0, 5) == "child"))
+			{
+				rightSpeaker = speaker;
+				rightImage = new FlxSprite(0, 0, "sprites/" + speaker + "-face.png");
+				rightImage.setFacingFlip(FlxObject.RIGHT, true, false);
+				rightImage.facing = FlxObject.RIGHT;
+				rightImage.scrollFactor.set();
+				rightImage.x = this.width - rightImage.width;
+				rightImage.y = this.y - this.height;
+				add(rightImage);
+			}
+			else
+			{
+				trace("speaker not found");
+			}
+		}
+	}
+	
+	public function setText(text:String, speaker:String)
 	{
 		currentChoice = -1;
-		speaker = _speaker;
+		setSpeaker(speaker);
 		textBox.removeFormat(highlighted);
 		textBox.removeFormat(textBoxFormat);
 		textBox.text = text;
 		textBox.addFormat(textBoxFormat);
 		Reg.currentState.ui.add(this);
-		trace("setting textx.");
 	}
 	
 	public function choiceBox(choice1:String, choice2:String)
 	{
 		currentChoice = 1;
-		speaker = "player";
+		setSpeaker("player");
 		choiceLength = choice1.length;
 		textBox.text = choice1 + "\n" + choice2;
 		textBox.addFormat(highlighted, 0, choiceLength);
@@ -91,6 +132,7 @@ class DialogueBox extends FlxGroup
 			}
 			else if (currentConversation.hasNext())
 			{
+				trace("keypress");
 				var text:Fast = currentConversation.next();
 				setText(text.innerData, text.att.speaker);
 			}
@@ -112,31 +154,38 @@ class DialogueBox extends FlxGroup
 			textBox.addFormat(highlighted, choiceLength + 1, textBox.text.length);
 		}
 	}
+	
 	private function chooseAction()
 	{
-		switch Reg.currentChild.status
+		if (talkingToChild)
 		{
-			case Child.NOT_MET, Child.WRONG_ANSWER, Child.NO_HELP:
-				Reg.currentChild.status = Child.MET;
-				continueGame();
-				
-			case Child.MET:
-				for (conv in Reg.currentChild.dialogue.elements)
-				{
-					if (conv.att.id == "metchoice")
+			switch Reg.currentChild.status
+			{
+				case Child.NOT_MET, Child.WRONG_ANSWER, Child.NO_HELP:
+					Reg.currentChild.status = Child.MET;
+					continueGame();
+					
+				case Child.MET:
+					for (conv in Reg.currentChild.dialogue.elements)
 					{
-						choiceBox(conv.node.item1.innerData, conv.node.item2.innerData);
-						break;
+						if (conv.att.id == "metchoice")
+						{
+							choiceBox(conv.node.item1.innerData, conv.node.item2.innerData);
+							break;
+						}
 					}
-				}
-				//continueGame();
-				
-			case Child.YES_HELP:
-				//TODO Knowledge choice
-				continueGame();
-				
-			case Child.SOLVED:
-				continueGame();
+					
+				case Child.YES_HELP:
+					Reg.ui.knowledgeBox.show(2);
+					continueGame();
+					
+				case Child.SOLVED:
+					continueGame();
+			}
+		}
+		else
+		{
+			continueGame();
 		}
 	}
 	
@@ -151,10 +200,11 @@ class DialogueBox extends FlxGroup
 	 * Display a set of dialogue
 	 * @param	conversation a set of dialoge from an XML file
 	 */
-	public function displayDialogue(conversation:Fast)
+	public function displayDialogue(conversation:Fast, child:Bool)
 	{
+		
 		Reg.currentState.ui.add(this);
-		trace(conversation.name);
+		talkingToChild = child;
 		
 		currentConversation = conversation.elements;
 		var text:Fast = currentConversation.next();

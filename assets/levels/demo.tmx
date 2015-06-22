@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="50" tilewidth="16" tileheight="16" nextobjectid="13">
  <tileset firstgid="1" name="terrain" tilewidth="16" tileheight="16">
   <image source="terrain.png" width="256" height="256"/>
  </tileset>
@@ -52,5 +52,8 @@
  <objectgroup color="#aaffff" name="children">
   <object id="8" name="1" type="child" x="240" y="448" width="32" height="32"/>
   <object id="11" name="1" type="knowledge" x="208" y="304" width="20" height="32"/>
+ </objectgroup>
+ <objectgroup color="#d4ce13" name="dialogue">
+  <object id="12" name="test" type="dialogue" x="48" y="384" width="32" height="32"/>
  </objectgroup>
 </map>

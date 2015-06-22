@@ -153,6 +153,10 @@ class TiledLevel extends TiledMap
 			case "background":
 				var bg = new FlxSprite(x, y, "assets/levels/" + o.name.toLowerCase() + ".png");
 				backgroundStuff.add(bg);
+				
+			case "dialogue":
+				var dialogue = new Dialogue(x, y, o.width, o.height, o.name.toLowerCase());
+				triggers.add(dialogue);
 		}
 	}
 	

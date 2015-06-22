@@ -34,7 +34,7 @@ class Child extends GameObject
 		
 		childID = _ID;
 		graphicComponent = new FlxSprite(X, Y);
-		graphicComponent.loadGraphic("sprites/child-" + childID + ".png", false, 64, 64, true);
+		graphicComponent.loadGraphic("sprites/child" + childID + ".png", false, 64, 64, true);
 		graphicComponent.animation.add("side", [1], 0 , false);
 		graphicComponent.animation.add("front", [2], 0 , false);
 		graphicComponent.animation.add("back", [3], 0 , false);
@@ -83,12 +83,8 @@ class Child extends GameObject
 			if (conv.att.id == status)
 			{
 				Reg.currentChild = this;
-				Reg.ui.dialogue.displayDialogue(conv);
+				Reg.ui.dialogue.displayDialogue(conv, true);
 				break;
-			}
-			else
-			{
-				trace("Error: Requested conversation not found");
 			}
 		}
 	}

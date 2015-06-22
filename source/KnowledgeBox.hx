@@ -34,8 +34,12 @@ class KnowledgeBox extends FlxGroup
 		background.y = y;
 		background.height = height;
 		background.width = width;
-		background.makeGraphic(width, height, 0x883B2508);
+		background.makeGraphic(width, height, 0xCC3B2508);
 		add(background);
 	}
 	
+	public function show(_status:Int)
+	{
+		Reg.ui.add(this);
+	}
 }

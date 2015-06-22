@@ -30,9 +30,7 @@ class PlayState extends FlxState
 	 * Function that is called up when to state is created to set it up.
 	 */
 	override public function create():Void
-	{
-		FlxG.mouse.visible = false;
-		
+	{		
 		super.create();
 		Reg.currentState = this;
 		
