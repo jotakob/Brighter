@@ -18,6 +18,12 @@ class Main extends Sprite
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 	
+	#if debug
+	public static inline var debug = true;
+	#else
+	public static inline var debug = false;
+	#end
+	
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	
 	public static function main():Void

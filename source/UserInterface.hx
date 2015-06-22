@@ -1,5 +1,6 @@
 package ;
 
+import flixel.FlxBasic;
 import flixel.group.FlxGroup;
 
 /**
@@ -9,11 +10,17 @@ import flixel.group.FlxGroup;
 class UserInterface extends FlxGroup
 {
 	public var dialogue:DialogueBox;
+	public var knowledgeBox:KnowledgeBox;
 
-	public function new() 
+	public function new()
 	{
 		super();
 		dialogue = new DialogueBox();
 	}
 	
+	public function showKnowledge(_status:Int)
+	{
+		knowledgeBox.status = _status;
+		add(knowledgeBox);
+	}
 }
