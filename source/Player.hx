@@ -134,7 +134,7 @@ class Player extends FlxObject
 				{
 					jump();
 				}
-				else if ((!hasDoubleJumped && (Reg.currentState.levelName != "school")) || (Main.debug))
+				else if (!hasDoubleJumped && ((Reg.currentState.levelName != "school") || Main.debug))
 				{
 					if ( (FlxG.keys.pressed.LEFT && velocity.x == Math.abs(velocity.x)) || (FlxG.keys.pressed.RIGHT && velocity.x == -Math.abs(velocity.x)) )
 					{
