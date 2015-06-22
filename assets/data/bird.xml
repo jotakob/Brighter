@@ -1,7 +1,31 @@
-<dialogue>
-	<conversation id="test">
-		<item speaker="bird">Hi. This is a chest!</item>
-		<item speaker="bird">Don't you think this is a great chest?</item>
-		<item speaker="player">Indeed. It is very nice.</item>
+<dialogue name="Bird">
+	<conversation id="introduction">
+		<item speaker="bird">Hallo! Ik ben van de KJRW. De KJRW is een organisatie die </item>
+		<item speaker="bird">kinderen zoals jij helpt met advies geven over problemen die </item>
+		<item speaker="bird">opgelost kunnen worden door het rechtssysteem.</item>
+		<item speaker="bird">Hier in <naam stad> hebben de kinderen onze hulp nodig, </item>
+		<item speaker="bird">maar ik kan dit niet alleen. Kan jij me helpen?</item>
+		<item speaker="player">Ja, is goed.</item>
+		<item speaker="bird">Tof! De kinderen hebben advies nodig met hun problemen, </item>
+		<item speaker="bird">maar de kennis die nodig is om hen te helpen </item>
+		<item speaker="bird">kan alleen gevonden worden in bepaalde gebouwen.</item>
+		<item speaker="bird">Ik kan je naar de gebouwen leiden,</item>
+		<item speaker="bird">maar de kennis moet jij verzamelen. </item>
+	
+	
+	
+	</conversation>
+	<conversation id="met">
+		<item speaker="child-1">Hey, have you found help for me? I reeeaaally need it.</item>
+	</conversation>
+	<choice id="metchoice">
+		<item1>Yes, here is some help.</item1>
+		<item2>Nope, sorry.</item2>
+	</choice>
+	<conversation id="wronganswer">
+		<item speaker="child-1">No, that doesn't help me.</item>
+	</conversation>
+	<conversation id="rightanswer">
+		<item speaker="child-1">Yay, thanks!</item>
 	</conversation>
 </dialogue>

@@ -1,6 +1,6 @@
-<dialogue name="Child1">
+<dialogue name="Henk">
 	<conversation id="notmet">
-		<item speaker="child1">Hey, kan je mij helpen?</item>
+		<item speaker="child1"></item>
 		<item speaker="player">Jawel. Wat is er loos?</item>
 		<item speaker="child1">Er is een jongen die mij al dagen lang aan het pesten is.</item>
 		<item speaker="child1">Maar sinds kort doet hij dat nu ook via het internet</item>
@@ -9,6 +9,7 @@
 		<item speaker="child1">Inderdaad! Weet jij wat ik daar tegen kan doen?</item>
 		<item speaker="player">Ik zal kijken of ik een oplossing voor je kan vinden.</item>
 		<item speaker="child1">Dankjewel!</item>"
+	
 	</conversation>
 	<conversation id="met">
 		<item speaker="child1">En, weet je wat ik kan doen?</item>
@@ -25,3 +26,6 @@
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
 	</conversation>
 </dialogue>
+<!--
+Hey, kan je mij helpen?
+-->
