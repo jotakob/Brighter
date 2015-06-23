@@ -10,6 +10,7 @@ class Settings
 	public var leftKeys:Array<String> = ["A", "LEFT"];
 	public var rightKeys:Array<String> = ["D", "RIGHT"];
 	public var interactKeys:Array<String> = ["E", "ENTER"];
+	public var menuKeys:Array<String> = ["ESCAPE", "M"];
 	public var gender:String = "male";
 	public var playerName:String = "Max";
 	

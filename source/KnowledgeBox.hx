@@ -4,7 +4,9 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.FlxG;
+import flixel.group.FlxTypedGroup;
 import flixel.plugin.MouseEventManager;
+import flixel.ui.FlxButton;
 
 /**
  * ...
@@ -19,12 +21,15 @@ class KnowledgeBox extends FlxGroup
 	 */
 	public var status:Int;
 	
-	private var width:Int = 192;
-	private var height:Int;
-	private var x:Int;
-	private var y:Int = 48;
+	public var width:Int = 192;
+	public var height:Int;
+	public var x:Int;
+	public var y:Int = 48;
 	
-	private var knowledgeAmount = 3;
+	public var knowledgeAmount = 3;
+	
+	private var scrolls:FlxTypedGroup<FlxSprite>;
+	private var closeButton:FlxButton;
 
 	public function new()
 	{
@@ -34,37 +39,53 @@ class KnowledgeBox extends FlxGroup
 		x = FlxG.width - 240;
 		background = new FlxSprite(x, y);
 		background.scrollFactor.set();
-		background.x = x;
-		background.y = y;
+		//background.x = x;
+		//background.y = y;
 		background.height = height;
 		background.width = width;
 		background.makeGraphic(width, height, 0xCC3B2508);
 		add(background);
-	}
-	
-	private function scrollClick(obj:FlxObject)
-	{
-		Reg.knowledgePieces.get(obj.ID).show();
+		
+		//temp only
+		closeButton = new FlxButton(0, 0, "Close", continueGame);
+		closeButton.scrollFactor.set();
+		add(closeButton);
 	}
 	
 	public function show(_status:Int)
 	{
+		status = _status;
+		scrolls = new FlxTypedGroup<FlxSprite>();
+		
 		for (i in 1...(knowledgeAmount + 1))
 		{
 			if (Reg.knowledgePieces.exists(i))
 			{
-				trace("making pieceasd");
 				var kPiece = new FlxSprite(0, 0);
 				kPiece.scrollFactor.set();
 				kPiece.x = this.x;
 				kPiece.y =  this.y + 48 * (i - 1);
 				kPiece.makeGraphic(192, 44, 0xFFFFFFFF);
 				kPiece.ID = i;
-				this.add(kPiece);
+				scrolls.add(kPiece);
 				MouseEventManager.add(kPiece, scrollClick);
 			}
 		}
 		
+		this.add(scrolls);
+		
 		Reg.ui.add(this);
+	}
+	
+	private function scrollClick(obj:FlxObject)
+	{
+		Reg.knowledgePieces.get(obj.ID).show(status);
+	}
+	
+	private function continueGame()
+	{
+		this.remove(scrolls);
+		Reg.currentState.ui.remove(this);
+		Reg.player.setMovable();
 	}
 }

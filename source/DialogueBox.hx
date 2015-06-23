@@ -176,7 +176,7 @@ class DialogueBox extends FlxGroup
 					
 				case Child.YES_HELP:
 					Reg.ui.knowledgeBox.show(2);
-					continueGame();
+					//continueGame();
 					
 				case Child.SOLVED:
 					continueGame();

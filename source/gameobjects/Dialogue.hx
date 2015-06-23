@@ -33,7 +33,7 @@ class Dialogue extends GameObject
 	
 	public override function activate()
 	{
-		Reg.ui.dialogue.displayDialogue(conversation, false);
+		Reg.ui.dialogueBox.displayDialogue(conversation, false);
 		Reg.currentState.currentLevel.triggers.remove(this);
 	}
 }

@@ -83,7 +83,7 @@ class Child extends GameObject
 			if (conv.att.id == status)
 			{
 				Reg.currentChild = this;
-				Reg.ui.dialogue.displayDialogue(conv, true);
+				Reg.ui.dialogueBox.displayDialogue(conv, true);
 				break;
 			}
 		}

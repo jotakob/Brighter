@@ -9,19 +9,13 @@ import flixel.group.FlxGroup;
  */
 class UserInterface extends FlxGroup
 {
-	public var dialogue:DialogueBox;
+	public var dialogueBox:DialogueBox;
 	public var knowledgeBox:KnowledgeBox;
 
 	public function new()
 	{
 		super();
-		dialogue = new DialogueBox();
+		dialogueBox = new DialogueBox();
 		knowledgeBox = new KnowledgeBox();
-	}
-	
-	public function showKnowledge(_status:Int)
-	{
-		knowledgeBox.status = _status;
-		add(knowledgeBox);
 	}
 }

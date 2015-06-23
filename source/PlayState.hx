@@ -70,6 +70,8 @@ class PlayState extends FlxState
 			Reg.levels.set(levelName, currentLevel);
 		}
 		
+		FlxG.camera.setBounds(0, 0, currentLevel.fullWidth, currentLevel.fullHeight, true);
+		
 		lastTime = Lib.getTimer();
 		player.reset(currentLevel.startPoint.x, currentLevel.startPoint.y);
 		add(currentLevel.backgroundStuff);
