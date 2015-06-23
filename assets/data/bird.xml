@@ -15,11 +15,12 @@
 		<item speaker="bird">maar de eerste stukken kennis zullen wel niet al te moeilijk zijn.”</item>
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
 		<item speaker="bird">Inderdaad. Ik zie daar iemand staan die onze hulp nodig heeft!</item>
-		<item speaker="player">Klinkt als een plan! Laten we gaan! Oh wacht..</item>
+		<item speaker="player">Oh wacht..</item>
 		<item speaker="player">Hoe beweeg ik ook alweer?</item>
 		<item speaker="bird">Je kunt je met de pijltoetsen of A en D bewegen.</item>
-		<item speaker="bird">Springen doe je met W, spatiebalk of met het pijltje omhoog. </item>
-		<item speaker="bird">Oh ja, om </item>
+		<item speaker="bird">Springen doe je met W, spatiebalk of met het pijltje omhoog.</item>
+		<item speaker="bird">Oh ja, om door een deur te gaan klik je op E of Enter</item>
+		<item speaker="bird">Dezelfde toetsen kan je ook gebruiken om te praten.</item>
 		<item speaker="player">Oh, simpeler kan bijna niet! Bedankt!</item>
 	</conversation>
 	<conversation id="doublejump">
