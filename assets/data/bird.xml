@@ -14,11 +14,12 @@
 		<item speaker="bird">Het kan echter aardig pittig zijn om die te verzamelen,</item>
 		<item speaker="bird">maar de eerste stukken kennis zullen wel niet al te moeilijk zijn.”</item>
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
-		<item speaker="bird">Inderdaad. Volgens mij zie ik verderop al iemand staan die onze hulp nodig heeft!</item>
+		<item speaker="bird">Inderdaad. Ik zie daar iemand staan die onze hulp nodig heeft!</item>
 	</conversation>
-	<!--<conversation id="met">
+	<conversation id="met">
 		<item speaker="bird">Hey, have you found help for me? I reeeaaally need it.</item>
 	</conversation>
+	<!--
 	<choice id="metchoice">
 		<item1>Yes, here is some help.</item1>
 		<item2>Nope, sorry.</item2>
@@ -28,5 +29,6 @@
 	</conversation>
 	<conversation id="rightanswer">
 		<item speaker="bird">Yay, thanks!</item>
-	</conversation> -->
+	</conversation> 
+	-->
 </dialogue>
