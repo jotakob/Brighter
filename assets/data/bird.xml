@@ -15,6 +15,19 @@
 		<item speaker="bird">maar de eerste stukken kennis zullen wel niet al te moeilijk zijn.”</item>
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
 		<item speaker="bird">Inderdaad. Ik zie daar iemand staan die onze hulp nodig heeft!</item>
+		<item speaker="player">Klinkt als een plan! Laten we gaan! Oh wacht..</item>
+		<item speaker="player">Hoe beweeg ik ook alweer?</item>
+		<item speaker="bird">Je kunt je met de pijltoetsen of A en D bewegen.</item>
+		<item speaker="bird">Springen doe je met W, spatiebalk of met het pijltje omhoog. </item>
+		<item speaker="bird">Oh ja, om </item>
+		<item speaker="player">Oh, simpeler kan bijna niet! Bedankt!</item>
+	</conversation>
+	<conversation id="doublejump">
+		<item speaker="bird">Trouwens, in dit level kan je een dubble sprong doen.</item>
+		<item speaker="bird">Klik gewoon nog een keer op spatiebalk als je al in de lucht bent!</item>
+		<item speaker="bird">Protip: wacht even met het nog een keer klikken totdat je </item>
+		<item speaker="bird">hoog in de lucht bent. Succes!</item>
+		
 	</conversation>
 	<conversation id="met">
 		<item speaker="bird">Hey, have you found help for me? I reeeaaally need it.</item>
