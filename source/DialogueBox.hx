@@ -18,6 +18,7 @@ import openfl.ui.Keyboard;
 class DialogueBox extends FlxGroup
 {
 	private var currentConversation:Dynamic;
+	private var currentChild:Child;
 	private var leftSpeaker:String = "";
 	private var rightSpeaker:String = "";
 	private var leftImage:FlxSprite;
@@ -117,6 +118,35 @@ class DialogueBox extends FlxGroup
 		textBox.addFormat(highlighted, 0, choiceLength);
 	}
 	
+	public function choiceDone(knowledgeID:Int)
+	{
+		Reg.ui.add(this);
+		if (knowledgeID == currentChild.childID)
+		{
+			for (conv in currentChild.dialogue.elements)
+			{
+				if (conv.att.id == Child.RIGHT_ANSWER)
+				{
+					displayDialogue(conv, currentChild);
+					break;
+				}
+			}
+			currentChild.status = Child.SOLVED;
+		}
+		else
+		{
+			for (conv in currentChild.dialogue.elements)
+			{
+				if (conv.att.id == Child.WRONG_ANSWER)
+				{
+					displayDialogue(conv, currentChild);
+					break;
+				}
+			}
+			currentChild.status = Child.MET;
+		}
+	}
+	
 	/**
 	 * Continues the dialogue if the interact key (or enter) is pressed
 	 * @param	e
@@ -127,7 +157,7 @@ class DialogueBox extends FlxGroup
 		{
 			if (currentChoice > -1)
 			{
-				Reg.currentChild.status = (currentChoice == 1 ? Child.YES_HELP : Child.NO_HELP);
+				currentChild.status = (currentChoice == 1 ? Child.YES_HELP : Child.NO_HELP);
 				chooseAction();
 			}
 			else if (currentConversation.hasNext())
@@ -156,16 +186,16 @@ class DialogueBox extends FlxGroup
 	
 	private function chooseAction()
 	{
-		if (talkingToChild)
+		if (currentChild != null)
 		{
-			switch Reg.currentChild.status
+			switch currentChild.status
 			{
 				case Child.NOT_MET, Child.WRONG_ANSWER, Child.NO_HELP:
-					Reg.currentChild.status = Child.MET;
+					currentChild.status = Child.MET;
 					continueGame();
 					
 				case Child.MET:
-					for (conv in Reg.currentChild.dialogue.elements)
+					for (conv in currentChild.dialogue.elements)
 					{
 						if (conv.att.id == "metchoice")
 						{
@@ -175,8 +205,8 @@ class DialogueBox extends FlxGroup
 					}
 					
 				case Child.YES_HELP:
+					Reg.ui.remove(this);
 					Reg.ui.knowledgeBox.show(2);
-					//continueGame();
 					
 				case Child.SOLVED:
 					continueGame();
@@ -199,11 +229,11 @@ class DialogueBox extends FlxGroup
 	 * Display a set of dialogue
 	 * @param	conversation a set of dialoge from an XML file
 	 */
-	public function displayDialogue(conversation:Fast, child:Bool)
+	public function displayDialogue(conversation:Fast, ?child:Child = null)
 	{
 		
 		Reg.currentState.ui.add(this);
-		talkingToChild = child;
+		currentChild = child;
 		
 		currentConversation = conversation.elements;
 		var text:Fast = currentConversation.next();

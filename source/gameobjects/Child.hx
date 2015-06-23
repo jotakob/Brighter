@@ -25,7 +25,7 @@ class Child extends GameObject
 	public static inline var SOLVED:String = "solved";
 	
 	private var name:String;
-	private var childID:Int;
+	public var childID:Int;
 	
 
 	public function new(X:Float=0, Y:Float=0, _ID:Int) 
@@ -82,8 +82,7 @@ class Child extends GameObject
 		{
 			if (conv.att.id == status)
 			{
-				Reg.currentChild = this;
-				Reg.ui.dialogueBox.displayDialogue(conv, true);
+				Reg.ui.dialogueBox.displayDialogue(conv, this);
 				break;
 			}
 		}

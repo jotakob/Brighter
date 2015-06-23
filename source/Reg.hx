@@ -16,7 +16,6 @@ class Reg
 	public static var currentState:PlayState;
 	public static var player:Player;
 	public static var ui:UserInterface;
-	public static var currentChild:Child;
 	public static var knowledgePieces:Map<Int, KnowledgePiece> = new Map<Int, KnowledgePiece>();
 	
 	public static var levels:Map<String, TiledLevel> = new Map<String, TiledLevel>();

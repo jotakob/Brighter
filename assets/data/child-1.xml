@@ -30,6 +30,9 @@
 		<item speaker="child1">Echt? Super bedankt! </item>
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
 	</conversation>
+	<conversation id="solved">
+		<item speaker="child1">YAY</item>
+	</conversation>
 </dialogue>
 <!--
 		|1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwx| <-- max length of lines

@@ -47,13 +47,13 @@ class KnowledgePiece extends FlxGroup
 		text.scrollFactor.set();
 		add(text);
 		
-		backButton = new FlxButton(kBox.x, background.y + background.height - 8, "Back", hide);
+		backButton = new FlxButton(16, background.y + background.height - 8, "Back", hide);
 		backButton.scrollFactor.set();
 		add(backButton);
 		
 		selectButton = new FlxButton(0, background.y + background.height - 8, "Select", select);
 		selectButton.scrollFactor.set();
-		selectButton.x = kBox.x + kBox.width - selectButton.width;
+		selectButton.x = background.x + background.width - selectButton.width;
 		
 		// Assets.getFont("assets/fonts/Artifika-Regular.ttf").fontName
 	}
@@ -76,5 +76,7 @@ class KnowledgePiece extends FlxGroup
 	{
 		remove(selectButton);
 		hide();
+		kBox.hide();
+		Reg.ui.dialogueBox.choiceDone(knowledgeID);
 	}
 }

@@ -58,8 +58,8 @@ class KnowledgeBox extends FlxGroup
 			{
 				var kPiece = new FlxSprite(0, 0, "assets/images/ui/scroll-" + i + ".png");
 				kPiece.scrollFactor.set();
-				kPiece.x = this.x + 19;
-				kPiece.y =  this.y + 32 * (i - 1) + 2;
+				kPiece.x = this.x + this.width/2 - kPiece.width/2;
+				kPiece.y =  this.y + 32 * (i - 1) + (16 - kPiece.height/2);
 				kPiece.ID = i;
 				scrolls.add(kPiece);
 				MouseEventManager.add(kPiece, scrollClick);
@@ -71,6 +71,12 @@ class KnowledgeBox extends FlxGroup
 		Reg.ui.add(this);
 	}
 	
+	public function hide()
+	{
+		this.remove(scrolls);
+		Reg.currentState.ui.remove(this);
+	}
+	
 	private function scrollClick(obj:FlxObject)
 	{
 		Reg.knowledgePieces.get(obj.ID).show(status);
@@ -78,8 +84,7 @@ class KnowledgeBox extends FlxGroup
 	
 	private function continueGame()
 	{
-		this.remove(scrolls);
-		Reg.currentState.ui.remove(this);
+		hide();
 		Reg.player.setMovable();
 	}
 }
