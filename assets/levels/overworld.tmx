@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="12">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="tiles.png" width="709" height="709"/>
  </tileset>
@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt07ENgDAMRcFAw8TsQce6EQUDQJPv5E5y/yTbrQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAd9z66gNU8N5d0d29PUhPfVN1fUrc/mEPVHSbdX1LLLK5jdAHpzu3fwGxW+oUOT9IaDQ==
+   eJzt0zEOgCAQRFGk8cTew47rEkO4ADFZcd9Lpp/mlwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD7aDX6AcR6GpiDrHQAgxbed5/RD/i661gb/E2mFjqVpRN6
   </data>
  </layer>
  <layer name="middleground" width="195" height="46">
@@ -39,5 +39,8 @@
   <object id="6" name="school" type="warp" x="392" y="630" width="87" height="85"/>
   <object id="7" name="playground" type="warp" x="2812" y="671" width="68" height="31"/>
   <object id="9" name="demo" type="warp" x="192" y="608" width="72" height="103"/>
+ </objectgroup>
+ <objectgroup color="#55ffff" name="children">
+  <object id="11" name="1" type="child" x="1120" y="671" width="32" height="32"/>
  </objectgroup>
 </map>

@@ -9,9 +9,10 @@
 		<item speaker="child1">Inderdaad! Weet jij wat ik daar tegen kan doen?</item>
 		<item speaker="player">Ik zal kijken of ik een oplossing voor je kan vinden.</item>
 		<item speaker="child1">Dankjewel!</item>
-		<item speaker="bird">Ik denk dat.. Emm..  </item>
-		<item speaker="bird">Ja! Laten we in de school gaan kijken! </item>
+		<item speaker="bird">Hej, ik was niet aan het afluisteren ofzo,</item>
+		<item speaker="bird">maar ik denk dat je beter even in de school kan kijken. </item>
 		<item speaker="bird">Daar zouden we wel wat moeten vinden, denk ik.</item>
+		<item speaker="child1">Bedankt voor de tip. Ik ga er direct heen!</item>
 	
 	
 	</conversation>
