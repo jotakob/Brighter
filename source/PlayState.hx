@@ -97,6 +97,7 @@ class PlayState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+		//ui.update();
 		
 		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);

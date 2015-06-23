@@ -2,6 +2,7 @@ package ;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.FlxG;
+import flixel.util.FlxMath;
 import haxe.Timer;
 
 /**
@@ -12,11 +13,12 @@ class KnowledgePickup extends GameObject
 {
 	public var knowledgeID:Int;
 	private var text:FlxText;
+	private var updating:Bool = false;
 
 	public function new(X:Float=0, Y:Float=0, _knowledgeID:Int) 
 	{
 		knowledgeID = _knowledgeID;
-		super(X, Y);
+		super(X, Y, 16, 32);
 		graphicComponent = new FlxSprite(X, Y, "sprites/pickup.png");
 		this.width = graphicComponent.width;
 		this.height = graphicComponent.height;
@@ -24,7 +26,7 @@ class KnowledgePickup extends GameObject
 	
 	public override function activate()
 	{
-		this.kill();
+		Reg.currentState.currentLevel.triggers.remove(this);
 		graphicComponent.destroy();
 		var knowledge = new KnowledgePiece(knowledgeID);
 		Reg.knowledgePieces.set(knowledgeID, knowledge);
@@ -33,14 +35,21 @@ class KnowledgePickup extends GameObject
 		text.setFormat(null, 8, 0xFFFFFF, "center");
 		text.x = FlxG.width / 2 - text.width / 2;
 		text.y = FlxG.height / 2 - text.height - 16;
-		trace(knowledge.shortInfo);
-		Reg.ui.add(this);
-		Timer.delay(delete, 2000);
+		Reg.currentState.add(this);
+		Reg.ui.add(text);
+		updating = true;
 	}
 	
-	public function delete()
+	public override function update()
 	{
-		text.destroy();
-		this.destroy();
+		if (updating)
+		{
+			super.update();
+			if (FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64)
+			{
+				text.destroy();
+				this.destroy();
+			}
+		}
 	}
 }

@@ -37,9 +37,8 @@ class KnowledgePiece extends FlxGroup
 		shortInfo = fast.node.short.innerData;
 		longInfo = fast.node.long.innerData;
 		
-		background = new FlxSprite(32, kBox.y - 16);
+		background = new FlxSprite(32, kBox.y - 16, AssetPaths.knowledge_expanded__png);
 		background.scrollFactor.set();
-		background.makeGraphic(FlxG.width - 64, 224, 0xFFFFFFFF);
 		add(background);
 		
 		text = new FlxText(36, kBox.y - 12, FlxG.width - 72, longInfo);
