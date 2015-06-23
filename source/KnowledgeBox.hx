@@ -1,8 +1,10 @@
 package ;
 
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.FlxG;
+import flixel.plugin.MouseEventManager;
 
 /**
  * ...
@@ -21,6 +23,8 @@ class KnowledgeBox extends FlxGroup
 	private var height:Int;
 	private var x:Int;
 	private var y:Int = 48;
+	
+	private var knowledgeAmount = 3;
 
 	public function new()
 	{
@@ -38,8 +42,29 @@ class KnowledgeBox extends FlxGroup
 		add(background);
 	}
 	
+	private function scrollClick(obj:FlxObject)
+	{
+		Reg.knowledgePieces.get(obj.ID).show();
+	}
+	
 	public function show(_status:Int)
 	{
+		for (i in 1...(knowledgeAmount + 1))
+		{
+			if (Reg.knowledgePieces.exists(i))
+			{
+				trace("making pieceasd");
+				var kPiece = new FlxSprite(0, 0);
+				kPiece.scrollFactor.set();
+				kPiece.x = this.x;
+				kPiece.y =  this.y + 48 * (i - 1);
+				kPiece.makeGraphic(192, 44, 0xFFFFFFFF);
+				kPiece.ID = i;
+				this.add(kPiece);
+				MouseEventManager.add(kPiece, scrollClick);
+			}
+		}
+		
 		Reg.ui.add(this);
 	}
 }
