@@ -7,6 +7,7 @@ import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.text.FlxText.FlxTextFormat;
 import flixel.ui.FlxButton;
+import flixel.FlxG;
 
 /**
  * ...
@@ -14,6 +15,7 @@ import flixel.ui.FlxButton;
  */
 class KnowledgePiece extends FlxGroup
 {
+	
 	public var longInfo:String;
 	public var shortInfo:String;
 	public var knowledgeID:Int;
@@ -35,14 +37,13 @@ class KnowledgePiece extends FlxGroup
 		shortInfo = fast.node.short.innerData;
 		longInfo = fast.node.long.innerData;
 		
-		background = new FlxSprite(kBox.x + 16, kBox.y - 16);
+		background = new FlxSprite(32, kBox.y - 16);
 		background.scrollFactor.set();
-		background.makeGraphic(160, 224, 0xFFFFFFFF);
+		background.makeGraphic(FlxG.width - 64, 224, 0xFFFFFFFF);
 		add(background);
 		
-		text = new FlxText(kBox.x + 16, kBox.y - 16, 160, longInfo, 10);
-		text.addFormat(new FlxTextFormat(0x000000));
-		text.alignment = "center";
+		text = new FlxText(36, kBox.y - 12, FlxG.width - 72, longInfo);
+		text.setFormat(null, 8, 0x000000, "center");
 		text.scrollFactor.set();
 		add(text);
 		
@@ -53,6 +54,8 @@ class KnowledgePiece extends FlxGroup
 		selectButton = new FlxButton(0, background.y + background.height - 8, "Select", select);
 		selectButton.scrollFactor.set();
 		selectButton.x = kBox.x + kBox.width - selectButton.width;
+		
+		// Assets.getFont("assets/fonts/Artifika-Regular.ttf").fontName
 	}
 	
 	public function show(status:Int)

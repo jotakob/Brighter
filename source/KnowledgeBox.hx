@@ -37,13 +37,8 @@ class KnowledgeBox extends FlxGroup
 		
 		height = FlxG.height - 96;
 		x = FlxG.width - 240;
-		background = new FlxSprite(x, y);
+		background = new FlxSprite(x, y, AssetPaths.menu_scroll__png);
 		background.scrollFactor.set();
-		//background.x = x;
-		//background.y = y;
-		background.height = height;
-		background.width = width;
-		background.makeGraphic(width, height, 0xCC3B2508);
 		add(background);
 		
 		//temp only
@@ -61,11 +56,10 @@ class KnowledgeBox extends FlxGroup
 		{
 			if (Reg.knowledgePieces.exists(i))
 			{
-				var kPiece = new FlxSprite(0, 0);
+				var kPiece = new FlxSprite(0, 0, "assets/images/ui/scroll-" + i + ".png");
 				kPiece.scrollFactor.set();
-				kPiece.x = this.x;
-				kPiece.y =  this.y + 48 * (i - 1);
-				kPiece.makeGraphic(192, 44, 0xFFFFFFFF);
+				kPiece.x = this.x + 19;
+				kPiece.y =  this.y + 32 * (i - 1) + 2;
 				kPiece.ID = i;
 				scrolls.add(kPiece);
 				MouseEventManager.add(kPiece, scrollClick);
