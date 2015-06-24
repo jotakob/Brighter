@@ -46,11 +46,11 @@ class KnowledgePiece extends FlxGroup
 		text.scrollFactor.set();
 		add(text);
 		
-		backButton = new FlxButton(background.x + 16, background.y + background.height - 8, "Back", hide);
+		backButton = new FlxButton(background.x + 16, background.y + background.height - 8, "Terug", hide);
 		backButton.scrollFactor.set();
 		add(backButton);
 		
-		selectButton = new FlxButton(0, background.y + background.height - 8, "Select", select);
+		selectButton = new FlxButton(0, background.y + background.height - 8, "Selecteren", select);
 		selectButton.scrollFactor.set();
 		selectButton.x = background.x + background.width - selectButton.width - 16;
 		
