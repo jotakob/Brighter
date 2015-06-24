@@ -125,6 +125,7 @@ class DialogueBox extends FlxGroup
 		Reg.ui.add(this);
 		if (knowledgeID == currentChild.childID)
 		{
+			Reg.childCounter++;
 			for (conv in currentChild.dialogue.elements)
 			{
 				if (conv.att.id == Child.RIGHT_ANSWER)
@@ -187,6 +188,7 @@ class DialogueBox extends FlxGroup
 							break;
 						}
 					}
+					currentChild.status = Child.MET;
 					
 				case Child.YES_HELP:
 					Reg.ui.remove(this);

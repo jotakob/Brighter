@@ -17,25 +17,30 @@ import openfl.Lib;
  */
 class MenuState extends FlxState
 {
-	private var state1:FlxGroup = new FlxGroup();
-	private var state2:FlxGroup = new FlxGroup();
-	private var state3:FlxGroup = new FlxGroup();
+	private var titleState:FlxGroup = new FlxGroup();
+	private var selectionState:FlxGroup = new FlxGroup();
+	private var optionsState:FlxGroup = new FlxGroup();
 	
 	var maleButton:FlxSprite;
 	var femaleButton:FlxSprite;
+	var musicButton:FlxButton;
+	var soundButton:FlxButton;
 	var clouds:FlxSprite;
 	var title:FlxSprite;
 	var music:FlxSound;
+	var frameCounter:Int = 0;
+	var counting = false;
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
+		//Background
 		super.create();
 		music = new FlxSound();
 		music.loadStream(AssetPaths.mainmenu__ogg, true);
-		music.volume = 1;
+		music.volume = Reg.settings.musicVolume;
 		music.play();
 		
 		clouds = new FlxSprite(0, 0, AssetPaths.movingclouds__png);
@@ -49,14 +54,16 @@ class MenuState extends FlxState
 		title.velocity.set(0, 6);
 		add(title);
 		
+		//Main Title Screen
 		var startButton = new FlxButton(0, 128, "Start", startButtonClick);
 		startButton.x = FlxG.width / 2 - startButton.width / 2;
-		state1.add(startButton);
+		titleState.add(startButton);
 		
 		var optionsButton = new FlxButton(0, 155, "Opties", optionButtonClick);
 		optionsButton.x = FlxG.width / 2 - optionsButton.width / 2;
-		state1.add(optionsButton);
+		titleState.add(optionsButton);
 		
+		//Character selection
 		maleButton = new FlxSprite(224, 209);
 		maleButton.ID = 1;
 		maleButton.loadGraphic(AssetPaths.characters__png, true, 64, 64);
@@ -64,7 +71,7 @@ class MenuState extends FlxState
 		maleButton.animation.add("walking", [1, 2, 3, 4], 6, true);
 		maleButton.animation.play("standing");
 		MouseEventManager.add(maleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
-		state2.add(maleButton);
+		selectionState.add(maleButton);
 		
 		femaleButton = new FlxSprite(96, 209);
 		femaleButton.ID = 2;
@@ -73,21 +80,35 @@ class MenuState extends FlxState
 		femaleButton.animation.add("walking", [6, 7, 8, 9], 6, true);
 		femaleButton.animation.play("standing");
 		MouseEventManager.add(femaleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
-		state2.add(femaleButton);
+		selectionState.add(femaleButton);
 		
-		this.add(state1);
+		//Options Menu
+		var backButton = new FlxButton(0, 128, "Terug", backButtonClick);
+		backButton.x = FlxG.width / 2 - backButton.width / 2;
+		optionsState.add(backButton);
+		
+		musicButton = new FlxButton(0, 155, "Muziek: AAN", musicButtonClick);
+		musicButton.x = FlxG.width / 2 - musicButton.width / 2;
+		optionsState.add(musicButton);
+		
+		soundButton = new FlxButton(0, 182, "Geluid: AAN", soundButtonClick);
+		soundButton.x = FlxG.width / 2 - soundButton.width / 2;
+		optionsState.add(soundButton);
+		
+		this.add(titleState);
 	}
 	
 	function startButtonClick()
 	{
-		remove(state1);
-		add(state2);
+		remove(titleState);
+		counting = true;
+		add(selectionState);
 	}
 	
 	function optionButtonClick()
 	{
-		remove(state1);
-		add(state3);
+		remove(titleState);
+		add(optionsState);
 	}
 	
 	function genderButtonEnter(button:FlxSprite)
@@ -110,9 +131,10 @@ class MenuState extends FlxState
 		{
 			Reg.settings.gender = "female";
 		}
-		button.velocity.set(0, 64);
+		button.velocity.set(0, 48);
 		MouseEventManager.remove(maleButton);
 		MouseEventManager.remove(femaleButton);
+		music.fadeOut(1.5, 0);
 	}
 	
 	function helpText()
@@ -122,6 +144,41 @@ class MenuState extends FlxState
 		text.x = FlxG.width / 2 - text.width / 2;
 		text.y = FlxG.height / 2;
 		add(text);
+	}
+	
+	function backButtonClick()
+	{
+		remove(optionsState);
+		add(titleState);
+	}
+	
+	function musicButtonClick()
+	{
+		var value = Math.abs(Reg.settings.musicVolume - 1);
+		Reg.settings.musicVolume = value;
+		music.volume = value;
+		if (value == 0)
+		{
+			musicButton.text = "Muziek: UIT";
+		}
+		else
+		{
+			musicButton.text = "Muziek: AAN";
+		}
+	}
+	
+	function soundButtonClick()
+	{
+		var value = Math.abs(Reg.settings.soundVolume - 1);
+		Reg.settings.soundVolume = value;
+		if (value == 0)
+		{
+			musicButton.text = "Geluid: UIT";
+		}
+		else
+		{
+			musicButton.text = "Geluid: AAN";
+		}
 	}
 	
 	/**
@@ -148,6 +205,15 @@ class MenuState extends FlxState
 		if (title.y > 15 || title.y < 10)
 		{
 			title.velocity.y = -title.velocity.y;
+		}
+		
+		if (counting)
+		{
+			frameCounter++;
+			if (frameCounter == 400)
+			{
+				helpText();
+			}
 		}
 		
 		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 12 > FlxG.height)

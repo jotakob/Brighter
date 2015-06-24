@@ -47,6 +47,7 @@ class KnowledgePickup extends GameObject
 		if (updating)
 		{
 			super.update();
+			trace("distance: " + FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()));
 			if (FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64)
 			{
 				text.destroy();

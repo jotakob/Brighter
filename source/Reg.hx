@@ -17,6 +17,7 @@ class Reg
 	public static var player:Player;
 	public static var ui:UserInterface;
 	public static var knowledgePieces:Map<Int, KnowledgePiece>;
+	public static var childCounter:Int;
 	
 	public static var levels:Map<String, TiledLevel>;
 	

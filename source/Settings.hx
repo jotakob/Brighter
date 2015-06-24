@@ -14,6 +14,8 @@ class Settings
 	public var keyBindings = new Map<String, Array<String>>();
 	public var gender:String = "male";
 	public var playerName:String = "Max";
+	public var musicVolume:Float = 1;
+	public var soundVolume:Float = 1;
 	
 	public function new() 
 	{

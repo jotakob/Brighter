@@ -43,6 +43,7 @@ class PlayState extends FlxState
 		
 		Reg.knowledgePieces = new Map<Int, KnowledgePiece>();
 		Reg.levels = new Map<String, TiledLevel>();
+		Reg.childCounter = 0;
 		brightnessSprite = new FlxSprite(0, 0);
 		
 		ui = new UserInterface();
