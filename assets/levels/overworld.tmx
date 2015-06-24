@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="45" tilewidth="16" tileheight="16" nextobjectid="16">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="195" height="46">
+ <layer name="background" width="195" height="45">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt0zEKADAIA0C3ft8ni38oaOkdZM+QRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJBnugGb9T5uBF732xcKmHQV1A==
+   eJzt0rEJAEAIBEEz27fk53sQVJiBzS+4CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACqnF7DZ/0dHVzziwQs2
   </data>
  </layer>
- <layer name="middleground" width="195" height="46">
+ <layer name="middleground" width="195" height="45">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt07EJwEAQA8HL3L5LNma5Gv6DGVCuZGeA9zn9AO6gBYgWIFqAaAGiBYgWIFqAaAGiBYgWIFqA/C3oAbQASwsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAuQbcHMzGz3AYcQElc=
+   eJzt07EJwEAQA8HL3L5LNma5Gv6DGVCuZGeA9zn9AO6gBYgWIFqAaAGiBYgWIFqAaAGiBYgWIFqA/C3oAbQASwsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAsQLUC0ANECRAuQbcHMZj4F3p9D
   </data>
  </layer>
- <layer name="foreground" width="195" height="46">
+ <layer name="foreground" width="195" height="45">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1vBqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgDeMKAAB
+   eJztwTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbokcAAE=
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">

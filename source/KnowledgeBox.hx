@@ -44,6 +44,7 @@ class KnowledgeBox extends FlxGroup
 		//temp only
 		closeButton = new FlxButton(0, 0, "Close", continueGame);
 		closeButton.scrollFactor.set();
+		trace(closeButton.width + " by " + closeButton.height);
 		add(closeButton);
 	}
 	

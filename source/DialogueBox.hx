@@ -33,6 +33,7 @@ class DialogueBox extends FlxGroup
 	private var currentChoice:Int = -1;
 	private var choiceLength:Int;
 	private var talkingToChild:Bool;
+	private var updating:Bool = false;
 
 	public function new()
 	{
@@ -147,43 +148,6 @@ class DialogueBox extends FlxGroup
 		}
 	}
 	
-	/**
-	 * Continues the dialogue if the interact key (or enter) is pressed
-	 * @param	e
-	 */
-	public function onKeyDown(e:KeyboardEvent)
-	{
-		if (e.keyCode == Keyboard.ENTER || FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
-		{
-			if (currentChoice > -1)
-			{
-				currentChild.status = (currentChoice == 1 ? Child.YES_HELP : Child.NO_HELP);
-				chooseAction();
-			}
-			else if (currentConversation.hasNext())
-			{
-				var text:Fast = currentConversation.next();
-				setText(text.innerData, text.att.speaker);
-			}
-			else 
-			{
-				chooseAction();
-			}
-		}
-		else if ((e.keyCode == Keyboard.W || e.keyCode == Keyboard.UP) && currentChoice > -1)
-		{
-			currentChoice = 1;
-			textBox.addFormat(textBoxFormat);
-			textBox.addFormat(highlighted, 0, choiceLength);
-		}
-		else if ((e.keyCode == Keyboard.S || e.keyCode == Keyboard.DOWN) && currentChoice > -1)
-		{
-			currentChoice = 2;
-			textBox.addFormat(textBoxFormat);
-			textBox.addFormat(highlighted, choiceLength + 1, textBox.text.length);
-		}
-	}
-	
 	private function chooseAction()
 	{
 		if (currentChild != null)
@@ -220,7 +184,7 @@ class DialogueBox extends FlxGroup
 	
 	private function continueGame()
 	{
-		FlxG.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		updating = false;
 		Reg.currentState.ui.remove(this);
 		Timer.delay(Reg.player.setMovable, 50);
 	}
@@ -232,13 +196,58 @@ class DialogueBox extends FlxGroup
 	public function displayDialogue(conversation:Fast, ?child:Child = null)
 	{
 		
-		Reg.currentState.ui.add(this);
 		currentChild = child;
 		
 		currentConversation = conversation.elements;
 		var text:Fast = currentConversation.next();
 		setText(text.innerData, text.att.speaker);
 		Reg.player.movable = false;
-		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		Reg.currentState.ui.add(this);
+		Timer.delay(setUpdating, 50);
+	}
+	
+	function setUpdating()
+	{
+		updating = true;
+	}
+	
+	/**
+	 * Continues the dialogue if the interact key (or enter) is presseda
+	 */
+	override public function update()
+	{
+		super.update();
+		if (updating)
+		{
+			if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
+			{
+				if (currentChoice > -1)
+				{
+					currentChild.status = (currentChoice == 1 ? Child.YES_HELP : Child.NO_HELP);
+					chooseAction();
+				}
+				else if (currentConversation.hasNext())
+				{
+					var text:Fast = currentConversation.next();
+					setText(text.innerData, text.att.speaker);
+				}
+				else 
+				{
+					chooseAction();
+				}
+			}
+			else if (FlxG.keys.anyJustPressed(["W", "UP"]) && currentChoice > -1)
+			{
+				currentChoice = 1;
+				textBox.addFormat(textBoxFormat);
+				textBox.addFormat(highlighted, 0, choiceLength);
+			}
+			else if (FlxG.keys.anyJustPressed(["S", "DOWN"]) && currentChoice > -1)
+			{
+				currentChoice = 2;
+				textBox.addFormat(textBoxFormat);
+				textBox.addFormat(highlighted, choiceLength + 1, textBox.text.length);
+			}
+		}
 	}
 }

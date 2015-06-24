@@ -34,6 +34,9 @@ class PlayState extends FlxState
 		super.create();
 		Reg.currentState = this;
 		
+		Reg.knowledgePieces = new Map<Int, KnowledgePiece>();
+		Reg.levels = new Map<String, TiledLevel>();
+		
 		ui = new UserInterface();
 		Reg.ui = ui;
 		
