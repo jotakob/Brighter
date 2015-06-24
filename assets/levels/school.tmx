@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="575" height="50" tilewidth="16" tileheight="16" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="575" height="50" tilewidth="16" tileheight="16" nextobjectid="10">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="../../Art/tiles.png" width="709" height="709"/>
  </tileset>
@@ -37,9 +37,11 @@
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="49" y="589" width="28" height="32"/>
   <object id="5" name="overworld" type="warp" x="9137" y="561" width="30" height="32"/>
-  <object id="8" name="overworld" type="warp" x="49" y="591" width="30" height="32"/>
  </objectgroup>
  <objectgroup color="#aaffff" name="children">
   <object id="7" name="1" type="knowledge" x="8882" y="348" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup color="#ffff00" name="dialogue">
+  <object id="9" name="jump" type="dialogue" x="128.5" y="575.5" width="41" height="41"/>
  </objectgroup>
 </map>
