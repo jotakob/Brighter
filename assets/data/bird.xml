@@ -20,6 +20,18 @@
 		<item speaker="bird">Deze scroll ziet er wel bruikbaar uit. Laten we terug gaan.</item>	
 	</conversation>
 	
+	<conversation id="falsescroll">
+		<item speaker="bird">Ik heb gezien dat er verderop nog eentje ligt.</item>
+		<item speaker="bird">Laten we verder gaan.</item>
+	</conversation>
+	
+	<conversation id="rightscroll">
+		<item speaker="bird">Deze kan ook nuttig zijn. Hmmmm..</item>
+		<item speaker="bird">Straks zul je eentje moeten kiezen voor Frits.</item>
+		<item speaker="bird">Je kunt je gevonden kennis altijd terug zien in het menu.</item>
+		<item speaker="bird">Denk er nog maar even over na. </item>
+	</conversation>
+	
 	<conversation id="jump">
 		<item speaker="bird">Springen doe je met W, pijltje omhoog of met de spatiebalk.</item>	
 	</conversation>
