@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="195" height="46" tilewidth="16" tileheight="16" nextobjectid="18">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
   <image source="tiles.png" width="709" height="709"/>
  </tileset>
@@ -48,5 +48,6 @@
  </objectgroup>
  <objectgroup color="#ffff00" name="dialogue">
   <object id="12" name="introduction" type="dialogue" x="142" y="666" width="44" height="38"/>
+  <object id="17" name="enterdoor" type="dialogue" x="974" y="628" width="110" height="85"/>
  </objectgroup>
 </map>
