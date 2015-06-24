@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="630" height="50" tilewidth="16" tileheight="16" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="630" height="50" tilewidth="16" tileheight="16" nextobjectid="11">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
-  <image source="../../Art/tiles.png" width="709" height="709"/>
+  <image source="tiles.png" width="709" height="709"/>
  </tileset>
  <layer name="background" width="630" height="50">
   <properties>
@@ -9,7 +9,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2D9KA0EUB+DRQtFaC1HBS2gdQfwD6kkSUDxNYsTTBPQQ2ltYBLT3gYUJZLdwJePufB+8YmeKfSy/tztsSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwrxd1PHN9kqmPnN5q9t6X1gUAQDP9qMHM9U2uRir0l3AP5zoAoCuGUaOo+6hx5l5y2F6p3tup2YOu2ZV3OqCtOd5rad/8P5Ool7WUXqOecjcDZHPmu0IH5MrxacP7nps//sg0/ZzrPnI3Aw0M4r14W/FurNvj253nM2drNXcH/IYcU7r9mIGN9ZQ2ow7MAy02ifw+V2R4GOsPBeZ70T+Aq1i7XrD+WODzoXvkmNJdxAwcxpnuKOrSPNBi08jvpwwDAAAAAAAAAAAAAACF+AKNLhw6
+   eJzt1ssJgEAMBNC1DqsRBKsRFqzGD9iqe9wChGB8DwZyHOaUUgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD+bunsOaxHLBgBABmt317AWsWwAAGSwtxwtZ8sV3CWKDQAAILdxiG4AAMAbFn8dAEAKm78OACCF218HAAAAAAAAAAAAAAAAwMc87cYJEQ==
   </data>
  </layer>
  <layer name="middleground" width="630" height="50">
@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="foreground" width="630" height="50">
@@ -28,15 +28,16 @@
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2LkNwlAURFFDEfSDoR0W0Q1LQKmMRE7I4M850s1HL/iyPE0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMA/26Y57dK+vKXFDQDGMbcHQNEhHdMpnctbWtwAABjBNd3SPT3KW1rcAAAAAAAAAAAAgG+5rNoLAD57eqcAAAAAfs5m/Q4AgOXzXQcAMA7/7QAAAGB5XsGuDCs=
+   eJztzrsJwDAQREGpNIPbMbgdfwKXqgsFDiV0yQwsbPhKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC/rft7WgUAAKOO7p9pFQAAjLpid+yJvcktAAAAAAAAAAAArPHV7AIAAAAAAAAAAAAAAACA+Rps8gRu
   </data>
  </layer>
  <objectgroup color="#ff0000" name="floor">
   <object id="1" name="floor" type="floor" x="0.18182" y="768" width="11608.8" height="37"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
-  <object id="3" name="start" type="player_start" x="33" y="687" width="28" height="32"/>
-  <object id="6" name="overworld" type="warp" x="10000" y="672" width="32" height="48"/>
+  <object id="3" name="start" type="player_start" x="40" y="686" width="28" height="32"/>
+  <object id="6" name="overworld" type="warp" x="10000" y="659" width="48" height="61"/>
+  <object id="10" name="overworld" type="warp" x="32" y="657" width="45" height="61"/>
  </objectgroup>
  <objectgroup color="#aaffff" name="children">
   <object id="7" name="1" type="knowledge" x="3464" y="509" width="32" height="32"/>
