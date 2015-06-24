@@ -39,7 +39,6 @@ class MenuState extends FlxState
 	{
 		//Background
 		super.create();
-		Reg.menuState = this;
 		music = new FlxSound();
 		music.loadStream(AssetPaths.mainmenu__ogg, true);
 		music.volume = Reg.settings.musicVolume;
@@ -98,10 +97,26 @@ class MenuState extends FlxState
 		
 		musicButton = new FlxButton(0, 165, "Muziek: AAN", musicButtonClick);
 		musicButton.x = FlxG.width / 2 - musicButton.width / 2;
+		if (Reg.settings.musicVolume == 0)
+		{
+			musicButton.text = "Muziek: UIT";
+		}
+		else
+		{
+			musicButton.text = "Muziek: AAN";
+		}
 		optionsState.add(musicButton);
 		
 		soundButton = new FlxButton(0, 192, "Geluid: AAN", soundButtonClick);
 		soundButton.x = FlxG.width / 2 - soundButton.width / 2;
+		if (Reg.settings.soundVolume == 0)
+		{
+			soundButton.text = "Geluid: UIT";
+		}
+		else
+		{
+			soundButton.text = "Geluid: AAN";
+		}
 		optionsState.add(soundButton);
 		
 		this.add(titleState);
@@ -175,10 +190,6 @@ class MenuState extends FlxState
 		var value = Math.abs(Reg.settings.musicVolume - 1);
 		Reg.settings.musicVolume = value;
 		music.volume = value;
-		if (Reg.playState != null)
-		{
-			Reg.playState.music.volume = value;
-		}
 		if (value == 0)
 		{
 			musicButton.text = "Muziek: UIT";

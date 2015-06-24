@@ -14,7 +14,6 @@ class Reg
 {
 	public static var settings = new Settings();
 	
-	public static var menuState:MenuState;
 	public static var playState:PlayState;
 	public static var player:Player;
 	public static var ui:UserInterface;
