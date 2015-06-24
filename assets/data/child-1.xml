@@ -13,8 +13,6 @@
 		<item speaker="bird">maar ik denk dat je beter even in de school kan kijken. </item>
 		<item speaker="bird">Daar zouden we wel wat moeten vinden, denk ik.</item>
 		<item speaker="player">Bedankt voor de tip. Ik ga er direct heen!</item>
-	
-	
 	</conversation>
 	<conversation id="met">
 		<item speaker="child1">En, weet je wat ik kan doen?</item>
@@ -29,6 +27,8 @@
 	<conversation id="rightanswer">
 		<item speaker="child1">Echt? Super bedankt! </item>
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
+		<item speaker="bird">Hey,zag je dat? Het werd lichter om ons heen!</item>
+		<item speaker="bird">Denk er nog maar even over na. </item>
 	</conversation>
 	<conversation id="solved">
 		<item speaker="child1">Hey, bedankt voor het helpen.</item>

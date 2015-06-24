@@ -24,7 +24,7 @@
 		<item speaker="child2">Ik ben blij dat ik er iets tegen kan doen. Dankjewel!</item>
 	</conversation>
 	<conversation id="solved">
-		<item speaker="child1">Dankjewel voor je hulp.</item>
+		<item speaker="child2">Dankjewel voor je hulp.</item>
 	</conversation>
 	
 	
