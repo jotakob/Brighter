@@ -1,8 +1,8 @@
 <dialogue name="Bird">
 	<conversation id="introduction">
-		<item speaker="bird">Hallo! Ik ben van de KJRW. (druk op enter om verder te gaan) </item>
+		<item speaker="bird">Hallo! Ik ben van de KJRW. [druk op enter om verder te gaan] </item>
 		<item speaker="bird">Het is hier erg donker omdat de kinderen niet blij zijn. </item>
-		<item speaker="bird">De kinderen onze hulp nodig, maar ik kan dit niet alleen.</item>
+		<item speaker="bird">De kinderen hebben onze hulp nodig, maar ik kan dit niet alleen.</item>
 		<item speaker="bird">Kan jij me daarmee helpen?</item>
 		<item speaker="player">Ja, is goed.</item>
 		<item speaker="bird">Tof! De kinderen hebben advies nodig. </item>

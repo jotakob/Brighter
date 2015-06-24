@@ -18,7 +18,8 @@
 		<item2>Nee, ik ben er nog niet achter.</item2>
 	</choice>
 	<conversation id="nohelp">
-		<item speaker="player">Sorry, I cannot help you.</item>
+		<item speaker="player">Helaas, ik kan je nog niet helpen.</item>
+		<item speaker="child2">Hmm.. Succes met zoeken.</item>
 	</conversation>
 	<conversation id="wronganswer">
 		<item speaker="child2">Daar heb ik niet zo veel aan.</item>

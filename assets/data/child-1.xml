@@ -22,7 +22,8 @@
 		<item2>Nee, ik ben nog op zoek.</item2>
 	</choice>
 	<conversation id="nohelp">
-		<item speaker="player">Sorry, I cannot help you.</item>
+		<item speaker="player">Sorry, ik kan je nog niet helpen.</item>
+		<item speaker="child1">Oh, nouja, blijf vooral zoeken.</item>
 	</conversation>
 	<conversation id="wronganswer">
 		<item speaker="child1">Daar kan ik niets mee.</item>
