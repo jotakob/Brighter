@@ -31,10 +31,12 @@ class TiledLevel extends TiledMap
 	public var startPoint:FlxObject;
 	public var activatableObjects:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
 	public var triggers:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
+	public var levelName:String;
+	public var exitPoints:Array<GameObject> = new Array<GameObject>();
 	
 	private var collidableTileLayers:Array<FlxTilemap>;
-	public var collisionBoxes  = new FlxTypedGroup<CollisionBox>();
-	private var parent:PlayState;
+	private var bgImages = new FlxTypedGroup<FlxSprite>();
+	public var collisionBoxes  = new FlxTypedGroup<GameObject>();
 	public var floor:FlxObject;
 	
 	public function new(tiledLevel:Dynamic)
@@ -43,6 +45,7 @@ class TiledLevel extends TiledMap
 		
 		foregroundStuff = new FlxGroup();
 		backgroundStuff = new FlxGroup();
+		backgroundStuff.add(bgImages);
 		
 		
 		// Load Tile Maps
@@ -125,7 +128,16 @@ class TiledLevel extends TiledMap
 		switch (o.type.toLowerCase())
 		{
 			case "player_start":
-				startPoint = new FlxObject(x, y);
+				if (o.name.toLowerCase() == "start")
+				{
+					startPoint = new FlxObject(x, y);
+				}
+				else
+				{
+					var exitPoint = new GameObject(x, y);
+					exitPoint.name = o.name;
+					exitPoints.push(exitPoint);
+				}
 				
 			case "floor":
 				floor = new FlxObject(x, y, o.width, o.height);
@@ -136,7 +148,8 @@ class TiledLevel extends TiledMap
 				activatableObjects.add(warp);
 				
 			case "collisionbox":
-				var box = new CollisionBox(x, y, o.width, o.height);
+				var box = new GameObject(x, y, o.width, o.height);
+				box.immovable = true;
 				collisionBoxes.add(box);
 				
 			case "child":
@@ -150,8 +163,14 @@ class TiledLevel extends TiledMap
 				triggers.add(kPiece);
 				
 			case "background":
-				var bg = new FlxSprite(x, y, "assets/levels/" + o.name.toLowerCase() + ".png");
-				backgroundStuff.add(bg);
+				var i:Float = 0;
+				do
+				{
+					var bg = new FlxSprite(i, y, "assets/levels/" + o.name.toLowerCase() + ".png");
+					bgImages.add(bg);
+					i += bg.width;
+				}
+				while (i < this.fullWidth);
 				
 			case "dialogue":
 				var dialogue = new Dialogue(x, y, o.width, o.height, o.name.toLowerCase());

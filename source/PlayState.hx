@@ -46,7 +46,7 @@ class PlayState extends FlxState
 	 * Removes the current level and loads a new level
 	 * @param	levelName The name of the level to be loaded
 	 */
-	public function newLevel(_levelName:String)
+	public function newLevel(newLevelName:String)
 	{
 		remove(player);
 		player.kill();
@@ -58,22 +58,37 @@ class PlayState extends FlxState
 		}
 		trace("Time spent in " + levelName + ": " + Math.floor((Lib.getTimer() - lastTime) / 1000) + "s");
 		
-		levelName = _levelName;
-		if (Reg.levels.exists(levelName))
+		if (Reg.levels.exists(newLevelName))
 		{
-			currentLevel = Reg.levels.get(levelName);
+			currentLevel = Reg.levels.get(newLevelName);
 		}
 		else
 		{
-			currentLevel = new TiledLevel("assets/levels/" + levelName + ".tmx");
+			currentLevel = new TiledLevel("assets/levels/" + newLevelName + ".tmx");
+			currentLevel.levelName = newLevelName;
 			currentLevel.loadLevel();
-			Reg.levels.set(levelName, currentLevel);
+			Reg.levels.set(newLevelName, currentLevel);
 		}
 		
+		var found = false;
+		for (point in currentLevel.exitPoints)
+		{
+			if (point.name == levelName)
+			{
+				player.reset(point.x, point.y);
+				found = true;
+				break;
+			}
+		}
+		if (!found)
+		{
+			player.reset(currentLevel.startPoint.x, currentLevel.startPoint.y);
+		}
+		
+		levelName = newLevelName;
 		FlxG.camera.setBounds(0, 0, currentLevel.fullWidth, currentLevel.fullHeight, true);
 		
 		lastTime = Lib.getTimer();
-		player.reset(currentLevel.startPoint.x, currentLevel.startPoint.y);
 		add(currentLevel.backgroundStuff);
 		add(player);
 		add(player.graphicComponent);

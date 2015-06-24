@@ -10,11 +10,11 @@ import flixel.FlxSprite;
 class GameObject extends FlxObject
 {
 	public var graphicComponent:FlxSprite;
+	public var name:String;
 	
 	public function new(X:Float=0, Y:Float=0, Width:Float=0, Height:Float=0) 
 	{
 		super(X, Y, Width, Height);
-		
 	}
 	
 	/**

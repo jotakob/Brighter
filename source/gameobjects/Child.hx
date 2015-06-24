@@ -24,7 +24,6 @@ class Child extends GameObject
 	public static inline var RIGHT_ANSWER:String = "rightanswer";
 	public static inline var SOLVED:String = "solved";
 	
-	private var name:String;
 	public var childID:Int;
 	
 

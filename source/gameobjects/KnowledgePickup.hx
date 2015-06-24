@@ -19,7 +19,7 @@ class KnowledgePickup extends GameObject
 	{
 		knowledgeID = _knowledgeID;
 		super(X, Y, 16, 32);
-		graphicComponent = new FlxSprite(X, Y, "sprites/pickup.png");
+		graphicComponent = new FlxSprite(X, Y, "sprites/pickup-" + knowledgeID + ".png");
 		this.width = graphicComponent.width;
 		this.height = graphicComponent.height;
 	}

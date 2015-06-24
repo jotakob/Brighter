@@ -33,6 +33,7 @@
  </layer>
  <objectgroup color="#ff0000" name="floor">
   <object id="1" name="floor" type="floor" x="0.18182" y="768" width="11608.8" height="37"/>
+  <object id="10" name="playground" type="background" x="0" y="368" width="32" height="352"/>
  </objectgroup>
  <objectgroup color="#0000c8" name="warps">
   <object id="3" name="start" type="player_start" x="40" y="686" width="28" height="32"/>

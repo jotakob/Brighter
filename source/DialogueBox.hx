@@ -88,7 +88,7 @@ class DialogueBox extends FlxGroup
 				rightImage.facing = FlxObject.RIGHT;
 				rightImage.scrollFactor.set();
 				rightImage.x = this.width - rightImage.width - 4;
-				rightImage.y = this.y - this.height;
+				rightImage.y = this.y - rightImage.height;
 				add(rightImage);
 			}
 			else
