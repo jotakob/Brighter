@@ -12,6 +12,7 @@ import flixel.util.FlxPoint;
 import openfl.Assets;
 import openfl.Lib;
 import flixel.group.FlxTypedGroup;
+import flixel.system.FlxSound;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -24,6 +25,7 @@ class PlayState extends FlxState
 	public var dialogue:DialogueBox;
 	public var ui:UserInterface;
 	public var levelName:String;
+	public var music:FlxSound;
 	
 	private var brightnessSprite:FlxSprite;
 	private var brightnessLevel:Int = 0;
@@ -38,7 +40,12 @@ class PlayState extends FlxState
 	override public function create():Void
 	{		
 		super.create();
-		Reg.currentState = this;
+		Reg.playState = this;
+		
+		music = new FlxSound();
+		music.loadStream(AssetPaths.mainmenu__ogg, true);
+		music.volume = Reg.settings.musicVolume;
+		music.play();
 		
 		Reg.knowledgePieces = new Map<Int, KnowledgePiece>();
 		Reg.levels = new Map<String, TiledLevel>();
@@ -51,7 +58,6 @@ class PlayState extends FlxState
 		player = new Player();
 		Reg.player = player;
 		newLevel("overworld");
-		
 	}
 	
 	/**
@@ -136,6 +142,8 @@ class PlayState extends FlxState
 	 */
 	override public function destroy():Void
 	{
+		remove(currentLevel);
+		music.destroy();
 		super.destroy();
 	}
 

@@ -110,7 +110,7 @@ class DialogueBox extends FlxGroup
 		textBox.removeFormat(textBoxFormat);
 		textBox.text = text;
 		textBox.addFormat(textBoxFormat);
-		Reg.currentState.ui.add(this);
+		Reg.playState.ui.add(this);
 	}
 	
 	public function choiceBox(choice1:String, choice2:String)
@@ -132,7 +132,7 @@ class DialogueBox extends FlxGroup
 			{
 				if (conv.att.id == Child.RIGHT_ANSWER)
 				{
-					Reg.currentState.makeBrighter();
+					Reg.playState.makeBrighter();
 					displayDialogue(conv, currentChild);
 					break;
 				}
@@ -230,7 +230,7 @@ class DialogueBox extends FlxGroup
 	private function continueGame()
 	{
 		updating = false;
-		Reg.currentState.ui.remove(this);
+		Reg.playState.ui.remove(this);
 		Timer.delay(Reg.player.setMovable, 50);
 	}
 	
@@ -246,7 +246,7 @@ class DialogueBox extends FlxGroup
 		var text:Fast = currentConversation.next();
 		setText(text.innerData, text.att.speaker);
 		Reg.player.movable = false;
-		Reg.currentState.ui.add(this);
+		Reg.playState.ui.add(this);
 		Timer.delay(setUpdating, 50);
 	}
 	

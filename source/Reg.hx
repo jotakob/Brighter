@@ -3,6 +3,7 @@ package;
 import flixel.FlxState;
 import flixel.util.FlxSave;
 import openfl.display.Stage;
+import flixel.system.FlxSound;
 
 /**
  * Handy, pre-built Registry class that can be used to store 
@@ -13,7 +14,8 @@ class Reg
 {
 	public static var settings = new Settings();
 	
-	public static var currentState:PlayState;
+	public static var menuState:MenuState;
+	public static var playState:PlayState;
 	public static var player:Player;
 	public static var ui:UserInterface;
 	public static var knowledgePieces:Map<Int, KnowledgePiece>;

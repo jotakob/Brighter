@@ -21,6 +21,6 @@ class Warp extends GameObject
 	
 	public override function activate()
 	{
-		Reg.currentState.newLevel(target);
+		Reg.playState.newLevel(target);
 	}
 }

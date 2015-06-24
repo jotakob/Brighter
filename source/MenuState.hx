@@ -30,6 +30,7 @@ class MenuState extends FlxState
 	var music:FlxSound;
 	var frameCounter:Int = 0;
 	var counting = false;
+	var continuing = false;
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -38,6 +39,7 @@ class MenuState extends FlxState
 	{
 		//Background
 		super.create();
+		Reg.menuState = this;
 		music = new FlxSound();
 		music.loadStream(AssetPaths.mainmenu__ogg, true);
 		music.volume = Reg.settings.musicVolume;
@@ -58,6 +60,13 @@ class MenuState extends FlxState
 		var startButton = new FlxButton(0, 128, "Start", startButtonClick);
 		startButton.x = FlxG.width / 2 - startButton.width / 2;
 		titleState.add(startButton);
+		
+		/*var continueButton = new FlxButton(0, 155, "Voortzetten", continueButtonClick);
+		continueButton.x = FlxG.width / 2 - continueButton.width / 2;
+		if (Reg.playState != null)
+		{
+			titleState.add(continueButton);
+		}*/
 		
 		var optionsButton = new FlxButton(0, 155, "Opties", optionButtonClick);
 		optionsButton.x = FlxG.width / 2 - optionsButton.width / 2;
@@ -102,6 +111,15 @@ class MenuState extends FlxState
 	{
 		remove(titleState);
 		counting = true;
+		continuing = false;
+		add(selectionState);
+	}
+	
+	function continueButtonClick()
+	{
+		remove(titleState);
+		counting = true;
+		continuing = true;
 		add(selectionState);
 	}
 	
@@ -157,6 +175,10 @@ class MenuState extends FlxState
 		var value = Math.abs(Reg.settings.musicVolume - 1);
 		Reg.settings.musicVolume = value;
 		music.volume = value;
+		if (Reg.playState != null)
+		{
+			Reg.playState.music.volume = value;
+		}
 		if (value == 0)
 		{
 			musicButton.text = "Muziek: UIT";
@@ -187,6 +209,7 @@ class MenuState extends FlxState
 	 */
 	override public function destroy():Void
 	{
+		music.destroy();
 		super.destroy();
 	}
 
@@ -219,7 +242,14 @@ class MenuState extends FlxState
 		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 12 > FlxG.height)
 		{
 			music.destroy();
-			FlxG.switchState(new PlayState());
+			if (continuing)
+			{
+				FlxG.switchState(Reg.playState);
+			}
+			else
+			{
+				FlxG.switchState(new PlayState());
+			}
 		}
 	}	
 }

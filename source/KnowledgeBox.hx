@@ -69,7 +69,7 @@ class KnowledgeBox extends FlxGroup
 	public function hide()
 	{
 		this.remove(scrolls);
-		Reg.currentState.ui.remove(this);
+		Reg.playState.ui.remove(this);
 		this.status = 0;
 	}
 	

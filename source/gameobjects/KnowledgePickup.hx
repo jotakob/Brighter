@@ -27,7 +27,7 @@ class KnowledgePickup extends GameObject
 	
 	public override function activate()
 	{
-		Reg.currentState.currentLevel.triggers.remove(this);
+		Reg.playState.currentLevel.triggers.remove(this);
 		graphicComponent.destroy();
 		var knowledge = new KnowledgePiece(knowledgeID);
 		Reg.knowledgePieces.set(knowledgeID, knowledge);
@@ -36,10 +36,10 @@ class KnowledgePickup extends GameObject
 		text.setFormat(null, 8, 0xFFFFFF, "center");
 		text.x = FlxG.width / 2 - text.width / 2;
 		text.y = FlxG.height / 2 - text.height - 16;
-		Reg.currentState.add(this);
+		Reg.playState.add(this);
 		Reg.ui.add(text);
 		updating = true;
-		level = Reg.currentState.currentLevel.levelName;
+		level = Reg.playState.currentLevel.levelName;
 	}
 	
 	public override function update()

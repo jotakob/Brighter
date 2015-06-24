@@ -19,6 +19,7 @@ class IngameMenu extends FlxGroup
 	private var mapImage:FlxSprite;
 	private var mapMarker:FlxSprite;
 	public var kBox:KnowledgeBox;
+	private var optionsImage:FlxSprite;
 	private var frameCounter:Int = 0;
 
 	public function new()
@@ -59,13 +60,18 @@ class IngameMenu extends FlxGroup
 		MouseEventManager.add(menuButton, menuButtonClick);
 		openStuff.add(menuButton);
 		
-		mapImage = new FlxSprite(FlxG.width - 240, 0, AssetPaths.map__png);
+		mapImage = new FlxSprite(0, 0, AssetPaths.map__png);
 		mapImage.scrollFactor.set();
+		mapImage.x = FlxG.width - mapImage.width - 10;
 		mapImage.y = FlxG.height / 2 - mapImage.height / 2;
 		
 		mapMarker = new FlxSprite(0, 0);
 		mapMarker.scrollFactor.set();
 		mapMarker.makeGraphic(3, 3, 0xFFFF0000);
+		
+		optionsImage = new FlxSprite(FlxG.width - 240, 48, AssetPaths.options__png);
+		optionsImage.scrollFactor.set();
+		
 	}
 	
 	private function openButtonClick(obj:FlxObject)
@@ -109,8 +115,8 @@ class IngameMenu extends FlxGroup
 		else
 		{
 			closeAll();
-			mapMarker.x = mapImage.x + Reg.currentState.playerPosition.x * mapImage.width;
-			mapMarker.y = mapImage.y + Reg.currentState.playerPosition.y * mapImage.height;
+			mapMarker.x = mapImage.x + Reg.playState.playerPosition.x * mapImage.width;
+			mapMarker.y = mapImage.y + Reg.playState.playerPosition.y * mapImage.height;
 			add(mapImage);
 			add(mapMarker);
 		}
@@ -118,7 +124,15 @@ class IngameMenu extends FlxGroup
 	
 	private function optionButtonClick(obj:FlxObject)
 	{
-		trace("WIP");
+		if (this.members.indexOf(optionsImage) >= 0)
+		{
+			remove(optionsImage);
+		}
+		else
+		{
+			closeAll();
+			add(optionsImage);
+		}
 	}
 	
 	private function saveButtonClick(obj:FlxObject)
@@ -136,6 +150,7 @@ class IngameMenu extends FlxGroup
 		kBox.hide();
 		remove(mapImage);
 		remove(mapMarker);
+		remove(optionsImage);
 	}
 	
 	public override function update()

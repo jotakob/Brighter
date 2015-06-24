@@ -86,7 +86,7 @@ class Player extends FlxObject
 		
 		if (FlxG.keys.anyJustPressed(Reg.settings.menuKeys))
 		{
-			Reg.currentState.makeBrighter();
+			Reg.playState.makeBrighter();
 		}
 		
 		isWalking = this.isTouching(FlxObject.FLOOR);
@@ -113,7 +113,7 @@ class Player extends FlxObject
 			}
 			if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
 			{
-				FlxG.overlap(this, Reg.currentState.currentLevel.activatableObjects, activateObject);
+				FlxG.overlap(this, Reg.playState.currentLevel.activatableObjects, activateObject);
 			}
 		}
 		
@@ -139,7 +139,7 @@ class Player extends FlxObject
 				{
 					jump();
 				}
-				else if (!hasDoubleJumped && ((Reg.currentState.levelName != "school") || Main.debug))
+				else if (!hasDoubleJumped && ((Reg.playState.levelName != "school") || Main.debug))
 				{
 					if ( (FlxG.keys.pressed.LEFT && velocity.x == Math.abs(velocity.x)) || (FlxG.keys.pressed.RIGHT && velocity.x == -Math.abs(velocity.x)) )
 					{
