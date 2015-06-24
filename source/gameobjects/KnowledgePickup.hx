@@ -14,8 +14,9 @@ class KnowledgePickup extends GameObject
 	public var knowledgeID:Int;
 	private var text:FlxText;
 	private var updating:Bool = false;
+	private var level:String;
 
-	public function new(X:Float=0, Y:Float=0, _knowledgeID:Int) 
+	public function new(X:Float=0, Y:Float=0, _knowledgeID:Int)
 	{
 		knowledgeID = _knowledgeID;
 		super(X, Y, 16, 32);
@@ -38,6 +39,7 @@ class KnowledgePickup extends GameObject
 		Reg.currentState.add(this);
 		Reg.ui.add(text);
 		updating = true;
+		level = Reg.currentState.currentLevel.levelName;
 	}
 	
 	public override function update()
@@ -45,7 +47,7 @@ class KnowledgePickup extends GameObject
 		if (updating)
 		{
 			super.update();
-			if (FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64)
+			if ((FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64) || (level != Reg.currentState.currentLevel.levelName))
 			{
 				text.destroy();
 				this.destroy();

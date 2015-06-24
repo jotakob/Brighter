@@ -22,6 +22,7 @@ class PlayState extends FlxState
 	public var dialogue:DialogueBox;
 	public var ui:UserInterface;
 	public var levelName:String;
+	public var brightnessSprite:FlxSprite;
 	
 	private var lastTime:Int = 0;
 	
@@ -36,6 +37,7 @@ class PlayState extends FlxState
 		
 		Reg.knowledgePieces = new Map<Int, KnowledgePiece>();
 		Reg.levels = new Map<String, TiledLevel>();
+		brightnessSprite = new FlxSprite(0, 0);
 		
 		ui = new UserInterface();
 		Reg.ui = ui;
@@ -43,6 +45,7 @@ class PlayState extends FlxState
 		player = new Player();
 		Reg.player = player;
 		newLevel("overworld");
+		
 	}
 	
 	/**
@@ -54,6 +57,7 @@ class PlayState extends FlxState
 		remove(player);
 		player.kill();
 		remove(ui);
+		remove(brightnessSprite);
 		if (currentLevel != null)
 		{
 			remove(currentLevel.backgroundStuff);
@@ -91,11 +95,14 @@ class PlayState extends FlxState
 		levelName = newLevelName;
 		FlxG.camera.setBounds(0, 0, currentLevel.fullWidth, currentLevel.fullHeight, true);
 		
+		brightnessSprite.makeGraphic(currentLevel.fullWidth, currentLevel.fullHeight, 0x993C3D42);
 		lastTime = Lib.getTimer();
+		
 		add(currentLevel.backgroundStuff);
 		add(player);
 		add(player.graphicComponent);
 		add(currentLevel.foregroundStuff);
+		add(brightnessSprite);
 		add(ui);
 	}
 	

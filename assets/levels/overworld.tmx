@@ -48,5 +48,6 @@
  </objectgroup>
  <objectgroup color="#ffff00" name="dialogue">
   <object id="12" name="introduction" type="dialogue" x="142" y="666" width="44" height="38"/>
+  <object id="17" name="enterdoor" type="dialogue" x="974" y="628" width="110" height="85"/>
  </objectgroup>
 </map>
