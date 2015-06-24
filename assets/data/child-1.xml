@@ -31,7 +31,7 @@
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
 	</conversation>
 	<conversation id="solved">
-		<item speaker="child1"></item>
+		<item speaker="child1">Hey, bedankt voor het helpen.</item>
 	</conversation>
 </dialogue>
 <!--

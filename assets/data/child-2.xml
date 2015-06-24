@@ -8,6 +8,7 @@
 		<item speaker="child2">Nee, en nu heb ík de politie op m’n dak. Weet jij wat ik kan doen?</item>
 		<item speaker="player">Ik ga kijken of ik wat kan vinden waarmee ik je kan helpen!</item>
 		<item speaker="child2">Bedankt man!</item>
+		<item speaker="bird">Ik denk dat je beter even in de speeltuin kunt kijken.</item>
 	</conversation>
 	<conversation id="met">
 		<item speaker="child2">En, weet je wat ik kan doen?</item>

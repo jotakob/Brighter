@@ -10,13 +10,14 @@
 		<item speaker="bird">De eerste zullen wel niet te moeilijk zijn.</item>
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
 		<item speaker="bird">Inderdaad. Ik zie verderop al iemand staan!</item>
+		<item speaker="bird">Lopen doe je met A en D of met de pijltoetsen, trouwens. </item>	
 	</conversation>
 	<conversation id="enterdoor">
 	<item speaker="bird">Om door een deur te gaan klik je op E of Enter.</item>
 	</conversation>
 	
-	<conversation id="walk">
-		<item speaker="bird">Lopen doe je met A en D of met de pijltoetsen. </item>	
+	<conversation id="scroll">
+		<item speaker="bird">Deze scroll ziet er wel bruikbaar uit. Laten we terug gaan.</item>	
 	</conversation>
 	
 	<conversation id="jump">
