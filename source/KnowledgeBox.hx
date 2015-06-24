@@ -40,12 +40,6 @@ class KnowledgeBox extends FlxGroup
 		background = new FlxSprite(x, y, AssetPaths.menu_scroll__png);
 		background.scrollFactor.set();
 		add(background);
-		
-		//temp only
-		closeButton = new FlxButton(0, 0, "Sluiten", continueGame);
-		closeButton.scrollFactor.set();
-		trace(closeButton.width + " by " + closeButton.height);
-		add(closeButton);
 	}
 	
 	public function show(_status:Int)
@@ -76,6 +70,7 @@ class KnowledgeBox extends FlxGroup
 	{
 		this.remove(scrolls);
 		Reg.currentState.ui.remove(this);
+		this.status = 0;
 	}
 	
 	private function scrollClick(obj:FlxObject)

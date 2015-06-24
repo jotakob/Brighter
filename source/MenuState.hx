@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
@@ -18,11 +19,13 @@ class MenuState extends FlxState
 {
 	private var state1:FlxGroup = new FlxGroup();
 	private var state2:FlxGroup = new FlxGroup();
+	private var state3:FlxGroup = new FlxGroup();
 	
 	var maleButton:FlxSprite;
 	var femaleButton:FlxSprite;
 	var clouds:FlxSprite;
 	var title:FlxSprite;
+	var music:FlxSound;
 	
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -30,6 +33,11 @@ class MenuState extends FlxState
 	override public function create():Void
 	{
 		super.create();
+		music = new FlxSound();
+		music.loadStream(AssetPaths.mainmenu__ogg, true);
+		music.volume = 1;
+		music.play();
+		
 		clouds = new FlxSprite(0, 0, AssetPaths.movingclouds__png);
 		clouds.velocity.set(-24, 0);
 		add(clouds);
@@ -78,7 +86,8 @@ class MenuState extends FlxState
 	
 	function optionButtonClick()
 	{
-		trace("WIP");
+		remove(state1);
+		add(state3);
 	}
 	
 	function genderButtonEnter(button:FlxSprite)
@@ -141,8 +150,9 @@ class MenuState extends FlxState
 			title.velocity.y = -title.velocity.y;
 		}
 		
-		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 16 > FlxG.height)
+		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 12 > FlxG.height)
 		{
+			music.destroy();
 			FlxG.switchState(new PlayState());
 		}
 	}	

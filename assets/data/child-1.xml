@@ -21,6 +21,9 @@
 		<item1>Ja, ik heb het gevonden.</item1>
 		<item2>Nee, ik ben nog op zoek.</item2>
 	</choice>
+	<conversation id="nohelp">
+		<item speaker="player">Sorry, I cannot help you.</item>
+	</conversation>
 	<conversation id="wronganswer">
 		<item speaker="child1">Daar kan ik niets mee.</item>
 	</conversation>

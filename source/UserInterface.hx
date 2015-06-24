@@ -19,6 +19,7 @@ class UserInterface extends FlxGroup
 		dialogueBox = new DialogueBox();
 		knowledgeBox = new KnowledgeBox();
 		menu = new IngameMenu();
+		menu.kBox = knowledgeBox;
 		add(menu);
 	}
 }

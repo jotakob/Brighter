@@ -9,6 +9,7 @@ import haxe.xml.Fast;
 import haxe.Timer;
 import openfl.events.Event;
 import openfl.events.KeyboardEvent;
+import openfl.Lib;
 import openfl.ui.Keyboard;
 
 /**
@@ -155,16 +156,34 @@ class DialogueBox extends FlxGroup
 		{
 			switch currentChild.status
 			{
-				case Child.NOT_MET, Child.WRONG_ANSWER, Child.NO_HELP:
+				case Child.NOT_MET, Child.WRONG_ANSWER:
 					currentChild.status = Child.MET;
 					continueGame();
 					
 				case Child.MET:
+					if (Reg.knowledgePieces.keys().hasNext())
+					{
+						for (conv in currentChild.dialogue.elements)
+						{
+							if (conv.att.id == "metchoice")
+							{
+								choiceBox(conv.node.item1.innerData, conv.node.item2.innerData);
+								break;
+							}
+						}
+					}
+					else
+					{
+						currentChild.status = Child.NO_HELP;
+						chooseAction();
+					}
+					
+				case Child.NO_HELP:
 					for (conv in currentChild.dialogue.elements)
 					{
-						if (conv.att.id == "metchoice")
+						if (conv.att.id == Child.NO_HELP)
 						{
-							choiceBox(conv.node.item1.innerData, conv.node.item2.innerData);
+							displayDialogue(conv, currentChild);
 							break;
 						}
 					}
@@ -196,7 +215,6 @@ class DialogueBox extends FlxGroup
 	 */
 	public function displayDialogue(conversation:Fast, ?child:Child = null)
 	{
-		
 		currentChild = child;
 		
 		currentConversation = conversation.elements;
@@ -217,7 +235,6 @@ class DialogueBox extends FlxGroup
 	 */
 	override public function update()
 	{
-		super.update();
 		if (updating)
 		{
 			if (FlxG.keys.anyJustPressed(Reg.settings.interactKeys))
@@ -250,5 +267,7 @@ class DialogueBox extends FlxGroup
 				textBox.addFormat(highlighted, choiceLength + 1, textBox.text.length);
 			}
 		}
+		
+		super.update();
 	}
 }

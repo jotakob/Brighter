@@ -8,8 +8,10 @@ import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.util.FlxPoint;
 import openfl.Assets;
 import openfl.Lib;
+import flixel.group.FlxTypedGroup;
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -25,8 +27,10 @@ class PlayState extends FlxState
 	
 	private var brightnessSprite:FlxSprite;
 	private var brightnessLevel:Int = 0;
-	private var brightnessColor:Int = 0xbb3C3D42;
+	private var brightnessColor:Int = 0x99111111;
 	private var lastTime:Int = 0;
+	public var playerPosition:FlxPoint = new FlxPoint();
+	public var pickups:FlxTypedGroup<GameObject>;
 	
 	
 	/**
@@ -56,6 +60,7 @@ class PlayState extends FlxState
 	 */
 	public function newLevel(newLevelName:String)
 	{
+		remove(pickups);
 		remove(player);
 		player.kill();
 		remove(ui);
@@ -106,6 +111,8 @@ class PlayState extends FlxState
 		add(currentLevel.foregroundStuff);
 		add(brightnessSprite);
 		add(ui);
+		pickups = new FlxTypedGroup<GameObject>();
+		add(pickups);
 	}
 	
 	public function makeBrighter()
@@ -114,10 +121,10 @@ class PlayState extends FlxState
 		switch brightnessLevel
 		{
 			case 1:
-				brightnessColor = 0x993C3D42;
+				brightnessColor = 0x99555555;
 			
 			case 2:
-				brightnessColor = 0x553C3D42;
+				brightnessColor = 0x55888888;
 				
 			default:
 				brightnessColor = 0x00ffffff;
@@ -141,11 +148,16 @@ class PlayState extends FlxState
 	override public function update():Void
 	{
 		super.update();
-		//ui.update();
 		
 		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);
 		FlxG.overlap(player, currentLevel.triggers, triggerObject);
+		
+		if (currentLevel.levelName == "overworld")
+		{
+			playerPosition.x = player.x / currentLevel.fullWidth;
+			playerPosition.y = player.y / currentLevel.fullHeight;
+		}
 	}
 	
 	function triggerObject(obj1:Dynamic, obj2:Dynamic)

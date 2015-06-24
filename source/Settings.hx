@@ -11,6 +11,7 @@ class Settings
 	public var rightKeys:Array<String> = ["D", "RIGHT"];
 	public var interactKeys:Array<String> = ["E", "ENTER"];
 	public var menuKeys:Array<String> = ["ESCAPE", "M"];
+	public var keyBindings = new Map<String, Array<String>>();
 	public var gender:String = "male";
 	public var playerName:String = "Max";
 	
