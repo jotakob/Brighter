@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="575" height="42" tilewidth="16" tileheight="16" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="575" height="50" tilewidth="16" tileheight="16" nextobjectid="12">
  <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16">
-  <image source="../../Art/tiles.png" width="709" height="709"/>
+  <image source="tiles.png" width="709" height="709"/>
  </tileset>
- <layer name="background" width="575" height="42">
+ <layer name="background" width="575" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2ltKw1AQgOG0O7Cux9a96IuXveiL2uV6QAp5qU06h2SGfj98VEoIuZAwPTgMkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJ13e3Ba7lOQKoxTsbYsw+ALV4Z0OM2QegFu9siDH7ANTinQ0xZh+AWryzIcbsA1CLdzbEmH0AavHOhhizD0At3tkQ89SeoWfPEUAZZh+I+WjP0KfnCKAMsw/EWPcBqMXsAzHWfQBqMftAjHUfgFrMPhBj3QegFrMPxFj3AajF7AMxS637PDT75jD6fExw/pmPMdvxOO98zl2rud+vfR69rsGlc+m97Zz9Re/peBuzD8Qste7z0rw2b6PP9wTnn/kYsx2P887n3LWa+/3a59HrGlw6l97bztlf9J6Ot5ky+/Sec3vtr+dxVZrlM/9OWfo6ZrhvS637fDXfzc/o87jwuVY7xmzH47zzOXet5n6/9nn0ugaXzqX3tnP2F72n422mzD6959xe++t5XJVm+cy/U5a+jhnum//3AahlyuzTe87ttb+ex1Vpls/8O2Xp65jhvp3WfXZbACrw/z4Qc1r3ud8CUMHg9yqEnNZ91n6WAZhm8M6GEOs+ALWYfQCAW2L2AQBuidkHALglZh+I2SU4BgD+d9gMw+Pm72+zD8SYfQDy+2lzz/HM7PPQvt9v1j9GqEKSVK/xe/yrzT3fZh+YTJIkSZIkSZIkSZIkael+ATsWdzA=
+   eJzt2kFuEzEYhuEqN6DdFm5Cy7JwkxaWLTcBuiycBzgT3kRKFqOMU+N8dp5XejZVNBpPavcfqRcXkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJkiRJx/dmAxzLPoJMSXvT31xgJs4zyJS0N80+wEycZ5ApaW+afYCZOM8gU9LeNPsAM3GeQaakvWn2AWbiPINMSXvT7APMxHkGmZL2ptkHmInzDDIl7U2zDzAT5xlkStqbZh9gJs4zyJS0N80+wEycZ5ApaW+afYCZOM8gU9LeNPsAM3GeQaakvWn2AWbiPINMSXvT7APMxHkGmZL2ptkHmEmv8+x9cbPjtvgQsP7ke0y7H+vua83eXHpWtT9fey+Js892TWvW0vqzNderXc+5//7D/9TrPLsvHnZ8Lr4ErD/5HtPux7r7WrM3l55V7c/X3kvi7LNd05q1tP5szfVq1/Pa3//WM1Sr67W8r5HmxF7vKSM8x4Tvrdd59q34vuNH8dx5raPdY9r9WHeepWdV+/NTr6PFM1izltafrbnea7/T2uu0fododb2W9zXSe1Kv95QRnmPC95b6LgfA8VrPua2u1/K+Rprlk99Tej/HhO9t2+UGgFGc+m85jGzb1QaAUZx69oKRmX0AgHNi9gEAACDFdXk/fVu8854KAJyBuzLzfCw+Lcw+ZiMAYCaPZaZ5Kr4uzDaHZiNgn//3Acj2Us7on8WvhbP60GwE7DP7AGT7Xc7oP8XfhbP60GwE7JMkjdfuOX5oNgL2SZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZKk8fsHPZhs/A==
   </data>
  </layer>
- <layer name="middleground" width="575" height="42">
+ <layer name="middleground" width="575" height="50">
   <properties>
    <property name="collide" value="true"/>
    <property name="tileset" value="tiles"/>
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="foreground" width="575" height="42">
+ <layer name="foreground" width="575" height="50">
   <properties>
    <property name="tileset" value="tiles"/>
    <property name="z" value="front"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzjERADAIBLDHv9HiAhVcGRIFSQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjwKun6vQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALhnAA5UAdQ=
+   eJzt1rENACAMA0Fn/0VhC0THAhFF7iT3Lj8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgw6pk1+8XAACz3AZ7p8cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACY4gBHKwZi
   </data>
  </layer>
- <objectgroup color="#ff0000" name="floor"/>
- <objectgroup color="#0000c8" name="warps">
-  <object id="3" name="start" type="player_start" x="49" y="589" width="28" height="32"/>
-  <object id="5" name="overworld" type="warp" x="9137" y="561" width="30" height="32"/>
-  <object id="10" name="overworld" type="warp" x="48" y="589" width="30" height="32"/>
+ <objectgroup color="#ff0000" name="floor">
+  <object id="1" name="floor" type="floor" x="-69.8182" y="657.273" width="10000" height="16"/>
  </objectgroup>
- <objectgroup color="#aaffff" name="children">
+ <objectgroup color="#0000c8" name="warps">
+  <object id="3" name="start" type="player_start" x="49" y="589" width="44" height="32"/>
+  <object id="5" name="overworld" type="warp" x="9123" y="548" width="41" height="39"/>
+  <object id="10" name="overworld" type="warp" x="48" y="590" width="46" height="32"/>
+ </objectgroup>
+ <objectgroup color="#aaffff" name="children" opacity="0.9">
   <object id="7" name="1" type="knowledge" x="8882" y="348" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#ffff00" name="dialogue">
   <object id="9" name="jump" type="dialogue" x="128.5" y="575.5" width="41" height="41"/>
-  <object id="11" name="scrol" type="dialogue" x="8902" y="332" width="59.5" height="47.5"/>
+  <object id="11" name="scroll" type="dialogue" x="8909" y="332" width="52.5" height="47.5"/>
  </objectgroup>
 </map>
