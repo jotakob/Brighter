@@ -142,7 +142,6 @@ class PlayState extends FlxState
 	 */
 	override public function destroy():Void
 	{
-		remove(currentLevel);
 		music.destroy();
 		super.destroy();
 	}
