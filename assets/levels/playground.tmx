@@ -19,7 +19,7 @@
    <property name="z" value="back"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="foreground" width="630" height="50">
@@ -40,12 +40,12 @@
   <object id="10" name="overworld" type="warp" x="32" y="657" width="45" height="61"/>
  </objectgroup>
  <objectgroup color="#aaffff" name="children">
-  <object id="7" name="3" type="knowledge" x="5563" y="509" width="32" height="32"/>
-  <object id="8" name="2" type="knowledge" x="9819" y="493" width="32" height="32"/>
+  <object id="7" name="3" type="knowledge" x="5566" y="524" width="32" height="32"/>
+  <object id="8" name="2" type="knowledge" x="9706" y="508" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#ffff00" name="dialogue">
   <object id="9" name="doublejump" type="dialogue" x="225" y="631" width="48" height="72"/>
-  <object id="17" name="falsescroll" type="dialogue" x="5538" y="509" width="33" height="32"/>
-  <object id="22" name="rightscroll" type="dialogue" x="9816" y="492" width="32" height="33"/>
+  <object id="17" name="falsescroll" type="dialogue" x="5554" y="524" width="33" height="32"/>
+  <object id="22" name="rightscroll" type="dialogue" x="9716" y="507" width="32" height="33"/>
  </objectgroup>
 </map>
