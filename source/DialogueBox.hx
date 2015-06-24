@@ -128,6 +128,7 @@ class DialogueBox extends FlxGroup
 			{
 				if (conv.att.id == Child.RIGHT_ANSWER)
 				{
+					Reg.currentState.makeBrighter();
 					displayDialogue(conv, currentChild);
 					break;
 				}

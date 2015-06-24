@@ -86,8 +86,7 @@ class Player extends FlxObject
 		
 		if (FlxG.keys.anyJustPressed(Reg.settings.menuKeys))
 		{
-			movable = false;
-			Reg.ui.knowledgeBox.show(1);
+			Reg.currentState.makeBrighter();
 		}
 		
 		isWalking = this.isTouching(FlxObject.FLOOR);

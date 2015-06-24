@@ -37,7 +37,6 @@ class TiledLevel extends TiledMap
 	private var collidableTileLayers:Array<FlxTilemap>;
 	private var bgImages = new FlxTypedGroup<FlxSprite>();
 	public var collisionBoxes  = new FlxTypedGroup<GameObject>();
-	public var floor:FlxObject;
 	
 	public function new(tiledLevel:Dynamic)
 	{
@@ -139,9 +138,6 @@ class TiledLevel extends TiledMap
 					exitPoints.push(exitPoint);
 				}
 				
-			case "floor":
-				floor = new FlxObject(x, y, o.width, o.height);
-				
 			case "warp":
 				var warp = new Warp(x, y, o.width, o.height);
 				warp.target = o.name.toLowerCase();
@@ -191,9 +187,6 @@ class TiledLevel extends TiledMap
 				ret = (ret || FlxG.overlap(map, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
 			}
 		}
-		//if (FlxG.overlap(obj, collisionBoxes,processCallback != null ? processCallback : FlxObject.separate))
-		//	trace("collisionboxeD");
-		//ret = (ret || FlxG.overlap(collisionBoxes, obj, notifyCallback, processCallback != null ? processCallback : FlxObject.separate));
 		return ret;
 	}
 }

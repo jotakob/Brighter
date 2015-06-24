@@ -11,11 +11,14 @@ class UserInterface extends FlxGroup
 {
 	public var dialogueBox:DialogueBox;
 	public var knowledgeBox:KnowledgeBox;
+	public var menu:IngameMenu;
 
 	public function new()
 	{
 		super();
 		dialogueBox = new DialogueBox();
 		knowledgeBox = new KnowledgeBox();
+		menu = new IngameMenu();
+		add(menu);
 	}
 }

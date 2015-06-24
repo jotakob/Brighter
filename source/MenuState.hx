@@ -8,6 +8,8 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
 import flixel.plugin.MouseEventManager;
+import haxe.Timer;
+import openfl.Lib;
 
 /**
  * A FlxState which can be used for the game's menu.
@@ -17,35 +19,53 @@ class MenuState extends FlxState
 	private var state1:FlxGroup = new FlxGroup();
 	private var state2:FlxGroup = new FlxGroup();
 	
+	var maleButton:FlxSprite;
+	var femaleButton:FlxSprite;
+	var clouds:FlxSprite;
+	var title:FlxSprite;
+	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
 		super.create();
-		this.bgColor = 0xFF91A3EB;
+		clouds = new FlxSprite(0, 0, AssetPaths.movingclouds__png);
+		clouds.velocity.set(-24, 0);
+		add(clouds);
 		
-		var startButton = new FlxButton(0, 100, "Start", startButtonClick);
+		var bgImage = new FlxSprite(0, 0, AssetPaths.mainmenu__png);
+		add(bgImage);
+		
+		title = new FlxSprite(0, 15, AssetPaths.title__png);
+		title.velocity.set(0, 6);
+		add(title);
+		
+		var startButton = new FlxButton(0, 128, "Start", startButtonClick);
 		startButton.x = FlxG.width / 2 - startButton.width / 2;
 		state1.add(startButton);
 		
-		var exitButton = new FlxButton(0, 200, "Quit", exitButtonClick);
-		exitButton.x = FlxG.width / 2 - exitButton.width / 2;
-		state1.add(exitButton);
+		var optionsButton = new FlxButton(0, 155, "Opties", optionButtonClick);
+		optionsButton.x = FlxG.width / 2 - optionsButton.width / 2;
+		state1.add(optionsButton);
 		
-		var maleButton = new FlxButton(0, 130, "Male");
-		maleButton.x = FlxG.width / 2 - maleButton.width / 2;
-		MouseEventManager.add(maleButton, genderButtonClick);
+		maleButton = new FlxSprite(224, 209);
+		maleButton.ID = 1;
+		maleButton.loadGraphic(AssetPaths.characters__png, true, 64, 64);
+		maleButton.animation.add("standing", [0], 0, true);
+		maleButton.animation.add("walking", [1, 2, 3, 4], 6, true);
+		maleButton.animation.play("standing");
+		MouseEventManager.add(maleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
 		state2.add(maleButton);
 		
-		var femaleButton = new FlxButton(0, 170, "Female");
-		femaleButton.x = FlxG.width / 2 - femaleButton.width / 2;
-		MouseEventManager.add(femaleButton, genderButtonClick);
+		femaleButton = new FlxSprite(96, 209);
+		femaleButton.ID = 2;
+		femaleButton.loadGraphic(AssetPaths.characters__png, true, 64, 64);
+		femaleButton.animation.add("standing", [5], 0, true);
+		femaleButton.animation.add("walking", [6, 7, 8, 9], 6, true);
+		femaleButton.animation.play("standing");
+		MouseEventManager.add(femaleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
 		state2.add(femaleButton);
-		
-		var backButton = new FlxButton(0, 250, "Back", backButtonClick);
-		backButton.x = FlxG.width / 2 - backButton.width / 2;
-		state2.add(backButton);
 		
 		this.add(state1);
 	}
@@ -56,21 +76,43 @@ class MenuState extends FlxState
 		add(state2);
 	}
 	
-	function exitButtonClick()
+	function optionButtonClick()
 	{
-		Sys.exit(0);
+		trace("WIP");
 	}
 	
-	function genderButtonClick(button:FlxButton)
+	function genderButtonEnter(button:FlxSprite)
 	{
-		Reg.settings.gender = button.text.toLowerCase();
-		FlxG.switchState(new PlayState());
+		button.animation.play("walking");
 	}
 	
-	function backButtonClick()
+	function genderButtonLeave(button:FlxSprite)
 	{
-		remove(state2);
-		add(state1);
+		button.animation.play("standing");
+	}
+	
+	function genderButtonClick(button:FlxSprite)
+	{
+		if (button.ID == 1)
+		{
+			Reg.settings.gender = "male";
+		}
+		else
+		{
+			Reg.settings.gender = "female";
+		}
+		button.velocity.set(0, 64);
+		MouseEventManager.remove(maleButton);
+		MouseEventManager.remove(femaleButton);
+	}
+	
+	function helpText()
+	{
+		var text = new FlxText(0, 0, 190, "Select a character to start playing");
+		text.setFormat(null, 12, 0xca9a3c, "center");
+		text.x = FlxG.width / 2 - text.width / 2;
+		text.y = FlxG.height / 2;
+		add(text);
 	}
 	
 	/**
@@ -88,5 +130,20 @@ class MenuState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+		
+		if (clouds.x <= -2134)
+		{
+			clouds.x = 0;
+		}
+		
+		if (title.y > 15 || title.y < 10)
+		{
+			title.velocity.y = -title.velocity.y;
+		}
+		
+		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 16 > FlxG.height)
+		{
+			FlxG.switchState(new PlayState());
+		}
 	}	
 }

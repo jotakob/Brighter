@@ -22,8 +22,10 @@ class PlayState extends FlxState
 	public var dialogue:DialogueBox;
 	public var ui:UserInterface;
 	public var levelName:String;
-	public var brightnessSprite:FlxSprite;
 	
+	private var brightnessSprite:FlxSprite;
+	private var brightnessLevel:Int = 0;
+	private var brightnessColor:Int = 0xbb3C3D42;
 	private var lastTime:Int = 0;
 	
 	
@@ -95,7 +97,7 @@ class PlayState extends FlxState
 		levelName = newLevelName;
 		FlxG.camera.setBounds(0, 0, currentLevel.fullWidth, currentLevel.fullHeight, true);
 		
-		brightnessSprite.makeGraphic(currentLevel.fullWidth, currentLevel.fullHeight, 0x993C3D42);
+		brightnessSprite.makeGraphic(currentLevel.fullWidth, currentLevel.fullHeight, brightnessColor);
 		lastTime = Lib.getTimer();
 		
 		add(currentLevel.backgroundStuff);
@@ -106,6 +108,23 @@ class PlayState extends FlxState
 		add(ui);
 	}
 	
+	public function makeBrighter()
+	{
+		brightnessLevel++;
+		switch brightnessLevel
+		{
+			case 1:
+				brightnessColor = 0x993C3D42;
+			
+			case 2:
+				brightnessColor = 0x553C3D42;
+				
+			default:
+				brightnessColor = 0x00ffffff;
+		}
+		
+		brightnessSprite.makeGraphic(currentLevel.fullWidth, currentLevel.fullHeight, brightnessColor);
+	}
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
@@ -127,12 +146,6 @@ class PlayState extends FlxState
 		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);
 		FlxG.overlap(player, currentLevel.triggers, triggerObject);
-		
-		if (FlxG.overlap(player, currentLevel.floor))
-		{
-			player.x = currentLevel.startPoint.x;
-			player.y = currentLevel.startPoint.y;
-		}
 	}
 	
 	function triggerObject(obj1:Dynamic, obj2:Dynamic)
