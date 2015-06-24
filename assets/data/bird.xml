@@ -48,6 +48,10 @@
 	<conversation id="met">
 		<item speaker="bird">Hey, have you found help for me? I reeeaaally need it.</item>
 	</conversation>
+  
+  <conversation id="endgame">
+		<item speaker="bird">Congratulations! You have helped all the children. Great Job!</item>	
+	</conversation>
 	<!--
 	<choice id="metchoice">
 		<item1>Yes, here is some help.</item1>

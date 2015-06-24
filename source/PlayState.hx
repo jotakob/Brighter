@@ -30,7 +30,6 @@ class PlayState extends FlxState
 	private var brightnessColor:Int = 0x99111111;
 	private var lastTime:Int = 0;
 	public var playerPosition:FlxPoint = new FlxPoint();
-	public var pickups:FlxTypedGroup<GameObject>;
 	
 	
 	/**
@@ -61,7 +60,6 @@ class PlayState extends FlxState
 	 */
 	public function newLevel(newLevelName:String)
 	{
-		remove(pickups);
 		remove(player);
 		player.kill();
 		remove(ui);
@@ -112,8 +110,6 @@ class PlayState extends FlxState
 		add(currentLevel.foregroundStuff);
 		add(brightnessSprite);
 		add(ui);
-		pickups = new FlxTypedGroup<GameObject>();
-		add(pickups);
 	}
 	
 	public function makeBrighter()

@@ -36,7 +36,7 @@ class KnowledgePickup extends GameObject
 		text.setFormat(null, 8, 0xFFFFFF, "center");
 		text.x = FlxG.width / 2 - text.width / 2;
 		text.y = FlxG.height / 2 - text.height - 16;
-		Reg.currentState.pickups.add(this);
+		Reg.currentState.add(this);
 		Reg.ui.add(text);
 		updating = true;
 		level = Reg.currentState.currentLevel.levelName;
@@ -50,6 +50,7 @@ class KnowledgePickup extends GameObject
 			trace("distance: " + FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()));
 			if (FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64)
 			{
+				Reg.ui.remove(text);
 				text.destroy();
 				this.destroy();
 			}

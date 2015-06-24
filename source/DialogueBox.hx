@@ -11,6 +11,7 @@ import openfl.events.Event;
 import openfl.events.KeyboardEvent;
 import openfl.Lib;
 import openfl.ui.Keyboard;
+import openfl.Assets;
 
 /**
  * This class manages the dialogue box at the bottom of the screen
@@ -35,6 +36,7 @@ class DialogueBox extends FlxGroup
 	private var choiceLength:Int;
 	private var talkingToChild:Bool;
 	private var updating:Bool = false;
+	private var endGame = false;
 
 	public function new()
 	{
@@ -153,7 +155,11 @@ class DialogueBox extends FlxGroup
 	
 	private function chooseAction()
 	{
-		if (currentChild != null)
+		if (endGame)
+		{
+			FlxG.switchState(new EndScreen());
+		}
+		else if (currentChild != null)
 		{
 			switch currentChild.status
 			{
@@ -195,7 +201,24 @@ class DialogueBox extends FlxGroup
 					Reg.ui.knowledgeBox.show(2);
 					
 				case Child.SOLVED:
-					continueGame();
+					if (Reg.childCounter >= 2)
+					{
+						endGame = true;
+						var xml:Xml = Xml.parse(Assets.getText("assets/data/bird.xml"));
+						var dialogue = new Fast(xml.firstElement());
+						for (conv in dialogue.elements)
+						{
+							if (conv.att.id == "endgame")
+							{
+								displayDialogue(conv);
+								break;
+							}
+						}
+					}
+					else
+					{
+						continueGame();
+					}
 			}
 		}
 		else

@@ -87,11 +87,11 @@ class MenuState extends FlxState
 		backButton.x = FlxG.width / 2 - backButton.width / 2;
 		optionsState.add(backButton);
 		
-		musicButton = new FlxButton(0, 155, "Muziek: AAN", musicButtonClick);
+		musicButton = new FlxButton(0, 165, "Muziek: AAN", musicButtonClick);
 		musicButton.x = FlxG.width / 2 - musicButton.width / 2;
 		optionsState.add(musicButton);
 		
-		soundButton = new FlxButton(0, 182, "Geluid: AAN", soundButtonClick);
+		soundButton = new FlxButton(0, 192, "Geluid: AAN", soundButtonClick);
 		soundButton.x = FlxG.width / 2 - soundButton.width / 2;
 		optionsState.add(soundButton);
 		
@@ -173,11 +173,11 @@ class MenuState extends FlxState
 		Reg.settings.soundVolume = value;
 		if (value == 0)
 		{
-			musicButton.text = "Geluid: UIT";
+			soundButton.text = "Geluid: UIT";
 		}
 		else
 		{
-			musicButton.text = "Geluid: AAN";
+			soundButton.text = "Geluid: AAN";
 		}
 	}
 	

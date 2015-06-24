@@ -42,7 +42,7 @@ class KnowledgePiece extends FlxGroup
 		add(background);
 		
 		text = new FlxText(background.x + 14, background.y + 16, 292, longInfo);
-		text.setFormat(Assets.getFont("assets/fonts/Artifika-Regular.ttf").fontName, 8, 0x000000, "center");
+		text.setFormat(null, 8, 0x000000, "center");
 		text.scrollFactor.set();
 		add(text);
 		
