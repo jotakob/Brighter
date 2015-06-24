@@ -1,4 +1,4 @@
-<dialogue name="Henk">
+<dialogue name="Marijn">
 	<conversation id="notmet">
 		<item speaker="child1">Hey, kan je mij helpen?</item>
 		<item speaker="player">Jawel. Wat is er loos?</item>
@@ -31,7 +31,7 @@
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
 	</conversation>
 	<conversation id="solved">
-		<item speaker="child1">YAY</item>
+		<item speaker="child1"></item>
 	</conversation>
 </dialogue>
 <!--

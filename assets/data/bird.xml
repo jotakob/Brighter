@@ -1,33 +1,34 @@
 <dialogue name="Bird">
 	<conversation id="introduction">
-		<item speaker="bird">Hallo! Ik ben van de KJRW. De KJRW is een organisatie die </item>
-		<item speaker="bird">kinderen zoals jij helpt met advies geven over problemen die </item>
-		<item speaker="bird">opgelost kunnen worden door het rechtssysteem.</item>
+		<item speaker="bird">Hallo! Ik ben van de KJRW.</item>
 		<item speaker="bird">Hier hebben de kinderen onze hulp nodig, </item>
 		<item speaker="bird">maar ik kan dit niet alleen. Kan jij me helpen?</item>
 		<item speaker="player">Ja, is goed.</item>
-		<item speaker="bird">Tof! De kinderen hebben advies nodig met hun problemen, </item>
-		<item speaker="bird">maar de kennis die nodig is om hen te helpen </item>
-		<item speaker="bird">kan alleen gevonden worden in bepaalde gebouwen.</item>
-		<item speaker="bird">Ik kan je naar de gebouwen leiden,</item>
-		<item speaker="bird">maar de kennis moet jij verzamelen. </item>
-		<item speaker="bird">Het kan echter aardig pittig zijn om die te verzamelen,</item>
-		<item speaker="bird">maar de eerste stukken kennis zullen wel niet al te moeilijk zijn.”</item>
+		<item speaker="bird">Tof! De kinderen hebben advies nodig. </item>
+		<item speaker="bird">Ga naar de gebouwen toe die ik je aangeef om de kinderen te helpen.</item>
+		<item speaker="bird">De kennis moet je zelf verzamelen.</item>
+		<item speaker="bird">De eerste zullen wel niet te moeilijk zijn.</item>
 		<item speaker="player">Klinkt als een plan! Laten we gaan!</item>
-		<item speaker="bird">Inderdaad. Ik zie daar iemand staan die onze hulp nodig heeft!</item>
-		<item speaker="player">Oh wacht..</item>
-		<item speaker="player">Hoe beweeg ik ook alweer?</item>
-		<item speaker="bird">Je kunt je met de pijltoetsen of A en D bewegen.</item>
-		<item speaker="bird">Springen doe je met W, spatiebalk of met het pijltje omhoog.</item>
-		<item speaker="bird">Oh ja, om door een deur te gaan klik je op E of Enter</item>
-		<item speaker="bird">Dezelfde toetsen kan je ook gebruiken om te praten.</item>
-		<item speaker="player">Oh, simpeler kan bijna niet! Bedankt!</item>
+		<item speaker="bird">Inderdaad. Ik zie verderop al iemand staan!</item>
 	</conversation>
+	<conversation id="enterdoor">
+	<item speaker="bird">Om door een deur te gaan klik je op E of Enter.</item>
+	</conversation>
+	
+	<conversation id="walk">
+		<item speaker="bird">Lopen doe je met A en D of met de pijltoetsen. </item>	
+	</conversation>
+	
+	<conversation id="jump">
+		<item speaker="bird">Springen doe je met W, pijltje omhoog of met de spatiebalk.</item>	
+	</conversation>
+		
+		
 	<conversation id="doublejump">
 		<item speaker="bird">Trouwens, in dit level kan je een dubble sprong doen.</item>
-		<item speaker="bird">Klik gewoon nog een keer op spatiebalk als je al in de lucht bent!</item>
-		<item speaker="bird">Protip: wacht even met het nog een keer klikken totdat je </item>
-		<item speaker="bird">hoog in de lucht bent. Succes!</item>
+		<item speaker="bird">Spring gewoon nog een keer als je al in de lucht bent!</item>
+		<item speaker="bird">Wacht even met het nog een keer klikken totdat je hoog in de lucht bent. </item>
+		<item speaker="bird">Succes!</item>
 		
 	</conversation>
 	<conversation id="met">

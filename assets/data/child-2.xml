@@ -17,9 +17,14 @@
 		<item2>Nee, ik ben er nog niet achter.</item2>
 	</choice>
 	<conversation id="wronganswer">
-		<item speaker="child2">Daar heb ik niets aan.</item>
+		<item speaker="child2">Daar heb ik niet zo veel aan.</item>
 	</conversation>
 	<conversation id="rightanswer">
 		<item speaker="child2">Ik ben blij dat ik er iets tegen kan doen. Dankjewel!</item>
 	</conversation>
+	<conversation id="solved">
+		<item speaker="child1">Dankjewel voor je hulp.</item>
+	</conversation>
+	
+	
 </dialogue>
