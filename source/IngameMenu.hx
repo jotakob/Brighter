@@ -40,7 +40,7 @@ class IngameMenu extends FlxGroup
 		MouseEventManager.add(knowledgeButton, knowledgeButtonClick);
 		openStuff.add(knowledgeButton);
 		
-		var mapButton = new FlxObject(0, 130, 115, 32);
+		var mapButton = new FlxObject(0, 115, 115, 32);
 		mapButton.scrollFactor.set();
 		MouseEventManager.add(mapButton, mapButtonClick);
 		openStuff.add(mapButton);
@@ -116,7 +116,7 @@ class IngameMenu extends FlxGroup
 		{
 			closeAll();
 			mapMarker.x = mapImage.x + Reg.playState.playerPosition.x * mapImage.width;
-			mapMarker.y = mapImage.y + Reg.playState.playerPosition.y * mapImage.height;
+			mapMarker.y = mapImage.y + Reg.playState.playerPosition.y * mapImage.height - 2;
 			add(mapImage);
 			add(mapMarker);
 		}
