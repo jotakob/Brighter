@@ -31,8 +31,8 @@
 	<conversation id="rightanswer">
 		<item speaker="child1">Echt? Super bedankt! </item>
 		<item speaker="child1">Ik voel me nu al een stuk beter..</item>
-		<item speaker="bird">Hey,zag je dat? Het werd lichter om ons heen!</item>
-		<item speaker="bird">Denk er nog maar even over na. </item>
+		<item speaker="bird">Hey, zag je dat? Het werd lichter om ons heen!</item>
+		<item speaker="bird">Ga zo door!</item>
 	</conversation>
 	<conversation id="solved">
 		<item speaker="child1">Hey, bedankt voor het helpen.</item>

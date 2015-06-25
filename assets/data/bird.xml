@@ -39,18 +39,15 @@
 		
 		
 	<conversation id="doublejump">
-		<item speaker="bird">Trouwens, in dit level kan je een dubble sprong doen.</item>
+		<item speaker="bird">Trouwens, in dit level kan je een dubbele sprong doen.</item>
 		<item speaker="bird">Spring gewoon nog een keer als je al in de lucht bent!</item>
-		<item speaker="bird">Wacht even met het nog een keer klikken totdat je hoog in de lucht bent. </item>
+		<item speaker="bird">Wacht met nog een keer klikken totdat je hoog in de lucht bent. </item>
+		<item speaker="bird">Op deze manier kom je nog hoger de lucht in!</item>	
 		<item speaker="bird">Succes!</item>
 		
 	</conversation>
-	<conversation id="met">
-		<item speaker="bird">Hey, have you found help for me? I reeeaaally need it.</item>
-	</conversation>
-  
   <conversation id="endgame">
-		<item speaker="bird">Congratulations! You have helped all the children. Great Job!</item>	
+		<item speaker="bird">Je hebt alle kinderen geholpen! Goed gedaan!</item>	
 	</conversation>
 	<!--
 	<choice id="metchoice">
