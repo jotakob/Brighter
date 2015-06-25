@@ -82,12 +82,11 @@ class Player extends FlxObject
 		{
 			FlxG.resetState();
 		}
-		#end
-		
 		if (FlxG.keys.anyJustPressed(Reg.settings.menuKeys))
 		{
 			Reg.playState.makeBrighter();
 		}
+		#end
 		
 		isWalking = this.isTouching(FlxObject.FLOOR);
 		
