@@ -38,7 +38,6 @@
   <object id="3" name="start" type="player_start" x="144" y="672" width="28" height="32"/>
   <object id="6" name="school" type="warp" x="1130" y="630" width="87" height="85"/>
   <object id="7" name="playground" type="warp" x="2812" y="672" width="68" height="31"/>
-  <object id="9" name="demo" type="warp" x="48" y="597" width="72" height="103"/>
   <object id="13" name="playground" type="player_start" x="2832" y="672" width="28" height="32"/>
   <object id="15" name="school" type="player_start" x="1158" y="672" width="51" height="32"/>
  </objectgroup>

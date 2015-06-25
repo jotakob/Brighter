@@ -137,7 +137,7 @@ class IngameMenu extends FlxGroup
 	
 	private function saveButtonClick(obj:FlxObject)
 	{
-		trace("WIP");
+		//trace("WIP");
 	}
 	
 	private function menuButtonClick(obj:FlxObject)

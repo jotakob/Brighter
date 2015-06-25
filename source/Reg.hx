@@ -20,6 +20,8 @@ class Reg
 	public static var knowledgePieces:Map<Int, KnowledgePiece>;
 	public static var childCounter:Int;
 	
+	public static var sounds:Array<FlxSound>;
+	
 	public static var levels:Map<String, TiledLevel>;
 	
 	public static var saves:Array<FlxSave> = [];

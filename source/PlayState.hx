@@ -43,9 +43,15 @@ class PlayState extends FlxState
 		Reg.playState = this;
 		
 		music = new FlxSound();
-		music.loadStream(AssetPaths.mainmenu__ogg, true);
+		music.loadStream(AssetPaths.maingame__ogg, true);
 		music.volume = Reg.settings.musicVolume;
 		music.play();
+		
+		var sound = new FlxSound();
+		sound.loadStream(AssetPaths.pickup__ogg);
+		sound.volume = Reg.settings.soundVolume;
+		Reg.sounds = new Array<FlxSound>();
+		Reg.sounds.push(sound);
 		
 		Reg.knowledgePieces = new Map<Int, KnowledgePiece>();
 		Reg.levels = new Map<String, TiledLevel>();
@@ -75,7 +81,7 @@ class PlayState extends FlxState
 			remove(currentLevel.backgroundStuff);
 			remove(currentLevel.foregroundStuff);
 		}
-		trace("Time spent in " + levelName + ": " + Math.floor((Lib.getTimer() - lastTime) / 1000) + "s");
+		//trace("Time spent in " + levelName + ": " + Math.floor((Lib.getTimer() - lastTime) / 1000) + "s");
 		
 		if (Reg.levels.exists(newLevelName))
 		{
@@ -123,11 +129,11 @@ class PlayState extends FlxState
 		brightnessLevel++;
 		switch brightnessLevel
 		{
-			case 1:
-				brightnessColor = 0x99555555;
+			case -1:
+				brightnessColor = 0x99222222;
 			
-			case 2:
-				brightnessColor = 0x55888888;
+			case 1:
+				brightnessColor = 0x55444444;
 				
 			default:
 				brightnessColor = 0x00ffffff;

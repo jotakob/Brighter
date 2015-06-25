@@ -29,6 +29,7 @@ class KnowledgePickup extends GameObject
 	{
 		Reg.playState.currentLevel.triggers.remove(this);
 		graphicComponent.destroy();
+		Reg.sounds[0].play();
 		var knowledge = new KnowledgePiece(knowledgeID);
 		Reg.knowledgePieces.set(knowledgeID, knowledge);
 		text = new FlxText(0, 0, FlxG.width - 96, knowledge.shortInfo);
@@ -47,7 +48,6 @@ class KnowledgePickup extends GameObject
 		if (updating)
 		{
 			super.update();
-			trace("distance: " + FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()));
 			if (FlxMath.getDistance(Reg.player.getMidpoint(), this.getMidpoint()) >= 64)
 			{
 				Reg.ui.remove(text);

@@ -15,7 +15,7 @@ class Settings
 	public var gender:String = "male";
 	public var playerName:String = "Max";
 	public var musicVolume:Float = 1;
-	public var soundVolume:Float = 0;
+	public var soundVolume:Float = 1;
 	
 	public function new() 
 	{

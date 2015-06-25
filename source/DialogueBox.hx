@@ -97,7 +97,7 @@ class DialogueBox extends FlxGroup
 			}
 			else
 			{
-				trace("speaker not found");
+				//trace("speaker not found");
 			}
 		}
 	}
@@ -186,6 +186,7 @@ class DialogueBox extends FlxGroup
 					}
 					
 				case Child.NO_HELP:
+					currentChild.status = Child.NOT_MET;
 					for (conv in currentChild.dialogue.elements)
 					{
 						if (conv.att.id == Child.NO_HELP)
@@ -194,7 +195,6 @@ class DialogueBox extends FlxGroup
 							break;
 						}
 					}
-					currentChild.status = Child.MET;
 					
 				case Child.YES_HELP:
 					Reg.ui.remove(this);
