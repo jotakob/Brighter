@@ -15,7 +15,7 @@ import flixel.group.FlxTypedGroup;
 import flixel.system.FlxSound;
 
 /**
- * A FlxState which can be used for the actual gameplay.
+ * A FlxState which is used for the main game management
  * @author Jakob
  */
 class PlayState extends FlxState
@@ -124,6 +124,9 @@ class PlayState extends FlxState
 		add(ui);
 	}
 	
+	/**
+	 * changes the brightness level of the world
+	 */
 	public function makeBrighter()
 	{
 		brightnessLevel++;

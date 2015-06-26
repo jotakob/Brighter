@@ -13,7 +13,7 @@ import haxe.Timer;
 import openfl.Lib;
 
 /**
- * A FlxState which can be used for the game's menu.
+ * A FlxState which is used for the game's menu.
  */
 class MenuState extends FlxState
 {
@@ -37,7 +37,7 @@ class MenuState extends FlxState
 	 */
 	override public function create():Void
 	{
-		//Background
+		//Background Image & Sound
 		super.create();
 		music = new FlxSound();
 		music.loadStream(AssetPaths.mainmenu__ogg, true);
@@ -122,6 +122,9 @@ class MenuState extends FlxState
 		this.add(titleState);
 	}
 	
+	/**
+	 * switches to the character selection state. starts the counter for the hint.
+	 */
 	function startButtonClick()
 	{
 		remove(titleState);
@@ -138,22 +141,32 @@ class MenuState extends FlxState
 		add(selectionState);
 	}
 	
+	/**
+	 * switches to the options menu state
+	 */
 	function optionButtonClick()
 	{
 		remove(titleState);
 		add(optionsState);
 	}
 	
+	/**
+	 * hover animation for the characters
+	 * @param	button
+	 */
 	function genderButtonEnter(button:FlxSprite)
 	{
 		button.animation.play("walking");
 	}
-	
 	function genderButtonLeave(button:FlxSprite)
 	{
 		button.animation.play("standing");
 	}
 	
+	/**
+	 * character selection. the selected character walks off screen
+	 * @param	button
+	 */
 	function genderButtonClick(button:FlxSprite)
 	{
 		if (button.ID == 1)
@@ -170,6 +183,9 @@ class MenuState extends FlxState
 		music.fadeOut(1.5, 0);
 	}
 	
+	/**
+	 * displays a help text for the player
+	 */
 	function helpText()
 	{
 		var text = new FlxText(0, 0, 190, "Select a character to start playing");
@@ -179,12 +195,18 @@ class MenuState extends FlxState
 		add(text);
 	}
 	
+	/**
+	 * switches back to the main menu state
+	 */
 	function backButtonClick()
 	{
 		remove(optionsState);
 		add(titleState);
 	}
 	
+	/**
+	 * inverts the music volume and updates the button accordingly
+	 */
 	function musicButtonClick()
 	{
 		var value = Math.abs(Reg.settings.musicVolume - 1);
@@ -200,6 +222,9 @@ class MenuState extends FlxState
 		}
 	}
 	
+	/**
+	 * inverts the sound volume and updates the button accordingly
+	 */
 	function soundButtonClick()
 	{
 		var value = Math.abs(Reg.settings.soundVolume - 1);
@@ -231,16 +256,19 @@ class MenuState extends FlxState
 	{
 		super.update();
 		
+		//moving the clouds
 		if (clouds.x <= -2134)
 		{
 			clouds.x = 0;
 		}
 		
+		//moving the game title text
 		if (title.y > 15 || title.y < 10)
 		{
 			title.velocity.y = -title.velocity.y;
 		}
 		
+		//displaying the helptext after a certain time
 		if (counting)
 		{
 			frameCounter++;
@@ -250,6 +278,7 @@ class MenuState extends FlxState
 			}
 		}
 		
+		//When a character is off screen, starts the game
 		if (maleButton.y + 16 > FlxG.height || femaleButton.y + 12 > FlxG.height)
 		{
 			music.destroy();

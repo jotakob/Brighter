@@ -7,17 +7,11 @@ import flixel.FlxSprite;
 import flixel.plugin.MouseEventManager;
 
 /**
- * ...
- * @author ...
+ * The endscreen of the game, just some images and mouseevents
+ * @author Jakob
  */
 class EndScreen extends FlxState
-{
-
-	/*public function new() 
-	{
-		super();
-	}*/
-	
+{	
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */

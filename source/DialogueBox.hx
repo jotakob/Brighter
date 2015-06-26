@@ -14,7 +14,8 @@ import openfl.ui.Keyboard;
 import openfl.Assets;
 
 /**
- * This class manages the dialogue box at the bottom of the screen
+ * This class manages the dialogue box at the bottom of the screen,
+ * as well as the dialogue progressing and the ending of the game
  * @author Jakob
  */
 class DialogueBox extends FlxGroup
@@ -61,6 +62,10 @@ class DialogueBox extends FlxGroup
 		add(textBox);
 	}
 	
+	/**
+	 * Sets the speaker image according to the specified value
+	 * @param	speaker name of the speaker image
+	 */
 	private function setSpeaker(speaker:String)
 	{
 		remove(leftImage);
@@ -97,11 +102,16 @@ class DialogueBox extends FlxGroup
 			}
 			else
 			{
-				//trace("speaker not found");
+				trace("speaker not found");
 			}
 		}
 	}
 	
+	/**
+	 * Sets the text of the dialoguebox
+	 * @param	text
+	 * @param	speaker
+	 */
 	public function setText(text:String, speaker:String)
 	{
 		currentChoice = -1;
@@ -113,6 +123,11 @@ class DialogueBox extends FlxGroup
 		Reg.playState.ui.add(this);
 	}
 	
+	/**
+	 * Creates a dialogue where the player can choose between two options
+	 * @param	choice1
+	 * @param	choice2
+	 */
 	public function choiceBox(choice1:String, choice2:String)
 	{
 		currentChoice = 1;
@@ -122,6 +137,10 @@ class DialogueBox extends FlxGroup
 		textBox.addFormat(highlighted, 0, choiceLength);
 	}
 	
+	/**
+	 * Callback function from the knowledgebox, where the player selects the piece of knowledge
+	 * @param	knowledgeID
+	 */
 	public function choiceDone(knowledgeID:Int)
 	{
 		Reg.ui.add(this);
@@ -153,6 +172,10 @@ class DialogueBox extends FlxGroup
 		}
 	}
 	
+	/**
+	 * Chooses the next action depending on the child's status
+	 * This is where all the dialogue progression logic is
+	 */
 	private function chooseAction()
 	{
 		if (endGame)
@@ -227,6 +250,9 @@ class DialogueBox extends FlxGroup
 		}
 	}
 	
+	/**
+	 * makes the player able to continue the game
+	 */
 	private function continueGame()
 	{
 		updating = false;

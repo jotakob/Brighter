@@ -5,7 +5,7 @@ import flixel.FlxSprite;
 
 /**
  * A generic game object
- * @author JJM
+ * @author Jakob
  */
 class GameObject extends FlxObject
 {

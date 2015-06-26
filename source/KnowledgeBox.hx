@@ -9,8 +9,8 @@ import flixel.plugin.MouseEventManager;
 import flixel.ui.FlxButton;
 
 /**
- * ...
- * @author JJM
+ * The scroll case ui element containing the knowledge scrolls
+ * @author Jakob
  */
 class KnowledgeBox extends FlxGroup
 {
@@ -42,6 +42,10 @@ class KnowledgeBox extends FlxGroup
 		add(background);
 	}
 	
+	/**
+	 * shows the box, creates the knowledge scrolls based on the found knowledge pieces
+	 * @param	_status
+	 */
 	public function show(_status:Int)
 	{
 		status = _status;
@@ -66,6 +70,9 @@ class KnowledgeBox extends FlxGroup
 		Reg.ui.add(this);
 	}
 	
+	/**
+	 * hides the scroll case
+	 */
 	public function hide()
 	{
 		this.remove(scrolls);
@@ -73,6 +80,10 @@ class KnowledgeBox extends FlxGroup
 		this.status = 0;
 	}
 	
+	/**
+	 * shows the corresponding knowledge piece
+	 * @param	obj
+	 */
 	private function scrollClick(obj:FlxObject)
 	{
 		Reg.knowledgePieces.get(obj.ID).show(status);

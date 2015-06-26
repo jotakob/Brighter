@@ -1,8 +1,8 @@
 package ;
 
 /**
- * ...
- * @author JJM
+ * Stores the settings that the player may be able to change in the future
+ * @author Jakob
  */
 class Settings
 {
@@ -18,11 +18,6 @@ class Settings
 	public var soundVolume:Float = 1;
 	
 	public function new() 
-	{
-		
-	}
-	
-	public function loadSettings()
 	{
 		
 	}

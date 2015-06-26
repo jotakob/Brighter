@@ -7,8 +7,8 @@ import flixel.plugin.MouseEventManager;
 import flixel.FlxG;
 
 /**
- * ...
- * @author JJM
+ * The ingame menu which is part of the UI
+ * @author Jakob
  */
 class IngameMenu extends FlxGroup
 {
@@ -74,10 +74,15 @@ class IngameMenu extends FlxGroup
 		
 	}
 	
+	/**
+	 * opens and closes the menu
+	 * @param	obj
+	 */
 	private function openButtonClick(obj:FlxObject)
 	{
 		if (isOpen)
 		{
+			closeAll();
 			remove(openStuff);
 			bgImage.loadGraphic(AssetPaths.menuclosed__png);
 			Reg.player.setMovable();
@@ -92,6 +97,10 @@ class IngameMenu extends FlxGroup
 		}
 	}
 	
+	/**
+	 * shows and hides the knowledge box
+	 * @param	obj
+	 */
 	private function knowledgeButtonClick(obj:FlxObject)
 	{
 		if (kBox.status == 0)
@@ -105,6 +114,10 @@ class IngameMenu extends FlxGroup
 		}
 	}
 	
+	/**
+	 * shows and hides the map and adjusts the map markers position
+	 * @param	obj
+	 */
 	private function mapButtonClick(obj:FlxObject)
 	{
 		if (this.members.indexOf(mapImage) >= 0)
@@ -122,6 +135,10 @@ class IngameMenu extends FlxGroup
 		}
 	}
 	
+	/**
+	 * shows and hides the control image
+	 * @param	obj
+	 */
 	private function optionButtonClick(obj:FlxObject)
 	{
 		if (this.members.indexOf(optionsImage) >= 0)
@@ -140,11 +157,18 @@ class IngameMenu extends FlxGroup
 		//trace("WIP");
 	}
 	
+	/**
+	 * quits the game back to the main menu
+	 * @param	obj
+	 */
 	private function menuButtonClick(obj:FlxObject)
 	{
 		FlxG.switchState(new MenuState());
 	}
 	
+	/**
+	 * closes all open menu items
+	 */
 	private function closeAll()
 	{
 		kBox.hide();
@@ -153,6 +177,9 @@ class IngameMenu extends FlxGroup
 		remove(optionsImage);
 	}
 	
+	/**
+	 * makes the map marker blink
+	 */
 	public override function update()
 	{
 		super.update();

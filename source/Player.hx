@@ -7,7 +7,7 @@ import flixel.FlxObject;
 import openfl.Assets;
 
 /**
- * ...
+ * The player, graphics, movement and all keyboard inputs
  * @author Jakob
  */
 class Player extends FlxObject
@@ -58,6 +58,9 @@ class Player extends FlxObject
 		graphicComponent.setFacingFlip(FlxObject.RIGHT, false, false);
 	}
 	
+	/**
+	 * gives a jumping impulse
+	 */
 	public function jump()
 	{
 		isJumping = true;
@@ -130,6 +133,7 @@ class Player extends FlxObject
 			graphicComponent.animation.pause();
 		}
 		
+		//Jumping and double-jumping
 		if (movable)
 		{
 			if (FlxG.keys.anyJustPressed(Reg.settings.jumpKeys))
@@ -156,7 +160,7 @@ class Player extends FlxObject
 		super.update();
 	}
 	
-	//Collide & Overlap functions
+	//Overlap function
 	private function activateObject(player:Dynamic, object:Dynamic)
 	{
 		cast(object, GameObject).activate();

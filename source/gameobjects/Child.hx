@@ -15,6 +15,7 @@ class Child extends GameObject
 	public var imagePath:String;
 	public var dialogue:Fast;
 	public var status:String = NOT_MET;
+	public var childID:Int;
 	
 	public static inline var NOT_MET:String = "notmet";
 	public static inline var MET:String = "met";
@@ -24,9 +25,12 @@ class Child extends GameObject
 	public static inline var RIGHT_ANSWER:String = "rightanswer";
 	public static inline var SOLVED:String = "solved";
 	
-	public var childID:Int;
-	
-
+	/**
+	 * creates the graphics and loads the dialogue
+	 * @param	X
+	 * @param	Y
+	 * @param	_ID
+	 */
 	public function new(X:Float=0, Y:Float=0, _ID:Int) 
 	{
 		super(X, Y, 32, 32);

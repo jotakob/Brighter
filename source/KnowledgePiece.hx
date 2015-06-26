@@ -10,8 +10,8 @@ import flixel.ui.FlxButton;
 import flixel.FlxG;
 
 /**
- * ...
- * @author JJM
+ * A piece of knowledge, both visuals and text, ui element, not the in-world version
+ * @author Jakob
  */
 class KnowledgePiece extends FlxGroup
 {
@@ -26,8 +26,12 @@ class KnowledgePiece extends FlxGroup
 	private var selectButton:FlxButton;
 	
 	private var kBox:KnowledgeBox;
-
-	public function new(_knowledgeID:Int) 
+	
+	/**
+	 * loads the text from the file and creates the necessary visual elements
+	 * @param	_knowledgeID
+	 */
+	public function new(_knowledgeID:Int)
 	{
 		knowledgeID = _knowledgeID;
 		kBox = Reg.ui.knowledgeBox;
@@ -53,10 +57,12 @@ class KnowledgePiece extends FlxGroup
 		selectButton = new FlxButton(0, background.y + background.height - 8, "Selecteren", select);
 		selectButton.scrollFactor.set();
 		selectButton.x = background.x + background.width - selectButton.width - 16;
-		
-		// Assets.getFont("assets/fonts/Artifika-Regular.ttf").fontName
 	}
 	
+	/**
+	 * displays the piece on the screen, if the player has to make a choice also displays the select button
+	 * @param	status
+	 */
 	public function show(status:Int)
 	{
 		if (status == 2)
@@ -71,6 +77,9 @@ class KnowledgePiece extends FlxGroup
 		kBox.remove(this);
 	}
 	
+	/**
+	 * calls the callback function in the dialoguebox for the chosen piece
+	 */
 	private function select()
 	{
 		remove(selectButton);

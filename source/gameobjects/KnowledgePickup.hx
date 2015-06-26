@@ -6,15 +6,14 @@ import flixel.util.FlxMath;
 import haxe.Timer;
 
 /**
- * ...
- * @author JJM
+ * the knowledge piece in the level that the player can pick up
+ * @author Jakob
  */
 class KnowledgePickup extends GameObject
 {
 	public var knowledgeID:Int;
 	private var text:FlxText;
 	private var updating:Bool = false;
-	private var level:String;
 
 	public function new(X:Float=0, Y:Float=0, _knowledgeID:Int)
 	{
@@ -25,6 +24,9 @@ class KnowledgePickup extends GameObject
 		this.height = graphicComponent.height;
 	}
 	
+	/**
+	 * adds the knowledge piece to the "inventory", displays the short info text and makes the pickup disappear
+	 */
 	public override function activate()
 	{
 		Reg.playState.currentLevel.triggers.remove(this);
@@ -40,9 +42,11 @@ class KnowledgePickup extends GameObject
 		Reg.playState.add(this);
 		Reg.ui.add(text);
 		updating = true;
-		level = Reg.playState.currentLevel.levelName;
 	}
 	
+	/**
+	 * makes the text disappear after a certain distance
+	 */
 	public override function update()
 	{
 		if (updating)

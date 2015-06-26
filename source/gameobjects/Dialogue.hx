@@ -4,13 +4,21 @@ import haxe.xml.Fast;
 import openfl.Assets;
 
 /**
- * ...
- * @author JJM
+ * A piece of dialogue in the world that the player triggers by walking over it
+ * @author Jakob
  */
 class Dialogue extends GameObject
 {
 	public var conversation:Fast;
 
+	/**
+	 * loads the required conversation from the xml file
+	 * @param	X
+	 * @param	Y
+	 * @param	Width
+	 * @param	Height
+	 * @param	dialogueID
+	 */
 	public function new(X:Float=0, Y:Float=0, Width:Float=0, Height:Float=0, dialogueID:String) 
 	{
 		super(X, Y, Width, Height);
@@ -31,6 +39,9 @@ class Dialogue extends GameObject
 		}
 	}
 	
+	/**
+	 * calls teh respective dialogue
+	 */
 	public override function activate()
 	{
 		Reg.ui.dialogueBox.displayDialogue(conversation);

@@ -16,7 +16,7 @@ import flixel.addons.editors.tiled.TiledTileSet;
 
 /**
  * A level in the game. Includes loading the level and displaying
- * @author Samuel Batista
+ * @author Samuel Batista (Flixel TiledLevel demo)
  * @author Jakob
  */
 class TiledLevel extends TiledMap
@@ -38,6 +38,12 @@ class TiledLevel extends TiledMap
 	private var bgImages = new FlxTypedGroup<FlxSprite>();
 	public var collisionBoxes  = new FlxTypedGroup<GameObject>();
 	
+	
+	/**
+	 * loads the tilemaps
+	 * @author Samuel Batista
+	 * @param	tiledLevel
+	 */
 	public function new(tiledLevel:Dynamic)
 	{
 		super(tiledLevel);
@@ -115,6 +121,12 @@ class TiledLevel extends TiledMap
 		}
 	}
 	
+	/**
+	 * creates the objects in the level
+	 * @author Jakob
+	 * @param	o
+	 * @param	g
+	 */
 	private function loadObject(o:TiledObject, g:TiledObjectGroup)
 	{
 		var x:Int = o.x;
