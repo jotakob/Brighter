@@ -40,7 +40,7 @@ class Dialogue extends GameObject
 	}
 	
 	/**
-	 * calls teh respective dialogue
+	 * calls the respective dialogue
 	 */
 	public override function activate()
 	{

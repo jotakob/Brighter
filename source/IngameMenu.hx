@@ -3,7 +3,7 @@ package ;
 import flixel.group.FlxGroup;
 import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.plugin.MouseEventManager;
+import flixel.input.mouse.FlxMouseEventManager;
 import flixel.FlxG;
 
 /**
@@ -32,32 +32,32 @@ class IngameMenu extends FlxGroup
 		
 		var openButton = new FlxObject(0, 0, 80, 68);
 		openButton.scrollFactor.set();
-		MouseEventManager.add(openButton, openButtonClick);
+		FlxMouseEventManager.add(openButton, openButtonClick);
 		add(openButton);
 		
 		var knowledgeButton = new FlxObject(0, 73, 86, 32);
 		knowledgeButton.scrollFactor.set();
-		MouseEventManager.add(knowledgeButton, knowledgeButtonClick);
+		FlxMouseEventManager.add(knowledgeButton, knowledgeButtonClick);
 		openStuff.add(knowledgeButton);
 		
 		var mapButton = new FlxObject(0, 115, 115, 32);
 		mapButton.scrollFactor.set();
-		MouseEventManager.add(mapButton, mapButtonClick);
+		FlxMouseEventManager.add(mapButton, mapButtonClick);
 		openStuff.add(mapButton);
 		
 		var optionButton = new FlxObject(0, 157, 86, 32);
 		optionButton.scrollFactor.set();
-		MouseEventManager.add(optionButton, optionButtonClick);
+		FlxMouseEventManager.add(optionButton, optionButtonClick);
 		openStuff.add(optionButton);
 		
 		var saveButton = new FlxObject(0, 199, 86, 32);
 		saveButton.scrollFactor.set();
-		MouseEventManager.add(saveButton, saveButtonClick);
+		FlxMouseEventManager.add(saveButton, saveButtonClick);
 		openStuff.add(saveButton);
 		
 		var menuButton = new FlxObject(0, 241, 86, 32);
 		menuButton.scrollFactor.set();
-		MouseEventManager.add(menuButton, menuButtonClick);
+		FlxMouseEventManager.add(menuButton, menuButtonClick);
 		openStuff.add(menuButton);
 		
 		mapImage = new FlxSprite(0, 0, AssetPaths.map__png);

@@ -46,7 +46,7 @@ class Player extends FlxObject
 	/**
 	 * Loads the player spritesheet and the animations
 	 */
-	public function loadAnimations()
+	private function loadAnimations()
 	{
 		graphicComponent.loadGraphic("sprites/character-" + Reg.settings.gender + ".png", true, 64, 64, true);
 		graphicComponent.animation.add("down", [0, 1, 2, 3], 6, true);
@@ -61,7 +61,7 @@ class Player extends FlxObject
 	/**
 	 * gives a jumping impulse
 	 */
-	public function jump()
+	private function jump()
 	{
 		isJumping = true;
 		velocity.y = -188;

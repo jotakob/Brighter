@@ -4,8 +4,8 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup;
 import flixel.FlxG;
-import flixel.group.FlxTypedGroup;
-import flixel.plugin.MouseEventManager;
+import flixel.group.FlxGroup;
+import flixel.input.mouse.FlxMouseEventManager;
 import flixel.ui.FlxButton;
 
 /**
@@ -61,7 +61,7 @@ class KnowledgeBox extends FlxGroup
 				kPiece.y =  this.y + 32 * (i - 1) + (16 - kPiece.height/2);
 				kPiece.ID = i;
 				scrolls.add(kPiece);
-				MouseEventManager.add(kPiece, scrollClick);
+				FlxMouseEventManager.add(kPiece, scrollClick);
 			}
 		}
 		

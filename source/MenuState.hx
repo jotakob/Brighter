@@ -7,8 +7,8 @@ import flixel.group.FlxGroup;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
-import flixel.plugin.MouseEventManager;
+import flixel.math.FlxMath;
+import flixel.input.mouse.FlxMouseEventManager;
 import haxe.Timer;
 import openfl.Lib;
 
@@ -78,7 +78,7 @@ class MenuState extends FlxState
 		maleButton.animation.add("standing", [0], 0, true);
 		maleButton.animation.add("walking", [1, 2, 3, 4], 6, true);
 		maleButton.animation.play("standing");
-		MouseEventManager.add(maleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
+		FlxMouseEventManager.add(maleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
 		selectionState.add(maleButton);
 		
 		femaleButton = new FlxSprite(96, 209);
@@ -87,7 +87,7 @@ class MenuState extends FlxState
 		femaleButton.animation.add("standing", [5], 0, true);
 		femaleButton.animation.add("walking", [6, 7, 8, 9], 6, true);
 		femaleButton.animation.play("standing");
-		MouseEventManager.add(femaleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
+		FlxMouseEventManager.add(femaleButton, genderButtonClick, null, genderButtonEnter, genderButtonLeave);
 		selectionState.add(femaleButton);
 		
 		//Options Menu
@@ -178,8 +178,8 @@ class MenuState extends FlxState
 			Reg.settings.gender = "female";
 		}
 		button.velocity.set(0, 48);
-		MouseEventManager.remove(maleButton);
-		MouseEventManager.remove(femaleButton);
+		FlxMouseEventManager.remove(maleButton);
+		FlxMouseEventManager.remove(femaleButton);
 		music.fadeOut(1.5, 0);
 	}
 	
@@ -252,9 +252,9 @@ class MenuState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 		
 		//moving the clouds
 		if (clouds.x <= -2134)
@@ -284,7 +284,7 @@ class MenuState extends FlxState
 			music.destroy();
 			if (continuing)
 			{
-				FlxG.switchState(Reg.playState);
+				//FlxG.switchState(Reg.playState);
 			}
 			else
 			{

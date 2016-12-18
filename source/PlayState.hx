@@ -7,11 +7,11 @@ import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
-import flixel.util.FlxMath;
-import flixel.util.FlxPoint;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
 import openfl.Assets;
 import openfl.Lib;
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup;
 import flixel.system.FlxSound;
 
 /**
@@ -22,7 +22,6 @@ class PlayState extends FlxState
 {
 	public var player:Player;
 	public var currentLevel:TiledLevel;
-	public var dialogue:DialogueBox;
 	public var ui:UserInterface;
 	public var levelName:String;
 	public var music:FlxSound;
@@ -111,7 +110,7 @@ class PlayState extends FlxState
 		}
 		
 		levelName = newLevelName;
-		FlxG.camera.setBounds(0, 0, currentLevel.fullWidth, currentLevel.fullHeight, true);
+		FlxG.camera.setScrollBounds(0, currentLevel.fullWidth, 0, currentLevel.fullHeight, true);
 		
 		brightnessSprite.makeGraphic(currentLevel.fullWidth, currentLevel.fullHeight, brightnessColor);
 		lastTime = Lib.getTimer();
@@ -158,9 +157,9 @@ class PlayState extends FlxState
 	/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
+	override public function update(elapsed:Float):Void
 	{
-		super.update();
+		super.update(elapsed);
 		
 		// Collide with foreground tile layer and other elements
 		currentLevel.collideWithLevel(player);

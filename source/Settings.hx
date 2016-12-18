@@ -17,8 +17,8 @@ class Settings
 	public var musicVolume:Float = 1;
 	public var soundVolume:Float = 1;
 	
-	public function new() 
+	public function new( ) 
 	{
-		
+		var a:Int = 0;
 	}
 }

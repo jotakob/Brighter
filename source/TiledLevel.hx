@@ -1,6 +1,6 @@
 package;
 
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup;
 import openfl.Assets;
 import haxe.io.Path;
 import haxe.xml.Parser;
@@ -11,7 +11,6 @@ import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
 import flixel.addons.editors.tiled.TiledMap;
 import flixel.addons.editors.tiled.TiledObject;
-import flixel.addons.editors.tiled.TiledObjectGroup;
 import flixel.addons.editors.tiled.TiledTileSet;
 
 /**
@@ -27,16 +26,15 @@ class TiledLevel extends TiledMap
 	
 	public var foregroundStuff:FlxGroup;
 	public var backgroundStuff:FlxGroup;
-	public var coins:FlxGroup;
 	public var startPoint:FlxObject;
 	public var activatableObjects:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
 	public var triggers:FlxTypedGroup<GameObject> = new FlxTypedGroup<GameObject>();
-	public var levelName:String;
 	public var exitPoints:Array<GameObject> = new Array<GameObject>();
+	public var levelName:String;
 	
 	private var collidableTileLayers:Array<FlxTilemap>;
 	private var bgImages = new FlxTypedGroup<FlxSprite>();
-	public var collisionBoxes  = new FlxTypedGroup<GameObject>();
+	private var collisionBoxes  = new FlxTypedGroup<GameObject>();
 	
 	
 	/**
@@ -80,7 +78,7 @@ class TiledLevel extends TiledMap
 			var tilemap:FlxTilemap = new FlxTilemap();
 			tilemap.widthInTiles = width;
 			tilemap.heightInTiles = height;
-			tilemap.loadMap(tileLayer.tileArray, processedPath, tileSet.tileWidth, tileSet.tileHeight, 0, 1, 1, 1);
+			tilemap.loadMapFrom2DArray(tileLayer.tileArray, processedPath, tileSet.tileWidth, tileSet.tileHeight, 0, 1, 1, 1);
 			
 			if (tileLayer.properties.contains("collide"))
 			{
@@ -127,7 +125,7 @@ class TiledLevel extends TiledMap
 	 * @param	o
 	 * @param	g
 	 */
-	private function loadObject(o:TiledObject, g:TiledObjectGroup)
+	private function loadObject(o:TiledObject, g:Array<TiledObject>)
 	{
 		var x:Int = o.x;
 		var y:Int = o.y;

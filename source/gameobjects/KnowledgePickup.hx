@@ -2,7 +2,7 @@ package ;
 import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.FlxG;
-import flixel.util.FlxMath;
+import flixel.math.FlxMath;
 import haxe.Timer;
 
 /**
